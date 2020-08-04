@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!-- 連結思源中文及css -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+<link href="/css/menu.css" rel="stylesheet"/>  
+<link href="/css/main.css" rel="stylesheet"/>      
+<!------------------------->
+</head>
+   
+<body>
+    <!--**************************-->
+    <div class="container">    
+        <!--~~~~~~~~~~~~~~~~~-->
+        <div class="header">           
+        </div>        
+        
+        <!--~~~~~~~~~~~~~~~~~-->        
+        <ul id="navigation">        
+            <li><a href="/">返回主頁</a></li> 
+        </ul>
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="content">
+            <h2>新增餐點</h2>
+            
+
+                <form action = "/food/add" method = "post">
+                    <div class="form">
+
+                        <span class="name">會員帳號: </span>
+                        <span class="value"><input type="number" name="memberphone"></span>
+                        <br/>
+
+                        <span class="name">餐點編號: </span>
+                        <span class="value"><input type="number" name="foodid"></span>
+                        <br/>
+                       <span class="name">數量: </span>
+                        <span class="value"><input type="number" name="foodno"></span>
+                        <br/>
+                              
+                        <span class="name">客製化: </span>
+                        <span class="value"><input type="text" name="customized" ></span>
+                        <br/>
+                        
+                        <br/>                  
+                        <span class="name">建立日期: </span>
+                        <span class="value"><input type="datetime-local" name="ordtime" ></span>
+                        <br/>	         
+                        <span class="name"></span>
+                        <span class="value"><input type="submit" value="新增" ></span>
+
+             <h3>查看菜單</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="20%">會員帳號</th>
+                            <th width="10%">餐點編號</th>
+                            <th width="20%">餐點圖片</th>
+                            <th width="30%">餐點名稱</th>
+                            <th width="20%">金額</th>
+                                               
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<items.length; i++) {%>
+                            <tr>
+                                <td><%= items[i].memberphone %></a></td>
+                                <td><%= items[i].foodid %></a></td>
+                                <td><%= items[i].foodImg %></td>
+                                <td><%= items[i].foodName %></td>
+                                <td><%= items[i].foodPoint %></td>                      
+                            </tr> 
+                        <% } %> 
+                    </tbody>
+                </table>
+
+                
+               
+        </div>       
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="footer">
+            NTUB imd, 2019.    
+        </div>  
+    </div>
+    <!--**************************-->    
+</body>
+   
+</html>

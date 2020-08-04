@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!-- 連結思源中文及css -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+<link href="/css/menu.css" rel="stylesheet"/>  
+<link href="/css/main.css" rel="stylesheet"/>      
+<!------------------------->
+</head>
+   
+<body>
+    <!--**************************-->
+    <div class="container">    
+        <!--~~~~~~~~~~~~~~~~~-->
+        <div class="header">           
+        </div>        
+        
+        <!--~~~~~~~~~~~~~~~~~-->        
+        <ul id="navigation">        
+            <li><a href="/">返回主頁</a></li> 
+        </ul>
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="content">
+
+            <h2>會員資料更新 </h2>
+
+                <form action = "/member/update" method = "post">
+                    <div class="form">
+                        <span class="name">會員帳號:</span>
+                        <span class="value"><input type="text" name="memberphone" value="<%= item.memberphone %>" readonly></span>
+                        <br/>
+
+                        <span class="name">會員名稱:</span>
+                        <span class="value"><input type="text" name="membername"  value="<%= item.membername %>"></span>
+                        <br/>
+
+                        <span class="name">lineID:</span>
+                        <span class="value"><input type="text" name="lineid" value="<%= item.lineid %>"></span>
+                        <br/>
+
+                        <span class="name">性別:</span>
+                        <span class="value"><input type="text" name="gender" value="<%= item.gender %>"></span>
+                        <br/>
+
+                        <span class="name">mail:</span>
+                        <span class="value"><input type="email" name="mail" value="<%= item.mail %>"></span>
+                        <br/>
+
+                        <span class="name">生日:</span>
+                        <span class="value"><input type="date" name="birthday" value="<%= item.birthday %>"></span>
+                        <br/>
+
+
+                        <span class="name">建立日期:</span>
+                        <span class="value"><input type="datetime-local" name="creationdate" value="<%= item.creationdate %>"></span>
+                        <br/>
+
+                        <span class="name"></span>
+                        <span class="value"><input type="submit" value="更新" ></span>    
+                    </div>
+                </form>
+              
+               
+        </div>       
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="footer">
+            NTUB imd, 2019.    
+        </div>  
+    </div>
+    <!--**************************-->    
+</body>
+   
+</html>
