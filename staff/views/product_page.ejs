@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!-- 連結思源中文及css -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+<link href="/css/menu.css" rel="stylesheet"/>  
+<link href="/css/main.css" rel="stylesheet"/>      
+<!------------------------->
+</head>
+   
+<body>
+    <!--**************************-->
+    <div class="container">    
+        <!--~~~~~~~~~~~~~~~~~-->
+        <div class="header">           
+        </div>        
+        
+        <!--~~~~~~~~~~~~~~~~~-->        
+        <ul id="navigation">        
+            <li><a href="/">返回主頁</a></li> 
+        </ul>
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="content">
+
+            <h2>產品資料 </h2>
+
+            <!-- 分頁導覽列 -->
+            <ul class="pagination">
+                <li>第 <%=items.pageNo%> 頁</li>
+                                        
+                <% if(items.startPage>1){ %>
+                    <li><a href="/product/page/<%=(items.startPage-items.navSegments)%>">...</a></li>
+                <% } %> 
+                                        
+                <% for(var i=items.startPage; i<items.startPage+items.navSegments; i++) {%>
+                    <% if(i<=items.totalPage){ %>
+                        <li><a href="/product/page/<%=i%>"><%=i%></a></li>
+                    <% } %> 
+                <% } %>
+                                        
+                <% if(items.startPage+items.navSegments<=items.totalPage){ %>
+                    <li><a href="/product/page/<%=(items.startPage+items.navSegments)%>">...</a></li>
+                <% } %>                         
+            </ul>
+                                    
+            <!-- 顯示資料表格 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">產品編號</th>
+                        <th width="35%">產品名稱</th>
+                        <th width="15%">單價</th>
+                        <th width="15%">庫存量</th>
+                        <th width="15%">安全數量</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i<items.data.length; i++) {%>
+                        <tr>
+                            <td><a href="/product/one/<%= items.data[i].prono %>"><%= items.data[i].prono %></a></td>
+                            <td><%= items.data[i].proname %></td>
+                            <td><%= items.data[i].price %></td>
+                            <td><%= items.data[i].stockamt %></td>
+                            <td><%= items.data[i].safeamt %></td>
+                        </tr> 
+                    <% } %> 
+                </tbody>
+            </table>
+
+              
+               
+        </div>       
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="footer">
+            NTUB imd, 2019.    
+        </div>  
+    </div>
+    <!--**************************-->    
+</body>
+   
+</html>

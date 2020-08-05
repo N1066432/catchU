@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!-- 連結思源中文及css -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+<link href="/css/menu.css" rel="stylesheet"/>  
+<link href="/css/main.css" rel="stylesheet"/>      
+<!------------------------->
+</head>
+   
+<body>
+    <!--**************************-->
+    <div class="container">    
+        <!--~~~~~~~~~~~~~~~~~-->
+        <div class="header">           
+        </div>        
+        
+        <!--~~~~~~~~~~~~~~~~~-->        
+        <ul id="navigation">        
+            <li><a href="/">返回主頁</a></li> 
+        </ul>
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="content">
+
+             <h2>餐點資料</h2>
+             <a href="/food/add/form"><input type="submit" value="新增餐點資料" ></a></a>
+             <a href="/food/remove/form"><input type="submit" value="刪除餐點資料" ></a></a>
+             <a href="/food/update/no"><input type="submit" value="修改餐點資料" ></a></a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="20%">餐點編號</th>
+                            <th width="20%">類別編號</th>
+                            <th width="20%">餐點名稱</th>
+                            <th width="20%">餐點點數</th>
+                            <th width="20%">餐點圖片</th>                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<items.length; i++) {%>
+                            <tr>
+                                <td><%= items[i].foodid %></a></td>
+                                <td><%= items[i].itemID %></td>
+                                <td><%= items[i].foodname %></td>
+                                <td><%= items[i].foodpoint %></td>
+                                <td><%= items[i].foodimg %></td>                        
+                            </tr> 
+                        <% } %> 
+                    </tbody>
+                </table>   
+              
+               
+        </div>       
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="footer">
+            NTUB imd, 2019.    
+        </div>  
+    </div>
+    <!--**************************-->    
+</body>
+   
+</html>
