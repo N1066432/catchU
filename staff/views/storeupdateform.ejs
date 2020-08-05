@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!-- 連結思源中文及css -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+<link href="/css/menu.css" rel="stylesheet"/>  
+<link href="/css/main.css" rel="stylesheet"/>      
+<!------------------------->
+</head>
+   
+<body>
+    <!--**************************-->
+    <div class="container">    
+        <!--~~~~~~~~~~~~~~~~~-->
+        <div class="header">           
+        </div>        
+        
+        <!--~~~~~~~~~~~~~~~~~-->        
+        <ul id="navigation">        
+            <li><a href="/">返回主頁</a></li> 
+        </ul>
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="content">
+
+            <h2>更新店家資訊 </h2>
+
+                <form action = "/store/update" method = "post">
+                    <div class="form">
+                        <span class="name">店家編號:</span>
+                        <span class="value"><input type="text" name="storeID" value="<%= item.storeID %>" readonly></span>
+                        <br/>
+
+                        <span class="name">店家名稱:</span>
+                        <span class="value"><input type="text" name="storeName"  value="<%= item.storeName %>"></span>
+                        <br/>
+
+                        <span class="name">店家地址:</span>
+                        <span class="value"><input type="text" name="storeAddress" value="<%= item.storeAddress %>"></span>
+                        <br/>
+
+                        <span class="name">聯絡電話:</span>
+                        <span class="value"><input type="tel" name="phoneNo" value="<%= item.phoneNo %>"></span>
+                        <br/>
+
+                        <span class="name">空桌數:</span>
+                        <span class="value"><input type="number" name="vacantTable"  value="<%= item.vacantTable %>"></span>
+                        <br/>
+
+                        <span class="name">營業時間:</span>
+                        <span class="value"><input type="text" name="businessHours"  value="<%= item.businessHours %>"></span>
+                        <br/>
+
+                        <span class="name">提供Wi-Fi:</span>
+                        <span class="value"><input type="text" name="wifi"  value="<%= item.wifi %>"></span>
+                        <br/>
+
+                        <span class="name">提供插座:</span>
+                        <span class="value"><input type="text" name="socket"  value="<%= item.socket %>"></span>
+                        <br/>
+
+                        <span class="name">提供餐點:</span>
+                        <span class="value"><input type="text" name="provideMeals"  value="<%= item.provideMeals %>"></span>
+                        <br/>
+
+                        <span class="name">外食:</span>
+                        <span class="value"><input type="text" name="outsideFood"  value="<%= item.outsideFood %>"></span>
+                        <br/>
+
+                        <span class="name">收費標準:</span>
+                        <span class="value"><input type="text" name="chargingStandards"  value="<%= item.chargingStandards %>"></span>
+                        <br/>
+
+                        <span class="name"></span>
+                        <span class="value"><input type="submit" value="更新" ></span>    
+                    </div>
+                </form>
+              
+               
+        </div>       
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="footer">
+            NTUB imd, 2019.    
+        </div>  
+    </div>
+    <!--**************************-->    
+</body>
+   
+</html>

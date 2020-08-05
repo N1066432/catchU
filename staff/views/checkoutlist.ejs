@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!-- 連結思源中文及css -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+<link href="/css/menu.css" rel="stylesheet"/>  
+<link href="/css/main.css" rel="stylesheet"/>      
+<!------------------------->
+</head>
+   
+<body>
+    <!--**************************-->
+    <div class="container">    
+        <!--~~~~~~~~~~~~~~~~~-->
+        <div class="header">           
+        </div>        
+        
+        <!--~~~~~~~~~~~~~~~~~-->        
+        <ul id="navigation">        
+            <li><a href="/">返回主頁</a></li> 
+        </ul>
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="content">
+
+             <h2>會員消費明細</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="20%">流水號</th>
+                            <th width="35%">會員電話</th>
+                            <th width="15%">員工電話</th>
+                            <th width="15%">消費點數</th>
+                            <th width="15%">結帳時間</th>                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<items.length; i++) {%>
+                            <tr>
+                                <td><%= items[i].serNo %></a></td>
+                                <td><%= items[i].memberPhone %></td>
+                                <td><%= items[i].staffPhone %></td>
+                                <td><%= items[i].totalPoint %></td>
+                                <td><%= items[i].billTime %></td>                        
+                            </tr> 
+                        <% } %> 
+                    </tbody>
+                </table>   
+              
+               
+        </div>       
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="footer">
+            NTUB imd, 2019.    
+        </div>  
+    </div>
+    <!--**************************-->    
+</body>
+   
+</html>
