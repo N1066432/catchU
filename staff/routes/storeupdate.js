@@ -10,18 +10,18 @@ router.post('/', function(req, res, next) {
 
     var newData={
         storeID:storeID,                   //店家編號
-        storeName: req.body.storeName,     //取得店家名稱
-        storeAddress: req.body.storeAddress,         //取得店家地址
-        phoneNo: req.body.phoneNo,          //取得電話號碼
-        vacantTable: req.body.vacantTable,  //取得空桌數
-        businessHours: req.body.businessHours,  //取得營業時間
+        storename: req.body.storename,     //取得店家名稱
+        storeaddress: req.body.storeaddress,         //取得店家地址
+        phoneno: req.body.phoneno,          //取得電話號碼
+        vacanttable: req.body.vacanttable,  //取得空桌數
+        businesshours: req.body.businesshours,  //取得營業時間
         wifi: req.body.wifi,                    //取得提供wifi
         socket: req.body.socket,                //取得提供插座
-        provideMeals: req.body.provideMeals,    //取得提供餐點
-        outsideFood: req.body.outsideFood,      //取得可帶外食
-        chargingStandards: req.body.chargingStandards     //取得收費標準
+        providemeals: req.body.providemeals,    //取得提供餐點
+        outsidefood: req.body.outsidefood,      //取得可帶外食
+        chargingstandards: req.body.chargingstandards     //取得收費標準
     } 
-    
+   
     store.update(newData).then(d => {
         if (d>=0){
             res.render('updateSuccess', {results:d});  //傳至成功頁面

@@ -7,14 +7,14 @@ const staff = require('./utility/staff');
 
 //接收GET請求
 router.get('/', function(req, res, next) {
-    var no = req.query.userName;
+    var no = req.query.username;
 
     staff.query(no).then(d => {
         if (d!=null && d!=-1){
             var data = {
-                userName: d.userName,
-                staffPhone: d.staffPhone,
-                nickName: d.nickName,
+                username: d.username,
+                staffphone: d.staffphone,
+                nickmame: d.nickname,
                 password: d.password,
             }
 

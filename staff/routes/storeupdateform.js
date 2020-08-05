@@ -13,16 +13,16 @@ router.get('/', function(req, res, next) {
         if (d!=null && d!=-1){
             var data = {
                 storeID: d.storeID,
-                storeName: d.storeName,
-                storeAddress: d.storeAddress,
-                phoneNo: d.phoneNo,
-                vacantTable: d.vacantTable,
-                businessHours: d.businessHours,
+                storename: d.storename,
+                storeaddress: d.storeaddress,
+                phoneno: d.phoneno,
+                vacanttable: d.vacanttable,
+                businesshours: d.businesshours,
                 wifi: d.wifi,
                 socket: d.socket,
-                provideMeals: d.provideMeals,
-                outsideFood: d.outsideFood,
-                chargingStandards: d.chargingStandards,
+                providemeals: d.providemeals,
+                outsidefood: d.outsidefood,
+                chargingstandards: d.chargingstandards,
             }
 
             res.render('storeupdateform', {item:data});  //將資料傳給更新頁面

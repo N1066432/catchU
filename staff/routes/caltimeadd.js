@@ -8,14 +8,14 @@ const caltime = require('./utility/caltime');
 
 //接收POST請求
 router.post('/', function(req, res, next) {
-    var memberPhone = req.body.memberPhone;              //取得到達時間
+    var memberphone = req.body.memberphone;              //取得到達時間
     
     // 建立一個新資料物件
     //var timestamp = new Date().getTime();
     //var Timestamp = (new Date()).valueOf();
     
     var newData={   
-        memberPhone:memberPhone
+        memberphone:memberphone
     } 
     console.log(newData)
     caltime.add(newData).then(d => {

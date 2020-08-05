@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
 
     var newData={
         itemID:itemID,                      //類別編號
-        itemName: req.body.itemName,            //取得類別名稱
+        itemname: req.body.itemname,            //取得類別名稱
     } 
     
     item.update(newData).then(d => {

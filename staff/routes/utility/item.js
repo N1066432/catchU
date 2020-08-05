@@ -27,7 +27,7 @@ var list = async function(){
 var add = async function(newData){
     var result;
 
-    await sql('INSERT INTO item ("itemName") VALUES ($1)', [newData.itemName])
+    await sql('INSERT INTO item ("itemname") VALUES ($1)', [newData.itemname])
         .then((data) => {
             result = 0;  
         }, (error) => {
@@ -77,7 +77,7 @@ var query = async function(itemID){
 var update = async function(newData){
     var results;
     console.log(newData)
-    await sql('UPDATE item SET "itemName"=$2 WHERE "itemID" = $1', [newData.itemID, newData.itemName])
+    await sql('UPDATE item SET "itemname"=$2 WHERE "itemID" = $1', [newData.itemID, newData.itemname])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {

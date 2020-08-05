@@ -7,16 +7,16 @@ const food = require('./utility/food');
 
 //接收GET請求
 router.get('/', function(req, res, next) {
-    var no = req.query.foodID;
+    var no = req.query.foodid;
 
     food.query(no).then(d => {
         if (d!=null && d!=-1){
             var data = {
                 foodid: d.foodid,
                 itemID: d.itemID,
-                foodName: d.foodName,
-                foodPoint: d.foodPoint,
-                foodImg: d.foodImg,
+                foodname: d.foodname,
+                foodpoint: d.foodpoint,
+                foodimg: d.foodimg,
             }
 
             res.render('foodupdateform', {item:data});  //將資料傳給更新頁面

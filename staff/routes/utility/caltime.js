@@ -9,13 +9,13 @@ const { Client } = require('pg');
 //------------------------------------------
 var add = async function(newData){
     var result;
-    console.log(newData.memberPhone)
+    console.log(newData.memberphone)
     //console.log(newData.arrivalTime)
 
     const current = new Date();
     //const insertText = 'INSERT INTO calculatingtime("arrivalTime") VALUES ($1)'
     
-    await sql('INSERT INTO calculatingtime ( "memberPhone", "arrivalTime") VALUES ($1, $2)', [newData.memberPhone, current])
+    await sql('INSERT INTO calculatingtime ( "memberphone", "arrivaltime") VALUES ($1, $2)', [newData.memberphone, current])
         .then((data) => {
             result = 0;  
         }, (error) => {

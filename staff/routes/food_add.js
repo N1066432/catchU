@@ -32,9 +32,9 @@ var upload = multer({
 router.post('/',upload.single('picture'), function(req, res, next) {
                
     var itemID = req.body.itemID;                  
-    var foodName = req.body.foodName;          
-    var foodPoint = Number(req.body.foodPoint);    
-    var foodImg;
+    var foodname = req.body.foodname;          
+    var foodpoint = Number(req.body.foodpoint);    
+    var foodimg;
 
     // 如果有選擇圖片
     if (typeof(req.file) != 'undefined'){
@@ -45,9 +45,9 @@ router.post('/',upload.single('picture'), function(req, res, next) {
     var newData={
 
         itemID:itemID,
-        foodName:foodName,
-        foodPoint:foodPoint,
-        foodImg:foodImg
+        foodname:foodname,
+        foodpoint:foodpoint,
+        foodimg:foodimg
     } 
     
     food.add(newData).then(d => {

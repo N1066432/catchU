@@ -8,7 +8,7 @@ const sql = require('./asyncDB');
 var add = async function(newData){
     var result;
     console.log(newData)
-    await sql('INSERT INTO staff ("staffPhone" , "userName" , "password" , "nickName" ) VALUES ($1, $2, $3, $4)', [newData.staffPhone, newData.userName, newData.nickName, newData.password])
+    await sql('INSERT INTO staff ("staffphone" , "username" , "nickname" , "password" ) VALUES ($1, $2, $3, $4)', [newData.staffphone, newData.username, newData.nickname, newData.password])
         .then((data) => {
             result = 0;  
         }, (error) => {

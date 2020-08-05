@@ -7,7 +7,7 @@ router.all('/', function(req, res, next) {
     var id = null;
 
     try{
-        id = req.session.staffPhone;
+        id = req.session.staffphone;
     }catch(err){
         id = null;        
     }

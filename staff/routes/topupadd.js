@@ -6,19 +6,19 @@ const topupp = require('./utility/topupp');
 
 //接收POST請求
 router.post('/', function(req, res, next) {               
-    var memberPhone = req.body.memberPhone;              
-    var staffPhone = req.session.staffPhone;                  
+    var memberphone = req.body.memberphone;              
+    var staffphone = req.session.staffphone;                  
     var topup = Number(req.body.topup);                  
-    var topupPoints = Number(req.body.topupPoints);
+    var topuppoints = Number(req.body.topuppoints);
     
-    
+    console.log(staffphone)
     // 建立一個新資料物件
 
     var newData={
-        memberPhone:memberPhone,
-        staffPhone:staffPhone,
+        memberphone:memberphone,
+        staffphone:staffphone,
         topup:topup,
-        topupPoints:topupPoints,
+        topuppoints:topuppoints,
        
     } 
     console.log(newData)

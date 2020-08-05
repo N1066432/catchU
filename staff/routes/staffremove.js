@@ -6,7 +6,7 @@ const staff = require('./utility/staff');
 
 //接收POST請求
 router.post('/', function(req, res, next) {
-    var userName = req.body.userName;   //取得店家編號
+    var username = req.body.username;   //取得店家編號
    
     staff.remove(userName).then(d => {
         if(d>=0){

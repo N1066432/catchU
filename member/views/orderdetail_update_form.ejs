@@ -25,28 +25,37 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>更新餐點 </h2>
+            <h2>會員資料更新 </h2>
 
-                <form action = "/food/update" method = "post">
+                <form action = "/orderdetail/update" method = "post">
                     <div class="form">
+
+                        <span class="name">訂單明細編號:</span>
+                        <span class="value"><input type="text" name="orderdetailid" value="<%= item.orderdetailid %>" readonly></span>
+                        <br/>
+                        
                         <span class="name">餐點編號:</span>
                         <span class="value"><input type="text" name="foodid" value="<%= item.foodid %>" readonly></span>
                         <br/>
 
-                        <span class="name">類別編號:</span>
-                        <span class="value"><input type="number" name="itemID"  value="<%= item.itemID %>"></span>
+                        <span class="name">餐點數量:</span>
+                        <span class="value"><input type="text" name="foodno"  value="<%= item.foodno %>"></span>
                         <br/>
 
-                        <span class="name">餐點名稱:</span>
-                        <span class="value"><input type="text" name="foodname" value="<%= item.foodname %>"></span>
+                        <span class="name">客製化:</span>
+                        <span class="value"><input type="text" name="customized" value="<%= item.customized %>"></span>
                         <br/>
 
-                        <span class="name">餐點點數:</span>
-                        <span class="value"><input type="text" name="foodpoint" value="<%= item.foodpoint %>"></span>
+                        <span class="name">會員帳號:</span>
+                        <span class="value"><input type="text" name="memberphone" value="<%= item.memberphone %>"></span>
                         <br/>
 
-                        <span class="name">餐點圖片:</span>
-                        <span class="value"><input type="file" name="foodimg" value="<%= item.foodimg %>"></span>
+                        <span class="name">桌號:</span>
+                        <span class="value"><input type="text" name="tableno" value="<%= item.tableno %>"></span>
+                        <br/>
+
+                        <span class="name">建立日期:</span>
+                        <span class="value"><input type="datetime-local" name="ordtime" value="<%= item.ordtime %>"></span>
                         <br/>
 
                         <span class="name"></span>

@@ -28,7 +28,7 @@ var list = async function(){
 var add = async function(newData){
     var result;
     console.log(newData)
-    await sql('INSERT INTO staff ("staffPhone" , "userName" , "password" , "nickName" ) VALUES ($1, $2, $3, $4)', [newData.staffPhone, newData.userName, newData.nickName, newData.password])
+    await sql('INSERT INTO staff ("staffphone" , "username" , "nickname" , "password" ) VALUES ($1, $2, $3, $4)', [newData.staffphone, newData.username, newData.nickname, newData.password])
         .then((data) => {
             result = 0;  
         }, (error) => {
@@ -40,10 +40,10 @@ var add = async function(newData){
 //----------------------------------
 // 刪除員工
 //----------------------------------
-var remove = async function(userName){
+var remove = async function(username){
     var result;
 
-    await sql('DELETE FROM staff WHERE "userName" = $1', [userName])
+    await sql('DELETE FROM staff WHERE "username" = $1', [username])
         .then((data) => {
             result = data.rowCount;  
         }, (error) => {
@@ -55,10 +55,10 @@ var remove = async function(userName){
 //------------------------------------------
 //執行資料庫動作的函式-取出單一員工
 //------------------------------------------
-var query = async function(userName){
+var query = async function(username){
     var result={};
     
-    await sql('SELECT * FROM staff WHERE "userName" = $1', [userName])
+    await sql('SELECT * FROM staff WHERE "username" = $1', [username])
         .then((data) => {
             if(data.rows.length > 0){
                 result = data.rows[0];   
@@ -78,7 +78,7 @@ var query = async function(userName){
 var update = async function(newData){
     var results;
 
-    await sql('UPDATE staff SET "staffPhone"=$2, "nickName"=$3, "password"=$4 WHERE "userName" = $1', [newData.userName, newData.staffPhone, newData.nickName, newData.password])
+    await sql('UPDATE staff SET "staffphone"=$2, "nickname"=$3, "password"=$4 WHERE "username" = $1', [newData.username, newData.staffphone, newData.nickname, newData.password])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {

@@ -11,17 +11,17 @@ router.post('/', function(req, res, next) {
 
     user.login(id, password).then(d => {
         if (d==null){
-            req.session.staffPhone = null;
+            req.session.staffphone = null;
             req.session.name = null;           
             res.render('loginFail');  //傳至登入失敗
         }else{
             
-            req.session.staffPhone = d.staffPhone;
-            req.session.name = d.userName;
-            res.render('usershow', {name:d.userName});   //導向使用者
+            req.session.staffphone = d.staffphone;
+            req.session.name = d.username;
+            res.render('usershow', {name:d.username});   //導向使用者
             console.log('已登入');
-            console.log(d.staffPhone)
-            console.log(d.userName)
+            console.log(d.staffphone)
+            console.log(d.username)
         }  
     })
 });

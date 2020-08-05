@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
         if (d!=null && d!=-1){
             var data = {
                 itemID: d.itemID,
-                itemName: d.itemName,
+                itemname: d.itemname,
             }
 
             res.render('itemupdateform', {item:data});  //將資料傳給更新頁面

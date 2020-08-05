@@ -4,16 +4,16 @@
 const sql = require('./asyncDB');
 
 //------------------------------------------
-//執行資料庫動作的函式-傳回所有餐點資料
+//執行資料庫動作的函式-查看會員資料
 //------------------------------------------
 var list = async function(){
-    var result=[];
+    var result="";
 
-    console.log("查詢餐點");
-    await sql('SELECT * FROM food')
+    //console.log("查看會員資訊");
+    await sql('SELECT * FROM orderdetail')
         .then((data) => {            
             result = data.rows;
-            console.log(result)  ;
+            //console.log(result)  ;
         }, (error) => {
             result = null;
             //console.log("除去錯誤")  ;
@@ -21,13 +21,21 @@ var list = async function(){
 		
     return result;
 }
+
 //------------------------------------------
-// 新增餐點
+//執行資料庫動作的函式-新增會員資料
 //------------------------------------------
+
 var add = async function(newData){
     var result;
-
-    await sql('INSERT INTO food ( "itemID", "foodname", "foodpoint", "foodimg") VALUES ($1, $2, $3, $4)', [newData.itemID, newData.foodname, newData.foodpoint, newData.foodimg])
+    console.log(newData)
+    console.log(newData.foodid)
+    console.log(newData.foodno)
+    console.log(newData.customized)
+    console.log(newData.memberphone)
+    console.log(newData.tableno)
+    console.log(newData.ordtime)
+    await sql('INSERT INTO orderdetail (foodid, foodno, customized, memberphone, tableno, ordtime)  VALUES ($1, $2, $3, $4, $5, $6)', [newData.foodid, newData.foodno, newData.customized, newData.memberphone, newData.tableno, newData.ordtime])
         .then((data) => {
             result = 0;  
         }, (error) => {
@@ -36,13 +44,14 @@ var add = async function(newData){
 		
     return result;
 }
+
 //----------------------------------
-// 刪除餐點
+// 刪除會員資料
 //----------------------------------
-var remove = async function(foodid){
+var remove = async function(orderdetailid){
     var result;
 
-    await sql('DELETE FROM food WHERE "foodid" = $1', [foodid])
+    await sql('DELETE FROM orderdetail WHERE "orderdetailid" = $1', [orderdetailid])
         .then((data) => {
             result = data.rowCount;  
         }, (error) => {
@@ -51,13 +60,14 @@ var remove = async function(foodid){
 		
     return result;
 }
+
 //------------------------------------------
-//執行資料庫動作的函式-取出單一餐點
+//執行資料庫動作的函式-取得一個會員資料
 //------------------------------------------
-var query = async function(foodid){
+var query = async function(orderdetailid){
     var result={};
     
-    await sql('SELECT * FROM food WHERE "foodid" = $1', [foodid])
+    await sql('SELECT * FROM orderdetail WHERE "orderdetailid" = $1', [orderdetailid])
         .then((data) => {
             if(data.rows.length > 0){
                 result = data.rows[0];   
@@ -72,12 +82,12 @@ var query = async function(foodid){
 }
 
 //----------------------------------
-// 更新餐點資料
+// 更新會員資料
 //----------------------------------
 var update = async function(newData){
     var results;
-    console.log(newData)
-    await sql('UPDATE food SET "itemID"=$2, "foodname"=$3, "foodpoint"=$4, "foodimg"=$5 WHERE "foodid" = $1', [newData.foodid, newData.itemID, newData.foodname, newData.foodpoint, newData.foodimg])
+    
+    await sql('UPDATE orderdetail SET "foodid"=$2, "foodno"=$3, "customized"=$4, "memberphone"=$5, "tableno"=$6, "ordtime"=$7 WHERE "orderdetailid" = $1', [newData.orderdetailid, newData.foodid, newData.foodno, newData.customized, newData.memberphone, newData.tableno, newData.ordtime])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {

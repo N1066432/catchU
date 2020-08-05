@@ -24,20 +24,22 @@
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
+            <h2>會員資料刪除</h2> 
 
-            <h2>餐點資料更新</h2>
-
-            <form action = "/food/update/form" method = "get">
+            <form action = "/orderdetail/remove" method = "post">
                 <div class="form">
-                    <span class="name">餐點編號: </span>
-                    <span class="value"><input type="text" name="foodid" ></span>
-                    <br/>    
-            
+                    <span class="name">訂單明細編號: </span>
+                    <span class="value"><input type="number" name="orderdetailid" ></span>
+                    <br/>
+                                                    
                     <span class="name"></span>
-                    <span class="value"><input type="submit" value="查詢" ></span>    
+                    <span class="value"><input type="submit" value="刪除" ></span>    
                 </div>    
-            </form> 
-              
+            </form>
+
+            <p>
+                這裡可以加入公司介紹或產品訊息或某功能特有的資訊內容.            
+            </p>       
                
         </div>       
         

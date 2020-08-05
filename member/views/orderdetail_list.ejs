@@ -24,32 +24,40 @@
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
+            <h2>查看訂單明細</h2>
+            <a href="/orderdetail/remove/form"><input type="submit" value="刪除餐點" ></a>
+            <a href="/orderdetail/update/no"><input type="submit" value="修改餐點" ></a>
 
-             <h2>會員消費明細</h2>
 
                 <table>
                     <thead>
                         <tr>
-                            <th width="20%">流水號</th>
-                            <th width="35%">會員電話</th>
-                            <th width="15%">員工電話</th>
-                            <th width="15%">消費點數</th>
-                            <th width="15%">結帳時間</th>                        
+                            <th width="20%">會員帳號</th>
+                            <th width="10%">訂單明細編號</th>
+                            <th width="10%">餐點編號</th>
+                            <th width="10%">餐點數量</th>
+                            <th width="10%">客製化</th>
+                            <th width="10%">桌號</th>
+                            <th width="20%">建立時間</th>
+                                               
                         </tr>
                     </thead>
                     <tbody>
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr>
-                                <td><%= items[i].serNo %></a></td>
-                                <td><%= items[i].memberphone %></td>
-                                <td><%= items[i].staffphone %></td>
-                                <td><%= items[i].totalpoint %></td>
-                                <td><%= items[i].billtime %></td>                        
+                                <td><%= items[i].memberphone %></a></td>
+                                <td><%= items[i].orderdetailid %></td>
+                                <td><%= items[i].foodid %></td>
+                                <td><%= items[i].foodno %></td>
+                                <td><%= items[i].customized %></td>
+                                <td><%= items[i].tableno %></td>
+                                <td><%= items[i].ordtime %></td>                       
                             </tr> 
                         <% } %> 
                     </tbody>
-                </table>   
-              
+                </table>
+
+                
                
         </div>       
         

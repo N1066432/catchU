@@ -8,7 +8,7 @@ var add = async function(newData){
 
     const current = new Date();
     console.log(newData)
-    await sql('INSERT INTO topup ("memberPhone" , "staffPhone" , "topup", "topupPoints", "topupTime") VALUES ($1, $2, $3, $4, $5)', [newData.memberPhone, newData.staffPhone, newData.topup, newData.topupPoints, current])
+    await sql('INSERT INTO topup ("memberphone" , "staffphone" , "topup", "topuppoints", "topuptime") VALUES ($1, $2, $3, $4, $5)', [newData.memberphone, newData.staffphone, newData.topup, newData.topuppoints, current])
         .then((data) => {
             result = 0;  
         }, (error) => {

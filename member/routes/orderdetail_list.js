@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 //增加引用函式
-const order = require('./utility/orderdetail');
 const orderdetail = require('./utility/orderdetail');
 
 //接收GET請求

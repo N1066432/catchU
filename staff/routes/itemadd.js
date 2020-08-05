@@ -6,12 +6,12 @@ const item = require('./utility/item');
 
 //接收POST請求
 router.post('/', function(req, res, next) {
-    var itemName = req.body.itemName;              //取得類別名稱
+    var itemname = req.body.itemname;              //取得類別名稱
     
     // 建立一個新資料物件
 
     var newData={
-        itemName:itemName,
+        itemname:itemname,
     } 
     console.log(newData)
     item.add(newData).then(d => {
