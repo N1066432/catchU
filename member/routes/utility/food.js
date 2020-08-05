@@ -21,28 +21,6 @@ var list = async function(){
 		
     return result;
 }
-//------------------------------------------
-//執行資料庫動作的函式-新增會員資料
-//------------------------------------------
 
-var add = async function(newData){
-    var result;
-    console.log(newData)
-    console.log(newData.memberphone)
-    console.log(newData.foodid)
-    console.log(newData.foodno)
-    console.log(newData.customized)
-    console.log(newData.orderdetailid)
-    console.log(newData.orderid)
-    console.log(newData.ordtime)
-    await sql('INSERT INTO orderdetail (memberphone, foodid, foodno, customized, ordtime)  VALUES ($1, $2, $3, $4, $5)', [newData.memberphone, newData.foodid, newData.foodno, newData.customized, newData.ordtime])
-        .then((data) => {
-            result = 0;  
-        }, (error) => {
-            result = -1;
-        });
-		
-    return result;
-}
 
-module.exports = {list, add}
+module.exports = {list}
