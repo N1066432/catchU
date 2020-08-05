@@ -27,11 +27,11 @@
             <h2>新增餐點</h2>
             
 
-                <form action = "/food/add" method = "post">
+                <form action = "/orderdetail/add" method = "post">
                     <div class="form">
 
                         <span class="name">會員帳號: </span>
-                        <span class="value"><input type="number" name="memberphone"></span>
+                        <span class="value"><input type="text" name="memberphone"></span>
                         <br/>
 
                         <span class="name">餐點編號: </span>
@@ -44,7 +44,10 @@
                         <span class="name">客製化: </span>
                         <span class="value"><input type="text" name="customized" ></span>
                         <br/>
-                        
+                        <span class="name">桌號: </span>
+                        <span class="value"><input type="text" name="tableno" ></span>
+                        <br/>
+
                         <br/>                  
                         <span class="name">建立日期: </span>
                         <span class="value"><input type="datetime-local" name="ordtime" ></span>
@@ -57,10 +60,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th width="20%">會員帳號</th>
                             <th width="10%">餐點編號</th>
-                            <th width="20%">餐點圖片</th>
-                            <th width="30%">餐點名稱</th>
+                            <th width="30%">餐點圖片</th>
+                            <th width="40%">餐點名稱</th>
                             <th width="20%">金額</th>
                                                
                         </tr>
@@ -68,7 +70,6 @@
                     <tbody>
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr>
-                                <td><%= items[i].memberphone %></a></td>
                                 <td><%= items[i].foodid %></a></td>
                                 <td><%= items[i].foodImg %></td>
                                 <td><%= items[i].foodName %></td>
