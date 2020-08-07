@@ -15,10 +15,10 @@ router.post('/', function(req, res, next) {
         gender: req.body.gender,                //性別
         mail: req.body.mail,                    //mail
         birthday: req.body.birthday,            //生日
-        creationdate: req.body.creationdate    //建立日期
+        //creationdate: req.body.creationdate    //建立日期
        
     } 
-    
+    console.log(newData)
     member.update(newData).then(d => {
         if (d>=0){
             res.render('updateSuccess', {results:d});  //傳至成功頁面

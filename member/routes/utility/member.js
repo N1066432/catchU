@@ -26,6 +26,7 @@ var list = async function(){
 //------------------------------------------
 var add = async function(newData){
     var result;
+
     console.log(newData)
     console.log(newData.memberphone)
     console.log(newData.membername)
@@ -33,8 +34,11 @@ var add = async function(newData){
     console.log(newData.gender)
     console.log(newData.mail)
     console.log(newData.birthday)
-    console.log(newData.creationdate)
-    await sql('INSERT INTO member (memberphone, membername, lineid, gender, mail, birthday, creationdate) VALUES ($1, $2, $3, $4, $5, $6, $7)', [newData.memberphone, newData.membername, newData.lineid, newData.gender, newData.mail, newData.birthday, newData.creationdate])
+    //console.log(newData.creationdate)
+
+    const current = new Date();
+
+    await sql('INSERT INTO member (memberphone, membername, lineid, gender, mail, birthday, creationdate) VALUES ($1, $2, $3, $4, $5, $6, $7)', [newData.memberphone, newData.membername, newData.lineid, newData.gender, newData.mail, newData.birthday, current])
         .then((data) => {
             result = 0;  
         }, (error) => {
@@ -85,7 +89,9 @@ var query = async function(memberphone){
 var update = async function(newData){
     var results;
 
-    await sql('UPDATE member SET membername=$2, lineid=$3, gender=$4, mail=$5, birthday=$6, creationdate=$7  WHERE memberphone = $1', [newData.memberphone, newData.membername, newData.lineid, newData.gender, newData.mail, newData.birthday, newData.creationdate])
+    const current = new Date();
+
+    await sql('UPDATE member SET membername=$2, lineid=$3, gender=$4, mail=$5, birthday=$6, creationdate=$7  WHERE memberphone = $1', [newData.memberphone, newData.membername, newData.lineid, newData.gender, newData.mail, newData.birthday, current])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {

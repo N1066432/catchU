@@ -12,7 +12,7 @@ router.post('/', function(req, res, next) {
     var foodno= req.body.foodno;                    //會員名稱
     var customized= req.body.customized;            //lineID
     var tableno=req.body.tableno;                   //會員手機號碼
-    var ordtime= req.body.ordtime;                  //生日
+    //var ordtime= req.body.ordtime;                  //生日
     
     // 建立一個新資料物件
     var newData={
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
         foodno: foodno,                     //會員名稱
         customized: customized,             //lineID
         tableno: tableno,
-        ordtime:ordtime                    //生日
+        //ordtime:ordtime                    //生日
     } 
     console.log(newData)
     orderdetail.add(newData).then(d => {

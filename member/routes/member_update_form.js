@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
                 gender: d.gender,
                 mail: d.mail,
                 birthday: moment(d.birthday).format("YYYY-MM-DD"),
-                creationdate: moment(d.creationdate).format("YYYY-MM-DD"),
+                //creationdate: moment(d.creationdate).format("YYYY-MM-DD"),
             }
 
             res.render('member_update_form', {item:data});  //將資料傳給更新頁面
