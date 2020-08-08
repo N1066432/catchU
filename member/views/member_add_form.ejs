@@ -26,6 +26,13 @@
         <div class="content">
             <h2>會員資料新增</h2>
 
+            <script language="javascript">
+                function ShowToday(){
+                var Today=new Date();
+                alert("現在時間是 " + Today.getFullYear()+ " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日 " + Today.getHours() + " 時 " + Today.getMinutes() + " 分 " + Today.getSeconds() + " 秒 ");
+                }
+            </script>
+
             <form action = "/member/add" method = "post">
                 <div class="form">
                    <span class="name">會員帳號: </span>
@@ -51,13 +58,15 @@
                     <span class="name">生日:</span>
                     <span class="value"><input type="date" name="birthday" ></span>
                     <br/>
-                                           
+
+                     <!--                   
                     <span class="name">建立日期: </span>
                     <span class="value"><input type="datetime-local" name="creationdate" ></span>
                     <br/>	    
+                     -->   
                              
                     <span class="name"></span>
-                    <span class="value"><input type="submit" value="新增" ></span> 
+                    <span class="value"><input type="submit" name="creationdate" value="新增" ></span> 
                     
                 </div>    
             </form>

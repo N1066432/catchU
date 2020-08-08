@@ -15,7 +15,7 @@ router.post('/', function(req, res, next) {
         customized: req.body.customized,            //lineID
         memberphone: req.body.memberphone,          //lineID
         tableno: req.body.tableno,                  //lineID
-        ordtime: req.body.ordtime,                   //建立日期
+        //ordtime: req.body.ordtime,                   //建立日期
        
     } 
     console.log(newData)

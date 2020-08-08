@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
                 customized: d.customized,
                 memberphone: d.memberphone,
                 tableno: d.tableno,
-                ordtime: moment(d.ordtime).format("YYYY-MM-DD"),
+                //ordtime: moment(d.ordtime).format("YYYY-MM-DD"),
             }
 
             res.render('orderdetail_update_form', {item:data});  //將資料傳給更新頁面

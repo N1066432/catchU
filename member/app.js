@@ -21,7 +21,8 @@ var member_update_no = require('./routes/member_update_no');
 var member_update_form = require('./routes/member_update_form');
 var member_update = require('./routes/member_update');
 
-var calculatingtimelist = require('./routes/calculatingtime_list');
+var caltime_add = require('./routes/caltime_add');
+var caltime_add_form = require('./routes/caltime_add_form');
 
 var food_list = require('./routes/food_list');
 
@@ -65,7 +66,8 @@ app.use('/member/update/no', member_update_no);
 app.use('/member/update/form', member_update_form);
 app.use('/member/update', member_update);
 
-app.use('/calculatingtime', calculatingtimelist);
+app.use('/caltime/add', caltime_add);
+app.use('/caltime/add/form', caltime_add_form);
 
 app.use('/food/list', food_list);
 

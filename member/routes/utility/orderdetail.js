@@ -35,7 +35,10 @@ var add = async function(newData){
     console.log(newData.memberphone)
     console.log(newData.tableno)
     console.log(newData.ordtime)
-    await sql('INSERT INTO orderdetail (foodid, foodno, customized, memberphone, tableno, ordtime)  VALUES ($1, $2, $3, $4, $5, $6)', [newData.foodid, newData.foodno, newData.customized, newData.memberphone, newData.tableno, newData.ordtime])
+
+    const current = new Date();
+
+    await sql('INSERT INTO orderdetail (foodid, foodno, customized, memberphone, tableno, ordtime)  VALUES ($1, $2, $3, $4, $5, $6)', [newData.foodid, newData.foodno, newData.customized, newData.memberphone, newData.tableno, current])
         .then((data) => {
             result = 0;  
         }, (error) => {
@@ -86,8 +89,10 @@ var query = async function(orderdetailid){
 //----------------------------------
 var update = async function(newData){
     var results;
-    
-    await sql('UPDATE orderdetail SET "foodid"=$2, "foodno"=$3, "customized"=$4, "memberphone"=$5, "tableno"=$6, "ordtime"=$7 WHERE "orderdetailid" = $1', [newData.orderdetailid, newData.foodid, newData.foodno, newData.customized, newData.memberphone, newData.tableno, newData.ordtime])
+
+    const current = new Date();
+
+    await sql('UPDATE orderdetail SET "foodid"=$2, "foodno"=$3, "customized"=$4, "memberphone"=$5, "tableno"=$6, "ordtime"=$7 WHERE "orderdetailid" = $1', [newData.orderdetailid, newData.foodid, newData.foodno, newData.customized, newData.memberphone, newData.tableno, current])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {
