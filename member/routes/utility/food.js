@@ -9,7 +9,7 @@ const sql = require('./asyncDB');
 var list = async function(){
     var result="";
 
-    //console.log("查看會員資訊");
+    //console.log("查看菜單");
     await sql('SELECT * FROM food')
         .then((data) => {            
             result = data.rows;

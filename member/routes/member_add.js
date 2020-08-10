@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
     var gender= req.body.gender;                //性別
     var mail= req.body.mail;                   //mail
     var birthday= req.body.birthday;           //生日
-    var creationdate= req.body.creationdate;    //建立日期
+    //var creationdate= req.body.creationdate;    //建立日期
     
     // 建立一個新資料物件
     var newData={
@@ -23,7 +23,7 @@ router.post('/', function(req, res, next) {
         gender:gender,                //性別
         mail:mail,                    //mail
         birthday:birthday,            //生日
-        creationdate:creationdate    //建立日期
+        //creationdate:creationdate    //建立日期
     } 
     console.log(newData)
     member.add(newData).then(d => {

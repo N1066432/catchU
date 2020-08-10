@@ -21,13 +21,36 @@ var list = async function(){
 		
     return result;
 }
+
+//------------------------------------------
+// 取出型態資料
+//------------------------------------------
+var getDropdownData = async function(){
+    //儲存下拉式選單資料
+    var item;
+    
+    //取回protype資料
+    await sql('SELECT * FROM item ORDER BY "itemID"')
+        .then((data) => {
+            item = data.rows;  
+        }, (error) => {
+            result = [];
+        });
+    
+    //設定回傳資料    
+    var result = {};
+    result.item = item;
+
+    //回傳
+    return result;
+}
 //------------------------------------------
 // 新增餐點
 //------------------------------------------
 var add = async function(newData){
     var result;
-
-    await sql('INSERT INTO food ( "itemID", "foodname", "foodpoint", "foodimg") VALUES ($1, $2, $3, $4)', [newData.itemID, newData.foodname, newData.foodpoint, newData.foodimg])
+    console.log(newData)
+    await sql('INSERT INTO food ( "itemname", "foodname", "foodpoint", "foodimg") VALUES ($1, $2, $3, $4)', [newData.itemname, newData.foodname, newData.foodpoint, newData.foodimg])
         .then((data) => {
             result = 0;  
         }, (error) => {
@@ -77,7 +100,7 @@ var query = async function(foodid){
 var update = async function(newData){
     var results;
     console.log(newData)
-    await sql('UPDATE food SET "itemID"=$2, "foodname"=$3, "foodpoint"=$4, "foodimg"=$5 WHERE "foodid" = $1', [newData.foodid, newData.itemID, newData.foodname, newData.foodpoint, newData.foodimg])
+    await sql('UPDATE food SET "itemname"=$2, "foodname"=$3, "foodpoint"=$4, "foodimg"=$5 WHERE "foodid" = $1', [newData.foodid, newData.itemname, newData.foodname, newData.foodpoint, newData.foodimg])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {
@@ -86,4 +109,4 @@ var update = async function(newData){
 		
     return results;
 }
-module.exports = {list, add, remove, query, update}
+module.exports = {getDropdownData, list, add, remove, query, update}

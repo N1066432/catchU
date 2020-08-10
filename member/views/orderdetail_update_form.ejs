@@ -25,7 +25,7 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>會員資料更新 </h2>
+            <h2>點餐資料更新 </h2>
 
                 <form action = "/orderdetail/update" method = "post">
                     <div class="form">
@@ -33,9 +33,13 @@
                         <span class="name">訂單明細編號:</span>
                         <span class="value"><input type="text" name="orderdetailid" value="<%= item.orderdetailid %>" readonly></span>
                         <br/>
-                        
+
+                        <span class="name">會員帳號:</span>
+                        <span class="value"><input type="text" name="memberphone" value="<%= item.memberphone %>" readonly></span>
+                        <br/>
+
                         <span class="name">餐點編號:</span>
-                        <span class="value"><input type="text" name="foodid" value="<%= item.foodid %>" readonly></span>
+                        <span class="value"><input type="text" name="foodid" value="<%= item.foodid %>" ></span>
                         <br/>
 
                         <span class="name">餐點數量:</span>
@@ -46,20 +50,19 @@
                         <span class="value"><input type="text" name="customized" value="<%= item.customized %>"></span>
                         <br/>
 
-                        <span class="name">會員帳號:</span>
-                        <span class="value"><input type="text" name="memberphone" value="<%= item.memberphone %>"></span>
-                        <br/>
-
+                       
                         <span class="name">桌號:</span>
                         <span class="value"><input type="text" name="tableno" value="<%= item.tableno %>"></span>
                         <br/>
 
+                        <!-- 
                         <span class="name">建立日期:</span>
                         <span class="value"><input type="datetime-local" name="ordtime" value="<%= item.ordtime %>"></span>
                         <br/>
+                        -->
 
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="更新" ></span>    
+                        <span class="value"><input type="submit"   name="ordtime" value="更新" ></span>    
                     </div>
                 </form>
               

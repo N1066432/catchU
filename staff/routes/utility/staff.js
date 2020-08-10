@@ -23,6 +23,26 @@ var list = async function(){
 }
 
 //------------------------------------------
+//執行資料庫動作的函式-取出單一員工
+//------------------------------------------
+var one = async function(staffphone){
+    var result={};
+    
+    await sql('SELECT * FROM staff WHERE "staffphone = $1"', [staffphone])
+        .then((data) => {
+            if(data.rows.length > 0){
+                result = data.rows[0];   
+            }else{
+                result = -1;
+            }    
+        }, (error) => {
+            result = null;
+        });
+		
+    return result;
+}
+
+//------------------------------------------
 //執行資料庫動作的函式-新增員工資料
 //------------------------------------------
 var add = async function(newData){
@@ -87,4 +107,4 @@ var update = async function(newData){
 		
     return results;
 }
-module.exports = {list, add, remove, query, update}
+module.exports = {list, one, add, remove, query, update}
