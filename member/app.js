@@ -6,12 +6,16 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+
 //------------------------------------------------------------
 // 增加引用模組
 //------------------------------------------------------------
 
+//店家資訊
 var store_list = require('./routes/store_list');
 
+//會員
 var member_list = require('./routes/member_list') ;
 var member_add_form = require('./routes/member_add_form');
 var member_add = require('./routes/member_add');
@@ -21,11 +25,14 @@ var member_update_no = require('./routes/member_update_no');
 var member_update_form = require('./routes/member_update_form');
 var member_update = require('./routes/member_update');
 
+//計算時間
 var caltime_add = require('./routes/caltime_add');
 var caltime_add_form = require('./routes/caltime_add_form');
 
+//查看菜單
 var food_list = require('./routes/food_list');
 
+//訂單明細
 var orderdetail_add = require('./routes/orderdetail_add');
 var orderdetail_remove_form = require('./routes/orderdetail_remove_form');
 var orderdetail_remove = require('./routes/orderdetail_remove')
@@ -33,10 +40,25 @@ var orderdetail_update_no = require('./routes/orderdetail_update_no');
 var orderdetail_update_form = require('./routes/orderdetail_update_form');
 var orderdetail_update = require('./routes/orderdetail_update');
 var orderdetail_list = require('./routes/orderdetail_list');
+
+//登入登出
+var user_login_form = require('./routes/user_login_form');
+var user_login = require('./routes/user_login');
+var user_logout = require('./routes/user_logout');
+var user_show = require('./routes/user_show');
+var checkAuth = require('./routes/checkAuth');
+
+
 //------------------------------------------------------------
 
-
 var app = express();
+
+//--------------------------------------------------------------------
+// 增加引用express-session
+//--------------------------------------------------------------------
+var session = require('express-session');
+app.use(session({secret: '請更改成一個隨機字串用來加密產生的signedCookie', cookie: { maxAge: 600000 }}));
+//--------------------------------------------------------------------
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,13 +72,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
+
+
 //-----------------------------------------
 // 設定模組使用方式
 //-----------------------------------------
 
-
+//店家資訊
 app.use('/store/list', store_list);
 
+//會員資料
 app.use('/member/list', member_list);
 app.use('/member/add/form', member_add_form);
 app.use('/member/add', member_add);
@@ -66,11 +93,14 @@ app.use('/member/update/no', member_update_no);
 app.use('/member/update/form', member_update_form);
 app.use('/member/update', member_update);
 
+//計算時間
 app.use('/caltime/add', caltime_add);
 app.use('/caltime/add/form', caltime_add_form);
 
+//查看菜單
 app.use('/food/list', food_list);
 
+//訂單明細
 app.use('/orderdetail/add', orderdetail_add);
 app.use('/orderdetail/remove/form', orderdetail_remove_form);
 app.use('/orderdetail/remove', orderdetail_remove);
@@ -78,6 +108,14 @@ app.use('/orderdetail/update/no', orderdetail_update_no);
 app.use('/orderdetail/update/form', orderdetail_update_form);
 app.use('/orderdetail/update', orderdetail_update);
 app.use('/orderdetail/list', orderdetail_list);
+
+//登入登出
+app.use('/user/login/form', user_login_form);
+app.use('/user/login', user_login);
+app.use('/user/logout', user_logout);
+app.use('/user/show', user_show);
+
+
 //-----------------------------------------
 
 //----------------------------------------

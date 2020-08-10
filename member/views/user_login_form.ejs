@@ -24,24 +24,23 @@
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
-            <h2>開始計時</h2>
 
-            <script language="javascript">
-                function ShowToday(){
-                var Today=new Date();
-                alert("現在時間是 " + Today.getFullYear()+ " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日 " + Today.getHours() + " 時 " + Today.getMinutes() + " 分 " + Today.getSeconds() + " 秒 ");
-                }
-            </script>
+            <h2>使用者登入 </h2>
 
-                    <form action = "/caltime/add" method = "post">
-                        <div class="form">
-
-
-                            <span class="name"></span>
-                            <span class="value"><input type="submit"  name="arrivaltime" value="計時開始" ></span>    
-                        </div>
-                    </form>
-           
+            <form action = "/user/login" method = "post">
+                <div class="form">
+                    <span class="name">帳號 </span>
+                    <span class="value"><input type="text" name="id"></span>
+                    <br/>
+                                                
+                    <span class="name">密碼 </span>
+                    <span class="value"><input type="password" name="password"></span>
+                    <br/>
+                                
+                    <span class="name"></span>
+                    <span class="value"><input type="submit" value="登入" ></span>    
+                </div>    
+            </form>
                
         </div>       
         
@@ -52,3 +51,5 @@
     </div>
     <!--**************************-->    
 </body>
+   
+</html>
