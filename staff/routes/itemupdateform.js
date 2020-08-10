@@ -9,6 +9,7 @@ const item = require('./utility/item');
 router.get('/', function(req, res, next) {
     var no = req.query.itemID;
 
+    
     item.query(no).then(d => {
         if (d!=null && d!=-1){
             var data = {

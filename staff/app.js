@@ -15,6 +15,7 @@ var food_add = require('./routes/food_add');
 var food_add_form = require('./routes/food_add_form');
 var food_remove = require('./routes/food_remove');
 var food_remove_form = require('./routes/food_remove_form');
+var staffone = require('./routes/staffone');
 var stafflist = require('./routes/stafflist');
 var staffadd = require('./routes/staffadd');
 var staffaddform = require('./routes/staffaddform');
@@ -57,7 +58,6 @@ var caltimeaddform = require('./routes/caltimeaddform');
 var checkAuth = require('./routes/checkAuth');
 
 
-
 //------------------------------------------------------------
 
 
@@ -96,6 +96,7 @@ app.use('/food/remove/form', food_remove_form);
 app.use('/food/update/no', foodupdateno);
 app.use('/food/update/form',  foodupdateform);
 app.use('/food/update', foodupdate);
+app.use('/staff/one', staffone);
 app.use('/staff/list', stafflist);
 app.use('/staff/add', staffadd);
 app.use('/staff/add/form', staffaddform);

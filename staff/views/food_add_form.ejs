@@ -31,8 +31,13 @@
                     <div class="form">
 
                                         
-                        <span class="name">類別編號: </span>
-                        <span class="value"><input type="text" name="itemID" ></span>
+                        <span class="name">類別名稱: </span>
+                        <span class="value"><select name="itemname" >
+                            <% for(var i=0; i<result.item.length; i++) {%>
+                                <option value="<%= result.item[i].itemname %>"><%= result.item[i].itemname %></option>
+                            <% } %> 
+                        </select>
+                        </span>
                         <br/>                       
 
                         <span class="name">餐點名稱: </span>

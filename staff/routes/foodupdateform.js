@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
         if (d!=null && d!=-1){
             var data = {
                 foodid: d.foodid,
-                itemID: d.itemID,
+                itemname: d.itemname,
                 foodname: d.foodname,
                 foodpoint: d.foodpoint,
                 foodimg: d.foodimg,

@@ -29,26 +29,27 @@
                 <a href="/staff/add/form"><input type="submit" value="新增員工資料" ></a>
                 <a href="/staff/remove/form"><input type="submit" value="刪除員工資料" ></a>
                 <a href="/staff/update/no"><input type="submit" value="修改員工資料" ></a>
-                <table>
-                    <thead>
+                <h2>員工資料</h2>
+
+                    <table>
                         <tr>
-                            <th width="20%">員工名稱</th>
-                            <th width="35%">員工電話</th>
-                            <th width="15%">暱稱</th>
-                            <th width="30%">密碼</th>                                                  
+                            <td width="25%">電話號碼</td>
+                            <td><%= item.staffphone %></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <% for(var i=0; i<items.length; i++) {%>
-                            <tr>
-                                <td><%= items[i].username %></a></td>
-                                <td><%= items[i].staffphone %></td>
-                                <td><%= items[i].nickname %></td>
-                                <td><%= items[i].password %></td>                    
-                            </tr> 
-                        <% } %> 
-                    </tbody>
-                </table>   
+                        <tr>
+                            <td>員工名稱</td>
+                            <td><%= item.username %></td>
+                        </tr>
+                        <tr>
+                            <td>暱稱</td>
+                            <td><%= item.nickname %></td>
+                        </tr>
+                        <tr>
+                            <td>員工密碼</td>
+                            <td><%= item.password %></td>
+                        </tr>
+                                                                                                                                   
+                    </table>   
               
                
         </div>       

@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
 
     var newData={
         foodid:foodid,                      //餐點編號
-        itemID: req.body.itemID,            //取得類別編號
+        itemname: req.body.itemname,            //取得類別編號
         foodname: req.body.foodname,        //取得餐點名稱
         foodpoint: req.body.foodpoint,      //取得餐點點數
         foodimg: req.body.foodimg,          //取得餐點圖片
