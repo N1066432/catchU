@@ -31,7 +31,7 @@ var upload = multer({
 //接收POST請求
 router.post('/',upload.single('picture'), function(req, res, next) {
                
-    var itemID = req.body.itemID;                  
+    var itemname = req.body.itemname;                  
     var foodname = req.body.foodname;          
     var foodpoint = Number(req.body.foodpoint);    
     var foodimg;
@@ -44,7 +44,7 @@ router.post('/',upload.single('picture'), function(req, res, next) {
     // 建立一個新資料物件
     var newData={
 
-        itemID:itemID,
+        itemname:itemname,
         foodname:foodname,
         foodpoint:foodpoint,
         foodimg:foodimg
