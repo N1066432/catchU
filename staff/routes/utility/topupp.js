@@ -19,3 +19,10 @@ var add = async function(newData){
 }
 
 module.exports = {add}
+
+/*****update member SET "points" = '800'  WHERE "memberphone" = '11111'*****/
+/*
+select "points", sum('100', "points" ) as "points"
+from member 
+where "memberphone" = '11111'
+*/

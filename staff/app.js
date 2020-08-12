@@ -96,7 +96,7 @@ app.use('/food/remove/form', food_remove_form);
 app.use('/food/update/no', foodupdateno);
 app.use('/food/update/form',  foodupdateform);
 app.use('/food/update', foodupdate);
-app.use('/staff/one', staffone);
+app.use('/staff/one', checkAuth, staffone);
 app.use('/staff/list', stafflist);
 app.use('/staff/add', staffadd);
 app.use('/staff/add/form', staffaddform);
