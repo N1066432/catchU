@@ -7,7 +7,7 @@ const orderdetail = require('./utility/orderdetail');
 //接收POST請求
 router.post('/', function(req, res, next) {
 
-    var memberphone=req.body.memberphone;           //會員手機號碼
+    var memberphone=req.session.memberphone;           //會員手機號碼
     var foodid=req.body.foodid;                     //會員手機號碼
     var foodno= req.body.foodno;                    //會員名稱
     var customized= req.body.customized;            //lineID
