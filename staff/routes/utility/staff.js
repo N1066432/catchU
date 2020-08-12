@@ -28,7 +28,7 @@ var list = async function(){
 var one = async function(staffphone){
     var result={};
     
-    await sql('SELECT * FROM staff WHERE "staffphone = $1"', [staffphone])
+    await sql('SELECT * FROM staff WHERE staffphone = $1', [staffphone])
         .then((data) => {
             if(data.rows.length > 0){
                 result = data.rows[0];   
