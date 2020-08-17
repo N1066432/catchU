@@ -7,10 +7,17 @@ var add = async function(newData){
     var result;
 
     const current = new Date();
-    console.log(newData)
+
     await sql('INSERT INTO topup ("memberphone" , "staffphone" , "topup", "topuppoints", "topuptime") VALUES ($1, $2, $3, $4, $5)', [newData.memberphone, newData.staffphone, newData.topup, newData.topuppoints, current])
         .then((data) => {
             result = 0;  
+        }, (error) => {
+            return -1;
+        });
+
+	await sql('UPDATE member SET "points" = "points" + $2 WHERE "memberphone"=$1', [newData.memberphone, newData.topuppoints])
+        .then((data) => {
+            result = data.rowCount;  
         }, (error) => {
             result = -1;
         });
@@ -19,10 +26,3 @@ var add = async function(newData){
 }
 
 module.exports = {add}
-
-/*****update member SET "points" = '800'  WHERE "memberphone" = '11111'*****/
-/*
-select "points", sum('100', "points" ) as "points"
-from member 
-where "memberphone" = '11111'
-*/
