@@ -23,7 +23,7 @@ router.post('/', function(req, res, next) {
     } 
     console.log(newData)
     topupp.add(newData).then(d => {
-        if (d==0){
+        if (d>0){
             res.render('topupSuccess');  //傳至成功頁面
         }else{
             res.render('topupFail');     //導向錯誤頁面
