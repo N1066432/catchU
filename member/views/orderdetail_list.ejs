@@ -45,15 +45,16 @@
                     <tbody>
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr>
-                                <td><%= items[i].memberphone %></a></td>
+                                <!--<td><a href="/orderdetail/one/<%= items[i].memberphone %>"><%= items[i].memberphone %></a></td>-->
+                                <td><%= items[i].memberphone %></td>
                                 <td><%= items[i].orderdetailid %></td>
                                 <td><%= items[i].foodid %></td>
                                 <td><%= items[i].foodno %></td>
                                 <td><%= items[i].customized %></td>
                                 <td><%= items[i].tableno %></td>
-                                <td><%= items[i].ordtime %></td>                       
-                            </tr> 
-                        <% } %> 
+                                <td><%= items[i].ordtime %></td>                      
+                            </tr>
+                        <% } %>  
                     </tbody>
                 </table>
 
