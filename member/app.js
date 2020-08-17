@@ -24,6 +24,7 @@ var member_remove = require('./routes/member_remove');
 var member_update_no = require('./routes/member_update_no');
 var member_update_form = require('./routes/member_update_form');
 var member_update = require('./routes/member_update');
+var member_one = require('./routes/member_one');
 
 //計算時間
 var caltime_add = require('./routes/caltime_add');
@@ -40,6 +41,7 @@ var orderdetail_update_no = require('./routes/orderdetail_update_no');
 var orderdetail_update_form = require('./routes/orderdetail_update_form');
 var orderdetail_update = require('./routes/orderdetail_update');
 var orderdetail_list = require('./routes/orderdetail_list');
+var orderdetail_one = require('./routes/orderdetail_one');
 
 //登入登出
 var user_login_form = require('./routes/user_login_form');
@@ -57,7 +59,7 @@ var app = express();
 // 增加引用express-session
 //--------------------------------------------------------------------
 var session = require('express-session');
-app.use(session({secret: '請更改成一個隨機字串用來加密產生的signedCookie', cookie: { maxAge: 600000 }}));
+app.use(session({secret: 'recommand 128 bytes random string', cookie: { maxAge: 1*60*60*1000 }}));
 //--------------------------------------------------------------------
 
 // view engine setup
@@ -92,6 +94,7 @@ app.use('/member/remove', member_remove);
 app.use('/member/update/no', member_update_no);
 app.use('/member/update/form', member_update_form);
 app.use('/member/update', member_update);
+app.use('/member/one', checkAuth, member_one);
 
 //計算時間
 app.use('/caltime/add', caltime_add);
@@ -108,6 +111,7 @@ app.use('/orderdetail/update/no', orderdetail_update_no);
 app.use('/orderdetail/update/form', orderdetail_update_form);
 app.use('/orderdetail/update', orderdetail_update);
 app.use('/orderdetail/list', orderdetail_list);
+app.use('/orderdetail/one', checkAuth, orderdetail_one);
 
 //登入登出
 app.use('/user/login/form', user_login_form);
