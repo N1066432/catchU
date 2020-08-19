@@ -25,7 +25,7 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>更新餐點 </h2>
+            <h2>修改餐點 </h2>
 
                 <form action = "/food/update" method = "post">
                     <div class="form">
@@ -35,6 +35,12 @@
 
                         <span class="name">類別名稱:</span>
                         <span class="value"><input type="text" name="itemname"  value="<%= item.itemname %>" readonly></span>
+                        <span class="value"><select name="itemname" >
+                            <% for(var i=0; i<result.item.length; i++) {%>
+                                <option value="<%= result.item[i].itemname %>"><%= result.item[i].itemname %></option>
+                            <% } %> 
+                        </select>
+                        </span>
                         <br/>
 
                         <span class="name">餐點名稱:</span>

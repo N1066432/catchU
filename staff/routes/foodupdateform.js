@@ -9,7 +9,7 @@ const food = require('./utility/food');
 router.get('/', function(req, res, next) {
     var no = req.query.foodid;
 
-    food.query(no).then(d => {
+    food.query(no).then(getDropdownData()).then(d => {
         if (d!=null && d!=-1){
             var data = {
                 foodid: d.foodid,
