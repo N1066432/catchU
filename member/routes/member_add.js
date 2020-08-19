@@ -6,7 +6,7 @@ const member = require('./utility/member');
 
 //接收POST請求
 router.post('/', function(req, res, next) {
-
+    console.log(memberphone)
     var memberphone=req.body.memberphone;      //會員手機號碼
     var membername= req.body.membername;        //會員名稱
     var lineid= req.body.lineid;                //lineID
@@ -14,7 +14,6 @@ router.post('/', function(req, res, next) {
     var mail= req.body.mail;                   //mail
     var birthday= req.body.birthday;           //生日
     //var creationdate= req.body.creationdate;    //建立日期
-    
     // 建立一個新資料物件
     var newData={
         memberphone: memberphone,       //會員手機號碼
