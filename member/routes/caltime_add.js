@@ -20,9 +20,9 @@ router.post('/', function(req, res, next) {
     console.log(newData)
     caltime.add(newData).then(d => {
         if (d==0){
-            res.render('addSuccess');  //傳至成功頁面
+            res.render('caltime_success');  //傳至成功頁面
         }else{
-            res.render('addFail');     //導向錯誤頁面
+            res.render('caltime_fail');     //導向錯誤頁面
         }  
     })
 });

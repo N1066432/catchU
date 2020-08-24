@@ -26,10 +26,10 @@ var list = async function(){
 //------------------------------------------
 //執行資料庫動作的函式-取出單一員工
 //------------------------------------------
-var list = async function(memberphone,ordtime){
+var list = async function(memberphone){
     var result={};
     
-    await sql('SELECT * FROM orderdetail WHERE memberphone = $1 and ordtime = $1', [memberphone,ordtime])
+    await sql('SELECT * FROM orderdetail WHERE memberphone = $1', [memberphone])
     .then((data) => {
         console.log(data.rows.length)
         console.log(data.rows)
@@ -43,6 +43,37 @@ var list = async function(memberphone,ordtime){
         result = null;
     });
     
+    return result;
+}
+
+//------------------------------------------
+// 取出型態資料
+//------------------------------------------
+var getDropdownData = async function(){
+    //儲存下拉式選單資料
+    var food;
+    var orderdetail;
+    
+    //取回protype資料
+    await sql('SELECT * FROM food ORDER BY foodid')
+        .then((data) => {
+            food = data.rows;  
+        }, (error) => {
+            result = [];
+        });
+    
+    await sql('SELECT * FROM orderdetail ORDER BY orderdetailid')
+        .then((data) => {
+            orderdetail = data.rows;  
+        }, (error) => {
+            result = [];
+        });
+    
+    //設定回傳資料    
+    var result = {};
+    result.food = food;
+
+    //回傳
     return result;
 }
 
@@ -71,6 +102,8 @@ var add = async function(newData){
 		
     return result;
 }
+
+
 
 //----------------------------------
 // 刪除會員資料
@@ -125,4 +158,4 @@ var update = async function(newData){
 		
     return results;
 }
-module.exports = {list, add, remove, query, update}
+module.exports = {list, add, getDropdownData, remove, query, update}

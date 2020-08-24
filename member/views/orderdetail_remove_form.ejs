@@ -29,7 +29,13 @@
             <form action = "/orderdetail/remove" method = "post">
                 <div class="form">
                     <span class="name">訂單明細編號: </span>
-                    <span class="value"><input type="number" name="orderdetailid" ></span>
+                    <span class="value">
+                        <select name="orderdetail" >
+                            <% for(var i=0; i<result.length; i++) {%>
+                                <option value="<%= result.orderdetail[i].orderdetailid %>"></option>
+                            <% } %> 
+                        </select>
+                    </span>
                     <br/>
                                                     
                     <span class="name"></span>
