@@ -13,6 +13,7 @@ var list = async function(){
     await sql('SELECT * FROM food')
         .then((data) => {            
             result = data.rows;
+            console.log(result)
             //console.log(result)  ;
         }, (error) => {
             result = null;
@@ -21,6 +22,10 @@ var list = async function(){
 		
     return result;
 }
+
+//------------------------------------------
+// 取出型態資料
+//------------------------------------------
 
 
 module.exports = {list}

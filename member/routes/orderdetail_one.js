@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     var memberphone = req.session.memberphone;
     console.log(memberphone)
 
-    orderdetail.list(memberphone,ordtime).then(data => {
+    orderdetail.list(memberphone).then(data => {
         console.log(data)
         if(data==null){
             res.render('error');  //導向錯誤頁面
