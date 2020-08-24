@@ -19,29 +19,14 @@
         
         <!--~~~~~~~~~~~~~~~~~-->        
         <ul id="navigation">        
-            <li><a href="javascript:history.back()">上一頁</a></li> 
+            <li><a href="/">返回主頁</a></li> 
         </ul>
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>刪除類別</h2> 
+            <h2>已更新<%= result %>筆資料</h2>
 
-            <form action = "/item/remove" method = "post">
-                <div class="form">
-                    <span class="name">類別名稱: </span>
-                    <span class="value"><select name="itemID" >
-                        <% for(var i=0; i<result.item.length; i++) {%>
-                            <option value="<%= result.item[i].itemID %>"><%= result.item[i].itemname %></option>
-                        <% } %> 
-                    </select>
-                    </span>
-                    <br/>
-                                                    
-                    <span class="name"></span>
-                    <span class="value"><input type="submit" value="刪除" ></span>    
-                </div>    
-            </form>   
               
                
         </div>       
