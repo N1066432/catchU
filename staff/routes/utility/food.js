@@ -102,7 +102,6 @@ var remove = async function(foodid){
 //------------------------------------------
 var query = async function(foodid){
     var result={};
-    
     await sql('SELECT * FROM food WHERE "foodid" = $1', [foodid])
         .then((data) => {
             if(data.rows.length > 0){
@@ -121,6 +120,8 @@ var query = async function(foodid){
             }, (error) => {
                 result.item = [];
             });
+
+
 		
     return result;
 }
