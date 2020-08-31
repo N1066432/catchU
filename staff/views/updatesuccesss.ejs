@@ -19,29 +19,14 @@
         
         <!--~~~~~~~~~~~~~~~~~-->        
         <ul id="navigation">        
-            <li><a href="javascript:history.back()">上ㄧ頁</a></li> 
+            <li><a href="/">返回主頁</a></li> 
         </ul>
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>餐點資料修改</h2>
+            <h2>已更新<%= result %>筆資料</h2>
 
-            <form action = "/food/update/form" method = "get">
-                <div class="form">
-                    <span class="name">餐點名稱: </span>
-                    <span class="value"><select name="foodid" >
-                        <option value="">請選擇餐點</option>
-                        <% for(var i=0; i<result.food.length; i++) {%>
-                            <option value="<%= result.food[i].foodid %>"><%= result.food[i].foodname %></option>
-                        <% } %> 
-                    </select>
-                    <br/>    
-            
-                    <span class="name"></span>
-                    <span class="value"><input type="submit" value="查詢" ></span>    
-                </div>    
-            </form> 
               
                
         </div>       

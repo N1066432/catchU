@@ -75,10 +75,10 @@ var remove = async function(username){
 //------------------------------------------
 //執行資料庫動作的函式-取出單一員工
 //------------------------------------------
-var query = async function(username){
+var query = async function(staffphone){
     var result={};
     
-    await sql('SELECT * FROM staff WHERE "username" = $1', [username])
+    await sql('SELECT * FROM staff WHERE "staffphone" = $1', [staffphone])
         .then((data) => {
             if(data.rows.length > 0){
                 result = data.rows[0];   
@@ -98,7 +98,7 @@ var query = async function(username){
 var update = async function(newData){
     var results;
 
-    await sql('UPDATE staff SET "staffphone"=$2, "nickname"=$3, "password"=$4 WHERE "username" = $1', [newData.username, newData.staffphone, newData.nickname, newData.password])
+    await sql('UPDATE staff SET "username"=$2, "nickname"=$3, "password"=$4 WHERE "staffphone" = $1', [newData.staffphone, newData.username, newData.nickname, newData.password])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {
