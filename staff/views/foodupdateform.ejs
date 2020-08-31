@@ -34,9 +34,13 @@
                         <br/>
 
                         <span class="name">類別名稱:</span>
-                        <span class="value"><select name="itemID" >
+                        <span class="value"><select name="itemname" >
+                            <option value="">請選擇類別</option>
                             <% for(var i=0; i<result.item.length; i++) {%>
-                                <option value="<%= result.item[i].itemID %>"><%= result.item[i].itemname %></option>
+                                <% if( result.item[i].itemname == result.food.itemname){ %>
+                                    <option value="<%= result.item[i].itemname %>" selected><%= result.item[i].itemname %></option>
+                                <% } else{ %>  
+                                    <option value="<%= result.item[i].itemname %>" ><%= result.item[i].itemname %></option>                                <% } %>
                             <% } %> 
                         </select>
                         <br/>

@@ -31,6 +31,7 @@
                 <div class="form">
                     <span class="name">餐點名稱: </span>
                     <span class="value"><select name="foodid" >
+                        <option value="">請選擇餐點</option>
                         <% for(var i=0; i<result.food.length; i++) {%>
                             <option value="<%= result.food[i].foodid %>"><%= result.food[i].foodname %></option>
                         <% } %> 

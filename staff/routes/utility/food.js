@@ -113,15 +113,16 @@ var query = async function(foodid){
             result.food = null;
         });
         
-        //取回protype資料
-        await sql('SELECT * FROM item ORDER BY "itemID"')
-            .then((data) => {
-                result.item = data.rows;  
-            }, (error) => {
-                result.item = [];
-            });
+    //取回protype資料
+    await sql('SELECT * FROM item ORDER BY "itemID"')
+        .then((data) => {
+            result.item = data.rows;  
+        }, (error) => {
+            result.item = [];
+        });
 
-
+    console.log(result)
+        
 		
     return result;
 }
