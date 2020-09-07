@@ -155,7 +155,7 @@ nav a {
 
 
 nav ul li ul li:hover {
-    background: #f8f9fa;
+    background: #FFF;
 }
 
 /* Background color change on Hover */
@@ -184,7 +184,7 @@ nav ul ul {
     top: 24px;
     left: 0;
     padding: 10px;
-    background: #fff;
+    background: #000;
     padding: 10px;
     z-index: 999;
     border: 1px solid #ddd;

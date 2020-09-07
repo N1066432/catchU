@@ -1,16 +1,96 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>測試網頁</title>
-<!-- 連結思源中文及css -->
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
-<link href="/css/menu.css" rel="stylesheet"/>  
-<link href="/css/main.css" rel="stylesheet"/>      
-<!------------------------->
-</head>
+    <head>
+        <title>桌助你</title>
+        <!-- Meta tag Keywords -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="Norm Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script>
+            addEventListener("load", function() {
+                setTimeout(hideURLbar, 0);
+            }, false);
+    
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+    
+        </script>
+        <!-- //Meta tag Keywords -->
+        <!-- Custom-Files -->
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <!-- Bootstrap-Core-CSS -->
+        <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+        <!-- Style-CSS -->
+        <!-- font-awesome-icons -->
+        <link href="/css/font-awesome.css" rel="stylesheet">
+        <!-- //font-awesome-icons -->
+        <!-- /Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+        <!-- //Fonts -->
+    </head>
    
-<body>
+<body><!-- mian-content -->
+    <div class="main-content" id="home">
+      <!-- header -->
+      <header class="header">
+          <div class="container">
+              <!-- nav -->
+              <nav class="py-2">
+                  <div id="logo">
+                      <h1> <a class="navbar-brand" href="/index.html">桌助你<span>catchU</span> </a>
+                      </h1>
+                  </div>
+
+                  <label for="drop" class="toggle">Menu</label>
+                  <input type="checkbox" id="drop" />
+                  <ul class="menu">
+                      <li class="active"><a href="index.html">首頁</a></li>
+                     
+                      <li class="dropdown">
+                          <!-- First Tier Drop Down -->
+                          <label for="drop-2" class="toggle">會員<span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                          <a href="#">會員 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                          <input type="checkbox" id="drop-2" />
+                          <ul>
+                              <li><a href="layout1.html">會員資料</a>
+                              </li>
+                              <li><a href="layout2.html">店家資訊</a>
+                              </li>
+                              <li><a href="layout3.html">計算時間</a>
+                              </li>
+                              <li><a href="layout3.html">前往點餐</a>
+                              </li>
+                              <li><a href="layout3.html">訂單明細</a>
+                              </li>
+                              <li><a href="layout3.html">前往結帳</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li><a href="register.html">註冊</a></li>
+                      <li><a href="login.html">登入</a>
+
+
+                      <li class="header-right">
+                          <ul class="list-unstyled team-icons mt-4">
+                              <li>
+                                  <a href="#" class="t-icon">
+                                      <span class="fa fa-facebook-f"></span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" class="t-icon">
+                                      <span class="fa fa-twitter"></span>
+                                  </a>
+                              </li>
+
+
+                          </ul>
+                      </li>
+
+                  </ul>
+              </nav>
     <!--**************************-->
     <div class="container">    
         <!--~~~~~~~~~~~~~~~~~-->
@@ -25,7 +105,7 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>刪除餐點</h2> 
+            <h3>刪除餐點</h3> 
 
             <form action = "/food/remove" method = "post">
                 <div class="form">
