@@ -6,7 +6,10 @@ const orderdetail = require('./utility/orderdetail');
 
 //接收GET請求
 router.get('/', function(req, res, next) {
-    orderdetail.getDropdownData().then(d => {
+    var memberphone = req.session.memberphone;   //取得產品編號
+    var orderdetailid = req.body.orderdetailid;
+
+    orderdetail.getDropdown(memberphone, orderdetailid).then(d => {
         if (d!=[]){
             res.render('orderdetail_remove_form', {result:d});  //轉至新增頁面
         }else{

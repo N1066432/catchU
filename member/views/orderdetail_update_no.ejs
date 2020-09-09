@@ -25,12 +25,18 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>會員資料更新</h2>
+            <h2>訂單明細資料更新</h2>
 
             <form action = "/orderdetail/update/form" method = "get">
                 <div class="form">
                     <span class="name">訂單明細編號:</span>
-                    <span class="value"><input type="number" name="orderdetailid" ></span>
+                    <span class="value"><select name="orderdetailid" >
+                        <option value="">請選擇訂單明細編號</option>
+                        <% for(var i=0; i<result.orderdetail.length; i++) {%>
+                            <option value="<%= result.orderdetail[i].orderdetailid %>"><%= result.orderdetail[i].orderdetailid %></option>
+                        <% } %> 
+                    </select>
+                        
                     <br/>    
             
                     <span class="name"></span>
@@ -50,3 +56,4 @@
 </body>
    
 </html>
+<!--<input type="number" name="orderdetailid" ></span>-->

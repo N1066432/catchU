@@ -21,9 +21,9 @@ router.post('/', function(req, res, next) {
     console.log(newData)
     member.update(newData).then(d => {
         if (d>=0){
-            res.render('updateSuccess', {results:d});  //傳至成功頁面
+            res.render('member_update_Success', {results:d});  //傳至成功頁面
         }else{
-            res.render('updateFail');     //導向錯誤頁面
+            res.render('member_update_Fail');     //導向錯誤頁面
         }  
     })
 });
