@@ -27,7 +27,7 @@ var list = async function(){
 var add = async function(newData){
     var result;
 
-    await sql('INSERT INTO storeinformation ("storename", "storeaddress", "phoneno", "vacanttable", "businesshours", "wifi", "socket", "providemeals", "outsidefood", "chargingstandards") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)', [newData.storename, newData.storeaddress, newData.phoneno, newData.vacanttable, newData.businesshours, newData.wifi, newData.socket, newData.providemeals,newData.outsidefood, newData.chargringstandards])
+    await sql('INSERT INTO storeinformation ("storename", "storeaddress", "phoneno", "vacanttable", "businesshours", "wifi", "socket", "providemeals", "outsidefood", "chargingstandards", "atime", "apoint", "lessatime", "addapoint") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)', [newData.storename, newData.storeaddress, newData.phoneno, newData.vacanttable, newData.businesshours, newData.wifi, newData.socket, newData.providemeals,newData.outsidefood, newData.chargingstandards, newData.atime, newData.apoint, newData.lessatime, newData.addapoint])
         .then((data) => {
             result = 0;  
         }, (error) => {
@@ -77,7 +77,7 @@ var query = async function(storeID){
 var update = async function(newData){
     var results;
 
-    await sql('UPDATE storeinformation SET "storename"=$2, "storeaddress"=$3, "phoneno"=$4, "vacanttable"=$5, "businesshours"=$6, "wifi"=$7, "socket"=$8, "providemeals"=$9, "outsidefood"=$10, "chargingstandards"=$11 WHERE "storeID" = $1', [newData.storeID, newData.storename, newData.storeaddress, newData.phoneno, newData.vacanttable, newData.businesshours, newData.wifi, newData.socket, newData.providemeals, newData.outsidefood, newData.chargringstandards])
+    await sql('UPDATE storeinformation SET "storename"=$2, "storeaddress"=$3, "phoneno"=$4, "vacanttable"=$5, "businesshours"=$6, "wifi"=$7, "socket"=$8, "providemeals"=$9, "outsidefood"=$10, "chargingstandards"=$11, "atime"=$12, "apoint"=$13, "lessatime"=$14, "addapoint"=$15 WHERE "storeID" = $1', [newData.storeID, newData.storename, newData.storeaddress, newData.phoneno, newData.vacanttable, newData.businesshours, newData.wifi, newData.socket, newData.providemeals, newData.outsidefood, newData.chargingstandards, newData.atime, newData.apoint, newData.lessatime, newData.addapoint])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {
