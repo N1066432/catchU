@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!-- 連結思源中文及css -->
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+<link href="/css/menu.css" rel="stylesheet"/>  
+<link href="/css/main.css" rel="stylesheet"/>      
+<!------------------------->
+</head>
+   
+<body>
+    <!--**************************-->
+    <div class="container">    
+        <!--~~~~~~~~~~~~~~~~~-->
+        <div class="header">           
+        </div>        
+        
+        <!--~~~~~~~~~~~~~~~~~-->        
+        <ul id="navigation">        
+            <li><a href="/">返回主頁</a></li> 
+        </ul>
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="content">
+
+             <h2>店家資訊</h2>
+             <a href="/store/add/form"><input type="submit" value="新增店家資訊" ></a>
+             <a href="/store/remove/form"><input type="submit" value="刪除店家資訊" ></a>
+             <a href="/store/update/no"><input type="submit" value="修改店家資訊" ></a> 
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">店家編號</th>
+                            <th width="15%">店家名稱</th>
+                            <th width="15%">店家地址</th>
+                            <th width="15%">聯絡電話</th>
+                            <th width="5%">空桌數</th>       
+                            <th width="10%">營業時間</th>  
+                            <th width="5%">Wi-Fi</th> 
+                            <th width="5%">提供插座</th> 
+                            <th width="5%">提供餐點</th>   
+                            <th width="5%">外食</th>       
+                            <th width="20%">收費標準</th>                                                   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<items.length; i++) {%>
+                            <tr>
+                                <td><%= items[i].storeID %></a></td>
+                                <td><%= items[i].storename %></td>
+                                <td><%= items[i].storeaddress %></td>
+                                <td><%= items[i].phoneno %></td>
+                                <td><%= items[i].vacanttable %></td>   
+                                <td><%= items[i].businesshours %></a></td>     
+                                <td><%= items[i].wifi %></a></td>    
+                                <td><%= items[i].socket %></a></td>   
+                                <td><%= items[i].providemeals %></a></td>       
+                                <td><%= items[i].outsidefood %></a></td>
+                                <td><%= items[i].chargingstandards %></a></td>
+                            </tr> 
+                        <% } %> 
+                    </tbody>
+                </table>   
+              
+               
+        </div>       
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <div class="footer">
+            NTUB imd, 2019.    
+        </div>  
+    </div>
+    <!--**************************-->    
+</body>
+   
+</html>
