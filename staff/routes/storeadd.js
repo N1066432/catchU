@@ -15,7 +15,11 @@ router.post('/', function(req, res, next) {
     var socket = req.body.socket;
     var providemeals = req.body.providemeals;
     var outsidefood = req.body.outsidefood;
-    var chargringstandards = req.body.chargringdtandards;
+    var chargingstandards = req.body.chargingstandards;
+    var atime = Number(req.body.atime);
+    var apoint = Number(req.body.apoint);
+    var lessatime = Number(req.body.lessatime);
+    var addapoint = Number(req.body.addapoint);
 
     // 建立一個新資料物件
     var newData={
@@ -28,7 +32,11 @@ router.post('/', function(req, res, next) {
         socket:socket,
         providemeals:providemeals,
         outsidefood:outsidefood,
-        chargringstandards:chargringstandards
+        chargingstandards:chargingstandards,
+        atime:atime,
+        apoint:apoint,
+        lessatime:lessatime,
+        addapoint:addapoint
     } 
     
     store.add(newData).then(d => {

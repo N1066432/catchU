@@ -23,6 +23,10 @@ router.get('/', function(req, res, next) {
                 providemeals: d.providemeals,
                 outsidefood: d.outsidefood,
                 chargingstandards: d.chargingstandards,
+                atime: d.atime,
+                apoint: d.apoint,
+                lessatime: d.lessatime,
+                addapoint: d.addapoint,
             }
 
             res.render('storeupdateform', {item:data});  //將資料傳給更新頁面

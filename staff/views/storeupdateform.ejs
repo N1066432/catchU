@@ -73,6 +73,14 @@
                         <span class="value"><input type="text" name="chargingstandards"  value="<%= item.chargingstandards %>"></span>
                         <br/>
 
+                        <span class="name">定價:</span>
+                        <span class="value"><input type="number" name="atime"  value="<%= item.atime %>"> 小時</span> <span class="value"><input type="number" name="apoint"  value="<%= item.apoint %>"> 元</span>
+                        <br/>
+
+                        <span class="name">超時不足 </span>
+                        <span class="value"><input type="number" name="lessatime"  value="<%= item.lessatime %>"> 分鐘</span> <span class="value">加收: <input type="number" name="addapoint"  value="<%= item.addapoint %>"> 元</span>
+                        <br/>
+
                         <span class="name"></span>
                         <span class="value"><input type="submit" value="更新" ></span>    
                     </div>
