@@ -6,22 +6,22 @@ const orderdetail = require('./utility/orderdetail');
 
 //接收POST請求
 router.post('/', function(req, res, next) {
-    var orderdetailid = req.body.orderdetailid;   //取得會員手機號碼
+    var orderdetailid = req.body.orderdetailid;  
 
     var newData={
-        orderdetailid:orderdetailid,               //會員手機號碼
-        foodid: req.body.foodid,                    //會員手機號碼
-        foodno: req.body.foodno,                    //會員名稱
-        customized: req.body.customized,            //lineID
-        memberphone: req.body.memberphone,          //lineID
-        tableno: req.body.tableno,                  //lineID
-        //ordtime: req.body.ordtime,                   //建立日期
+        orderdetailid:orderdetailid,               
+        memberphone: req.body.memberphone,               
+        foodname: req.body.foodname,                    
+        foodno: req.body.foodno,                    
+        customized: req.body.customized,          
+        tableno: req.body.tableno,                  
+        //ordtime: req.body.ordtime,                   
        
     } 
     console.log(newData)
     orderdetail.update(newData).then(d => {
         if (d>=0){
-            res.render('updateSuccess', {results:d});  //傳至成功頁面
+            res.render('updateSuccess', {result:d});  //傳至成功頁面
         }else{
             res.render('updateFail');     //導向錯誤頁面
         }  

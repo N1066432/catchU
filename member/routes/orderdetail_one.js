@@ -8,10 +8,10 @@ const orderdetail = require('./utility/orderdetail');
 //接收GET請求
 router.get('/', function(req, res, next) {
     var memberphone = req.session.memberphone;
-    console.log(memberphone)
+    //console.log(memberphone)
 
     orderdetail.list(memberphone).then(data => {
-        console.log(data)
+        //console.log(data)
         if(data==null){
             res.render('error');  //導向錯誤頁面
         }else if(data.length > 0){

@@ -3,7 +3,7 @@ var router = express.Router();
 
 //增加引用函式
 const orderdetail = require('./utility/orderdetail');
-const e = require('express');
+//const e = require('express');
 
 //接收GET請求
 router.get('/', function(req, res, next) {
