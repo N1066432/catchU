@@ -26,4 +26,27 @@ var add = async function(newData){
     return result;
 }
 
-module.exports = {add}
+//------------------------------------------
+// 新增開始時間
+//------------------------------------------
+var addend = async function(newData){
+    var result;
+    console.log(newData.memberphone)
+    //console.log(newData.arrivalTime)
+
+    const current = new Date();
+    //const insertText = 'INSERT INTO calculatingtime("arrivalTime") VALUES ($1)'
+    
+    await sql('INSERT INTO calculatingtime ( "memberphone", "endtime") VALUES ($1, $2)', [newData.memberphone, current])
+        .then((data) => {
+            result = 0;  
+        }, (error) => {
+            result = -1;
+        });
+		
+    return result;
+}
+
+
+
+module.exports = {add, addend}
