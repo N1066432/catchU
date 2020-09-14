@@ -60,10 +60,10 @@ var add = async function(newData){
 //----------------------------------
 // 刪除員工
 //----------------------------------
-var remove = async function(username){
+var remove = async function(staffphone){
     var result;
 
-    await sql('DELETE FROM staff WHERE "username" = $1', [username])
+    await sql('DELETE FROM staff WHERE "staffphone" = "staffphone"', [staffphone])
         .then((data) => {
             result = data.rowCount;  
         }, (error) => {

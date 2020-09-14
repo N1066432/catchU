@@ -67,7 +67,7 @@ var app = express();
 // 增加引用express-session
 //--------------------------------------------------------------------
 var session = require('express-session');
-app.use(session({secret: 'recommand 128 bytes random string', cookie: { maxAge: 1*60*60*1000 }}));
+app.use(session({secret: 'recommand 128 bytes random string', cookie: { maxAge: 24*60*60*1000 }}));
 //--------------------------------------------------------------------
 
 
@@ -89,42 +89,42 @@ app.use('/users', usersRouter);
 //-----------------------------------------
 
 app.use('/food/list',checkAuth, food_list);
-app.use('/food/add', food_add);
-app.use('/food/add/form', food_add_form);
-app.use('/food/remove', food_remove);
-app.use('/food/remove/form', food_remove_form);
-app.use('/food/update/no', foodupdateno);
-app.use('/food/update/form',  foodupdateform);
-app.use('/food/update', foodupdate);
-app.use('/staff/one', checkAuth, staffone);
-app.use('/staff/list', stafflist);
-app.use('/staff/add', staffadd);
-app.use('/staff/add/form', staffaddform);
-app.use('/store/list', storelist);
-app.use('/store/add', storeadd);
-app.use('/store/add/form', storeaddform);
-app.use('/store/remove', storeremove);
-app.use('/store/remove/form', storeremoveform);
-app.use('/store/update/no', storeupdateno);
-app.use('/store/update/form', storeupdateform);
-app.use('/store/update', storeupdate);
-app.use('/staff/remove/form', staffremoveform);
-app.use('/staff/remove', staffremove)
-app.use('/staff/update/no', staffupdateno);
-app.use('/staff/update/form', staffupdateform);
-app.use('/staff/update', staffupdate);
-app.use('/order/list', orderlist);
-app.use('/checkout/list', checkoutlist);
-app.use('/topup/add', topupadd);
-app.use('/topup/add/form', topupaddform);
-app.use('/item/list', itemlist);
-app.use('/item/add', itemadd);
-app.use('/item/add/form', itemaddform);
-app.use('/item/remove', itemremove);
-app.use('/item/remove/form', itemremoveform);
-app.use('/item/update/no', itemupdateno);
-app.use('/item/update/form', itemupdateform);
-app.use('/item/update', itemupdate);
+app.use('/food/add',checkAuth, food_add);
+app.use('/food/add/form',checkAuth, food_add_form);
+app.use('/food/remove',checkAuth, food_remove);
+app.use('/food/remove/form',checkAuth, food_remove_form);
+app.use('/food/update/no',checkAuth, foodupdateno);
+app.use('/food/update/form',checkAuth,  foodupdateform);
+app.use('/food/update',checkAuth, foodupdate);
+app.use('/staff/one',checkAuth, checkAuth, staffone);
+app.use('/staff/list',checkAuth, stafflist);
+app.use('/staff/add',checkAuth, staffadd);
+app.use('/staff/add/form',checkAuth, staffaddform);
+app.use('/store/list',checkAuth, storelist);
+app.use('/store/add',checkAuth, storeadd);
+app.use('/store/add/form',checkAuth, storeaddform);
+app.use('/store/remove',checkAuth, storeremove);
+app.use('/store/remove/form',checkAuth, storeremoveform);
+app.use('/store/update/no',checkAuth, storeupdateno);
+app.use('/store/update/form',checkAuth, storeupdateform);
+app.use('/store/update',checkAuth, storeupdate);
+app.use('/staff/remove/form',checkAuth, staffremoveform);
+app.use('/staff/remove',checkAuth, staffremove)
+app.use('/staff/update/no',checkAuth, staffupdateno);
+app.use('/staff/update/form',checkAuth, staffupdateform);
+app.use('/staff/update',checkAuth, staffupdate);
+app.use('/order/list',checkAuth, orderlist);
+app.use('/checkout/list',checkAuth, checkoutlist);
+app.use('/topup/add',checkAuth, topupadd);
+app.use('/topup/add/form',checkAuth, topupaddform);
+app.use('/item/list',checkAuth, itemlist);
+app.use('/item/add',checkAuth, itemadd);
+app.use('/item/add/form',checkAuth, itemaddform);
+app.use('/item/remove',checkAuth, itemremove);
+app.use('/item/remove/form',checkAuth, itemremoveform);
+app.use('/item/update/no',checkAuth, itemupdateno);
+app.use('/item/update/form',checkAuth, itemupdateform);
+app.use('/item/update',checkAuth, itemupdate);
 app.use('/user/login/form', userloginform);
 app.use('/user/login', userlogin);
 app.use('/user/logout', userlogout);

@@ -8,6 +8,17 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>更新時確認</title>
+<script language="javascript">
+function confirmupdate()
+{
+if(confirm("確定要更新嗎?"))
+alert("確認更新！");
+else
+alert("取消更新");
+}
+</script>
+
 </head>
    
 <body>
@@ -46,19 +57,19 @@
                         <br/>
 
                         <span class="name">餐點名稱:</span>
-                        <span class="value"><input type="text" name="foodname" value="<%= result.food.foodname %>"></span>
+                        <span class="value"><input type="text" name="foodname" value="<%= result.food.foodname %>" required="required"></span>
                         <br/>
 
                         <span class="name">餐點點數:</span>
-                        <span class="value"><input type="text" name="foodpoint" value="<%= result.food.foodpoint %>"></span>
+                        <span class="value"><input type="text" name="foodpoint" value="<%= result.food.foodpoint %>" required="required"></span>
                         <br/>
 
                         <span class="name">餐點圖片:</span>
-                        <span class="value"><input type="file" name="foodimg" value="<%= result.food.foodimg %>"></span>
+                        <span class="value"><input type="file" name="foodimg" value="<%= result.food.foodimg %>" required="required"></span>
                         <br/>
 
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="更新" ></span>    
+                        <span class="value"><input type="submit" value="更新" onclick="confirmupdate()"></span>    
                     </div>
                 </form>
               

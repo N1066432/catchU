@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
         if (d!=[]){
             res.render('food_remove_form', {result:d});  
         }else{
-            res.render('removeFail');     //導向錯誤頁面
+            res.render('removefoodFail');     //導向錯誤頁面
         }  
     });
 });

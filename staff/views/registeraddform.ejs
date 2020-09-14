@@ -8,6 +8,17 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>送出時確認</title>
+<script language="javascript">
+function confirmregister()
+{
+if(confirm("確定要送出嗎?"))
+alert("確認送出！");
+else
+alert("取消送出");
+}
+</script>
+
 </head>
    
 <body>
@@ -30,23 +41,23 @@
                 <form action = "/register/add" method = "post">
                     <div class="form">
                         <span class="name">姓名: </span>
-                        <span class="value"><input type="text" name="username" ></span>
+                        <span class="value"><input type="text" name="username" required="required"></span>
                         <br/>
                                         
                         <span class="name">聯絡電話: </span>
-                        <span class="value"><input type="tel" name="staffphone" ></span>
+                        <span class="value"><input type="tel" name="staffphone" required="required"></span>
                         <br/>
 
                         <span class="name">暱稱: </span>
-                        <span class="value"><input type="text" name="nickname"></span>
+                        <span class="value"><input type="text" name="nickname" required="required"></span>
                         <br/>
 
                         <span class="name">密碼: </span>
-                        <span class="value"><input type="text" name="password" ></span>
+                        <span class="value"><input type="password" name="password" required="required"></span>
                         <br/>
                         
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="新增" ></span>    
+                        <span class="value"><input type="submit" value="註冊" onclick="confirmregister()"></span>    
                     </div>
                 </form>
               
