@@ -10,8 +10,6 @@ const session = require('express-session');
 //------------------------------------------
 var add = async function(newData){
     var result;
-    console.log(newData.memberphone)
-    //console.log(newData.arrivalTime)
 
     const current = new Date();
     //const insertText = 'INSERT INTO calculatingtime("arrivalTime") VALUES ($1)'
@@ -27,12 +25,10 @@ var add = async function(newData){
 }
 
 //------------------------------------------
-// 新增開始時間
+// 新增結束時間
 //------------------------------------------
 var addend = async function(newData){
     var result;
-    console.log(newData.memberphone)
-    //console.log(newData.arrivalTime)
 
     const current = new Date();
     //const insertText = 'INSERT INTO calculatingtime("arrivalTime") VALUES ($1)'
@@ -47,6 +43,27 @@ var addend = async function(newData){
     return result;
 }
 
+//------------------------------------------
+//執行資料庫動作的函式-尋找到達及結束時間
+//------------------------------------------
+var query = async function(memberphone){
+    var result;
+
+    await sql('SELECT * FROM calculatingtime WHERE memberphone = $1 order by arrivaltime desc', [memberphone])
+
+        .then((data) => {
+            if(data.rows.length > 0){
+                result = data.rows[0];   
+            }else{
+                result = -1;
+            }    
+        }, (error) => {
+            result = null;
+        });
+    
+    return result;
+
+}
 
 
-module.exports = {add, addend}
+module.exports = {add, addend, query};
