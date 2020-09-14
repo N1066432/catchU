@@ -8,6 +8,17 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>更新時確認</title>
+<script language="javascript">
+function confirmupdate()
+{
+if(confirm("確定要更新嗎?"))
+alert("確認更新！");
+else
+alert("取消更新");
+}
+</script>
+
 </head>
    
 <body>
@@ -34,19 +45,19 @@
                         <br/>
 
                         <span class="name">員工電話</span>
-                        <span class="value"><input type="tel" name="staffphone"  value="<%= item.staffphone %>"></span>
+                        <span class="value"><input type="tel" name="staffphone"  value="<%= item.staffphone %>" required="required"></span>
                         <br/>
 
                         <span class="name">暱稱</span>
-                        <span class="value"><input type="text" name="nickname" value="<%= item.nickname %>"></span>
+                        <span class="value"><input type="text" name="nickname" value="<%= item.nickname %>" required="required"></span>
                         <br/>
 
                         <span class="name">密碼</span>
-                        <span class="value"><input type="text" name="password" value="<%= item.password %>"></span>
+                        <span class="value"><input type="text" name="password" value="<%= item.password %>" required="required"></span>
                         <br/>
 
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="更新" ></span>    
+                        <span class="value"><input type="submit" value="更新" onclick="confirmupdate()"></span>    
                     </div>
                 </form>
               

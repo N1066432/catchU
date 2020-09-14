@@ -8,6 +8,17 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>儲值時確認</title>
+<script language="javascript">
+function confirmtopup()
+{
+if(confirm("確定要儲值嗎?"))
+alert("確認儲值！");
+else
+alert("取消儲值");
+}
+</script>
+
 </head>
    
 <body>
@@ -31,19 +42,19 @@
                     <div class="form">
                                         
                         <span class="name">會員電話: </span>
-                        <span class="value"><input type="tel" name="memberphone" ></span>
+                        <span class="value"><input type="tel" name="memberphone" required="required"></span>
                         <br/>
 
                         <span class="name">儲值金額: </span>
-                        <span class="value"><input type="number" name="topup" ></span>
+                        <span class="value"><input type="number" name="topup" required="required"></span>
                         <br/>
 
                         <span class="name">儲值點數: </span>
-                        <span class="value"><input type="number" name="topuppoints" ></span>
+                        <span class="value"><input type="number" name="topuppoints" required="required"></span>
                         <br/>
                         
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="儲值" ></span>    
+                        <span class="value"><input type="submit" value="儲值" onclick="confirmtopup()"></span>    
                     </div>
                 </form>
               
