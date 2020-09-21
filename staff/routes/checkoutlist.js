@@ -3,6 +3,7 @@ var router = express.Router();
 
 //增加引用函式
 const checkout = require('./utility/checkout');
+var moment = require('moment');
 
 //接收GET請求
 router.get('/', function(req, res, next) {
@@ -10,6 +11,9 @@ router.get('/', function(req, res, next) {
         if(data==null){
             res.render('error');  //導向錯誤頁面
         }else if(data.length > 0){
+            for(var i=0; i<data.length; i++){
+                data[i].billtime=moment(data[i].billtime).format("YYYY-MM-DD hh:mm:ss")     
+            }       
             console.log(data);
             res.render('checkoutlist', {items:data});  //將資料傳給顯示頁面
         }else{
