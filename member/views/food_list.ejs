@@ -26,14 +26,19 @@
         <div class="content">
             <h2>新增餐點</h2>
             
-
                 <form action = "/orderdetail/add" method = "post">
                     <div class="form">
-
-                        <span class="name">餐點編號: </span>
-                        <span class="value"><input type="number" name="foodid"></span>
+                        <span class="name">餐點名稱: </span>
+                        <span class="value"> 
+                            <select name="foodname" >        
+                                <% for(var i=0; i<result.length; i++) {%>
+                                    <option value="<%= result[i].foodname %>"><%= result[i].foodname %></option>
+                                <% } %> 
+                            </select>
+                        </span>  
                         <br/>
-                       <span class="name">數量: </span>
+                        
+                        <span class="name">數量: </span>
                         <span class="value"><input type="number" name="foodno"></span>
                         <br/>
                               
@@ -54,6 +59,7 @@
 
                         <span class="name"></span>
                         <span class="value"><input type="submit" name="ordtime" value="新增" ></span>
+                    </form>
 
              <h3>查看菜單</h3>
 
@@ -68,21 +74,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% for(var i=0; i<items.length; i++) {%>
+                        <% for(var i=0; i<result.length; i++) {%>
                             <tr>
-                                <td><%= items[i].foodid %></a></td>
-                                <td><%= items[i].foodimg %></td>
-                                <td><%= items[i].foodname %></td>
-                                <td><%= items[i].foodpoint %></td>                      
+                                <td><%= result[i].foodid %></a></td>
+                                <td><%= result[i].foodimg %></td>
+                                <td><%= result[i].foodname %></td>
+                                <td><%= result[i].foodpoint %></td>                      
                             </tr> 
                         <% } %> 
                     </tbody>
                 </table>
-
+  
+                    </div>       
                 
-               
-        </div>       
-        
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="footer">
             NTUB imd, 2019.    

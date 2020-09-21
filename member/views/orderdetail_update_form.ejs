@@ -19,47 +19,50 @@
         
         <!--~~~~~~~~~~~~~~~~~-->        
         <ul id="navigation">        
-            <li><a href="/">返回主頁</a></li> 
+            <li><a href="/orderdetail/update/no">返回上一頁</a></li> 
         </ul>
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>點餐資料更新 </h2>
+            <h2>訂單明細資料更新 </h2>
 
                 <form action = "/orderdetail/update" method = "post">
                     <div class="form">
 
                         <span class="name">訂單明細編號:</span>
-                        <span class="value"><input type="text" name="orderdetailid" value="<%= item.orderdetailid %>" readonly></span>
+                        <span class="value"><input type="text" name="orderdetailid" value="<%= result.orderdetail.orderdetailid %>" readonly></span>
                         <br/>
 
                         <span class="name">會員帳號:</span>
-                        <span class="value"><input type="text" name="memberphone" value="<%= item.memberphone %>" readonly></span>
+                        <span class="value"><input type="text" name="memberphone" value="<%= result.orderdetail.memberphone %>" readonly></span>
                         <br/>
 
-                        <span class="name">餐點編號:</span>
-                        <span class="value"><input type="text" name="foodid" value="<%= item.foodid %>" ></span>
+                        <span class="name">餐點名稱:</span>
+                        <span class="value"><select name="foodname" >
+                            <option value="">請選擇餐點</option>
+                            <% for(var i=0; i<result.food.length; i++) {%>
+                                <% if( result.food[i].foodname == result.orderdetail.foodname){ %>
+                                    <option value="<%= result.food[i].foodname %>" selected><%= result.food[i].foodname %></option>
+                                <% } else{ %>  
+                                    <option value="<%= result.food[i].foodname %>" ><%= result.food[i].foodname %></option> <% } %>
+                            <% } %>  
+                        </select>
                         <br/>
 
                         <span class="name">餐點數量:</span>
-                        <span class="value"><input type="text" name="foodno"  value="<%= item.foodno %>"></span>
+                        <span class="value"><input type="text" name="foodno"  value="<%= result.orderdetail.foodno %>"></span>
                         <br/>
 
                         <span class="name">客製化:</span>
-                        <span class="value"><input type="text" name="customized" value="<%= item.customized %>"></span>
+                        <span class="value"><input type="text" name="customized" value="<%= result.orderdetail.customized %>"></span>
                         <br/>
 
                        
                         <span class="name">桌號:</span>
-                        <span class="value"><input type="text" name="tableno" value="<%= item.tableno %>"></span>
+                        <span class="value"><input type="text" name="tableno" value="<%= result.orderdetail.tableno %>"></span>
                         <br/>
 
-                        <!-- 
-                        <span class="name">建立日期:</span>
-                        <span class="value"><input type="datetime-local" name="ordtime" value="<%= item.ordtime %>"></span>
-                        <br/>
-                        -->
 
                         <span class="name"></span>
                         <span class="value"><input type="submit"   name="ordtime" value="更新" ></span>    
