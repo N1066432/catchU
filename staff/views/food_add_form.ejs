@@ -8,6 +8,17 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>新增時確認</title>
+<script language="javascript">
+function confirmadd()
+{
+if(confirm("確定要新增嗎?"))
+alert("確認新增！");
+else
+alert("取消新增");
+}
+</script>
+
 </head>
    
 <body>
@@ -40,19 +51,19 @@
                         <br/>                       
 
                         <span class="name">餐點名稱: </span>
-                        <span class="value"><input type="text" name="foodname" ></span>
+                        <span class="value"><input type="text" name="foodname" required="required"></span>
                         <br/>
                         
                         <span class="name">餐點點數: </span>
-                        <span class="value"><input type="number" name="foodpoint" /></span>
+                        <span class="value"><input type="number" name="foodpoint" required="required"></span>
                         <br/>
 
                         <span class="name">餐點圖片: </span>
-                        <span class="value"><input type="file" name="foodimg" /></span>
+                        <span class="value"><input type="file" name="foodimg" required="required"></span>
                         <br/>
                         
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="新增" ></span>    
+                        <span class="value"><input type="submit" value="新增" onclick="confirmadd()"></span>    
                     </div>
                 </form>
               
