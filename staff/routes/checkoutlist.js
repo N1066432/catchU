@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
             console.log(data);
             res.render('checkoutlist', {items:data});  //將資料傳給顯示頁面
         }else{
-            res.render('notFound');  //導向找不到頁面
+            res.render('checknotFound');  //導向找不到頁面
         }  
     })
 });
