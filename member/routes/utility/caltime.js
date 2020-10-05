@@ -27,43 +27,64 @@ var add = async function(newData){
 //------------------------------------------
 // 新增結束時間
 //------------------------------------------
-var addend = async function(newData){
-    var result;
-
+var addend = async function(memberphone){
+    var results;
     const current = new Date();
-    //const insertText = 'INSERT INTO calculatingtime("arrivalTime") VALUES ($1)'
     
-    await sql('INSERT INTO calculatingtime ( "memberphone", "endtime") VALUES ($1, $2)', [newData.memberphone, current])
+    console.log(memberphone)
+    //const insertText = 'INSERT INTO calculatingtime("arrivalTime") VALUES ($1)'
+    await sql('UPDATE calculatingtime SET endtime = $2  where "timeserNo" =(select max("timeserNo") from calculatingtime where memberphone =$1)', [memberphone, current])
         .then((data) => {
-            result = 0;  
+            //console.log(data.rowCount)
+            if(data.rowCount > 0){
+                results = 1;   
+            }else{
+                results = -1;
+            }                                                                                                                                       
         }, (error) => {
-            result = -1;
+            results = null;
         });
-		
-    return result;
+    
+    return results;
 }
 
 //------------------------------------------
 //執行資料庫動作的函式-尋找到達及結束時間
 //------------------------------------------
-var query = async function(memberphone){
-    var result;
+var query = async function(data){
+    let result={};
+    let minutes;
+    let mp=data.memberphone;
 
-    await sql('SELECT * FROM calculatingtime WHERE memberphone = $1 order by arrivaltime desc', [memberphone])
-
+    await sql('select * from calculatingtime WHERE memberphone= $1', [data.memberphone])
         .then((data) => {
-            if(data.rows.length > 0){
-                result = data.rows[0];   
-            }else{
-                result = -1;
-            }    
+            result = data.rows[0];  
+            //console.log(result.arrivaltime);
+            //console.log(result.endtime);
+
+            var dt1 = new Date(result.arrivaltime);
+            var dt2 = new Date(result.endtime);
+
+            var diff =(dt2.getTime() - dt1.getTime()) / 60000;
+            minutes = Math.abs(Math.round(diff));            
+            //console.log(minutes);
+
         }, (error) => {
-            result = null;
+            //console.log("error")
+            result = -1;
         });
+
+    await sql('update calculatingtime set staymins= $1 WHERE memberphone= $2', [minutes, mp])   
+        .then((data) => {
+            result = data.rows; 
+        }, (error) => {
+            result = -1;
+        });
+
     
     return result;
-
 }
+
 
 
 module.exports = {add, addend, query};
