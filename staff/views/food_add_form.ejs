@@ -38,7 +38,7 @@ alert("取消新增");
 
             <h2>新增餐點 </h2>
 
-                <form action = "/food/add" method = "post">
+                <form method = "post" enctype="multipart/form-data" action = "/food/add">
                     <div class="form">
                         <span class="name">類別名稱: </span>
                         <span class="value"><select name="itemname" >
