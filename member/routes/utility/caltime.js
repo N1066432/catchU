@@ -49,12 +49,14 @@ var addend = async function(memberphone){
 }
 
 //------------------------------------------
-//執行資料庫動作的函式-尋找到達及結束時間
+//執行資料庫動作的函式-計算總花費時間
 //------------------------------------------
 var query = async function(data){
     let result={};
     let minutes;
     let mp=data.memberphone;
+
+    let t =data.ttotal;
 
     await sql('select * from calculatingtime WHERE memberphone= $1', [data.memberphone])
         .then((data) => {
@@ -80,7 +82,53 @@ var query = async function(data){
         }, (error) => {
             result = -1;
         });
+    
+    //----------------------------------
+    // 計算遊玩所花費的金額
+    //----------------------------------
+    await sql('select * from calculatingtime WHERE memberphone= $1', [data.memberphone])
+        .then((data) => {
+            result = data.rows[0];   
+            //console.log(result.staymins)          
+        }, (error) => {
+            //console.log("error")
+            result = -1;
+        });
+    
+    await sql('select * from storeinformation')
+        .then((data) => {
+            result = data.rows[0];
 
+            var staymins = result.staymins;
+            var atime = result.atime;
+            var apoint = result.apoint;
+            var addapoint = result.addapoint; 
+
+            if(staymins >= atime){
+                t = staymins * apoint;
+            }else{
+                t = staymins * addapoint;
+                result = -1;
+            }
+            console.log(result)
+            console.log(apoint)
+            console.log(addapoint)
+            console.log(atime)
+            console.log(t)
+           
+        }, (error) => {
+            console.log("error")
+            result = null;
+        });
+
+    await sql('update calculatingtime set ttotal= $1 WHERE memberphone= $2', [t, mp])   
+        .then((data) => {
+            result = data.rows; 
+            console.log(data.rows)
+        }, (error) => {
+            result = -1;
+        });
+    
     
     return result;
 }
