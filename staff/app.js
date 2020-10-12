@@ -16,11 +16,6 @@ var food_add_form = require('./routes/food_add_form');
 var food_remove = require('./routes/food_remove');
 var food_remove_form = require('./routes/food_remove_form');
 var staffone = require('./routes/staffone');
-var stafflist = require('./routes/stafflist');
-var staffadd = require('./routes/staffadd');
-var staffaddform = require('./routes/staffaddform');
-var staffremoveform = require('./routes/staffremoveform');
-var staffremove = require('./routes/staffremove');
 var staffupdateno = require('./routes/staffupdateno');
 var staffupdateform = require('./routes/staffupdateform');
 var staffupdate = require('./routes/staffupdate');
@@ -53,8 +48,6 @@ var userlogout = require('./routes/userlogout');
 var registeradd = require('./routes/registeradd');
 var registeraddform = require('./routes/registeraddform');
 var usershow = require('./routes/usershow');
-var caltimeadd = require('./routes/caltimeadd');
-var caltimeaddform = require('./routes/caltimeaddform');
 var checkAuth = require('./routes/checkAuth');
 
 
@@ -97,9 +90,6 @@ app.use('/food/update/no',checkAuth, foodupdateno);
 app.use('/food/update/form',checkAuth,  foodupdateform);
 app.use('/food/update',checkAuth, foodupdate);
 app.use('/staff/one',checkAuth, checkAuth, staffone);
-app.use('/staff/list',checkAuth, stafflist);
-app.use('/staff/add',checkAuth, staffadd);
-app.use('/staff/add/form',checkAuth, staffaddform);
 app.use('/store/list',checkAuth, storelist);
 app.use('/store/add',checkAuth, storeadd);
 app.use('/store/add/form',checkAuth, storeaddform);
@@ -108,8 +98,6 @@ app.use('/store/remove/form',checkAuth, storeremoveform);
 app.use('/store/update/no',checkAuth, storeupdateno);
 app.use('/store/update/form',checkAuth, storeupdateform);
 app.use('/store/update',checkAuth, storeupdate);
-app.use('/staff/remove/form',checkAuth, staffremoveform);
-app.use('/staff/remove',checkAuth, staffremove)
 app.use('/staff/update/no',checkAuth, staffupdateno);
 app.use('/staff/update/form',checkAuth, staffupdateform);
 app.use('/staff/update',checkAuth, staffupdate);
@@ -131,8 +119,6 @@ app.use('/user/logout', userlogout);
 app.use('/user/show', usershow);
 app.use('/register/add', registeradd);
 app.use('/register/add/form', registeraddform);
-app.use('/caltime/add', caltimeadd);
-app.use('/caltime/add/form', caltimeaddform);
 //-----------------------------------------
 
 //----------------------------------------
