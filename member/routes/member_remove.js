@@ -10,9 +10,9 @@ router.post('/', function(req, res, next) {
    
     member.remove(memberphone).then(d => {
         if(d>=0){
-            res.render('removeSuccess', {results:d});  //傳至成功頁面     
+            res.render('member_remove_Success', {results:d});  //傳至成功頁面     
         }else{
-            res.render('removeFail');     //導向錯誤頁面
+            res.render('member_remove_Fail');     //導向錯誤頁面
         }
     })    
 });
