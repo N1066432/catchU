@@ -31,7 +31,7 @@ var addend = async function(memberphone){
     var results;
     const current = new Date();
     
-    console.log(memberphone)
+    //console.log(memberphone)
     //const insertText = 'INSERT INTO calculatingtime("arrivalTime") VALUES ($1)'
     await sql('UPDATE calculatingtime SET endtime = $2  where "timeserNo" =(select max("timeserNo") from calculatingtime where memberphone =$1)', [memberphone, current])
         .then((data) => {
@@ -57,6 +57,9 @@ var query = async function(data){
     let mp=data.memberphone;
 
     let t =data.ttotal;
+    let glo_staymins;
+
+    let at =data.sumtotal;
 
     await sql('select * from calculatingtime WHERE memberphone= $1', [data.memberphone])
         .then((data) => {
@@ -69,10 +72,9 @@ var query = async function(data){
 
             var diff =(dt2.getTime() - dt1.getTime()) / 60000;
             minutes = Math.abs(Math.round(diff));            
-            //console.log(minutes);
+            glo_staymins =minutes;
 
         }, (error) => {
-            //console.log("error")
             result = -1;
         });
 
@@ -83,15 +85,13 @@ var query = async function(data){
             result = -1;
         });
     
-    //----------------------------------
-    // 計算遊玩所花費的金額
-    //----------------------------------
-    await sql('select * from calculatingtime WHERE memberphone= $1', [data.memberphone])
+//----------------------------------
+// 計算遊玩所花費的金額
+//----------------------------------
+    await sql('select * from calculatingtime WHERE memberphone= $1', [mp])
         .then((data) => {
-            result = data.rows[0];   
-            //console.log(result.staymins)          
+            result = data.rows[0];          
         }, (error) => {
-            //console.log("error")
             result = -1;
         });
     
@@ -99,32 +99,51 @@ var query = async function(data){
         .then((data) => {
             result = data.rows[0];
 
-            var staymins = result.staymins;
+            //var staymins = result.staymins;
             var atime = result.atime;
             var apoint = result.apoint;
             var addapoint = result.addapoint; 
+            //console.log(glo_staymins)
+            //console.log(apoint)
 
-            if(staymins >= atime){
-                t = staymins * apoint;
+            if(glo_staymins >= atime){
+                t = glo_staymins * apoint;
             }else{
-                t = staymins * addapoint;
+                t = glo_staymins * addapoint;
                 result = -1;
             }
-            console.log(result)
-            console.log(apoint)
-            console.log(addapoint)
-            console.log(atime)
-            console.log(t)
+            //console.log(t)
            
         }, (error) => {
-            console.log("error")
             result = null;
         });
-
+      
     await sql('update calculatingtime set ttotal= $1 WHERE memberphone= $2', [t, mp])   
         .then((data) => {
-            result = data.rows; 
-            console.log(data.rows)
+            result = data.rowCount; 
+            //console.log(result)
+        }, (error) => {
+            result = -1;
+        });
+
+//----------------------------------
+// 計算餐點費用
+//----------------------------------
+    await sql('select memberphone, sum(total) as sumtotal from orderdetail where date(ordtime) = current_date group by orderdetail.memberphone')
+        .then((data) => {   
+            at = data.rows[0].sumtotal;
+            mp = data.rows[0].memberphone;
+            console.log(at)
+            console.log(mp)
+               
+            
+        }, (error) => {
+            result = -1;
+        });
+
+    await sql('update orderdetail set sumtotal= $1 WHERE memberphone= $2 and date(ordtime) = current_date', [at, mp])   
+        .then((data) => {
+            result = data.rowCount; 
         }, (error) => {
             result = -1;
         });
