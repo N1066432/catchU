@@ -30,6 +30,7 @@ var member_one = require('./routes/member_one');
 var caltime_add = require('./routes/caltime_add');
 var caltime_add_form = require('./routes/caltime_add_form');
 var caltime_addend = require('./routes/caltime_addend');
+var caltime_one = require('./routes/caltime_one');
 var caltime_addend_form = require('./routes/caltime_addend_form');
 
 //查看菜單
@@ -102,6 +103,7 @@ app.use('/member/one', checkAuth, member_one);
 app.use('/caltime/add', caltime_add);
 app.use('/caltime/add/form', caltime_add_form);
 app.use('/caltime/addend', caltime_addend);
+app.use('/caltime/one', caltime_one);
 app.use('/caltime/addend/form', caltime_addend_form);
 
 //查看菜單

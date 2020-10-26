@@ -11,7 +11,7 @@ router.post('/', function(req, res, next) {
     var newData={
         memberphone: memberphone,               //會員手機號碼
         membername: req.body.membername,        //會員名稱
-        lineid: req.body.lineid,                //lineID
+        password: req.body.password,           //密碼
         gender: req.body.gender,                //性別
         mail: req.body.mail,                    //mail
         birthday: req.body.birthday,            //生日
