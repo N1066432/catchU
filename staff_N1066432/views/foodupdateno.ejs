@@ -25,12 +25,17 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>餐點資料更新</h2>
+            <h2>餐點資料修改</h2>
 
             <form action = "/food/update/form" method = "get">
                 <div class="form">
-                    <span class="name">餐點編號: </span>
-                    <span class="value"><input type="text" name="foodid" ></span>
+                    <span class="name">餐點名稱: </span>
+                    <span class="value"><select name="foodid" >
+                        <option value="">請選擇餐點</option>
+                        <% for(var i=0; i<result.food.length; i++) {%>
+                            <option value="<%= result.food[i].foodid %>"><%= result.food[i].foodname %></option>
+                        <% } %> 
+                    </select>
                     <br/>    
             
                     <span class="name"></span>

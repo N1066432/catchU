@@ -8,6 +8,17 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>新增時確認</title>
+<script language="javascript">
+function confirmadd()
+{
+if(confirm("確定要新增嗎?"))
+alert("確認新增！");
+else
+alert("取消新增");
+}
+</script>
+
 </head>
    
 <body>
@@ -32,47 +43,56 @@
 
                                         
                         <span class="name">店家名稱: </span>
-                        <span class="value"><input type="text" name="storename" ></span>
+                        <span class="value"><input type="text" name="storename" required="required"></span>
                         <br/>                       
 
                         <span class="name">店家地址: </span>
-                        <span class="value"><input type="text" name="storeaddress" ></span>
+                        <span class="value"><input type="text" name="storeaddress" required="required"></span>
                         <br/>
                         
                         <span class="name">聯絡電話: </span>
-                        <span class="value"><input type="tel" name="phoneno" /></span>
+                        <span class="value"><input type="tel" name="phoneno" required="required"></span>
                         <br/>
 
                         <span class="name">空桌數: </span>
-                        <span class="value"><input type="number" name="vacanttable" /></span>
+                        <span class="value"><input type="number" name="vacanttable" required="required"></span>
                         <br/>
                         
 
                         <span class="name">營業時間: </span>
-                        <span class="value"><input type="text" name="businesshours" /></span>
+                        <span class="value"><input type="text" name="businesshours" required="required"></span>
                         <br/>
                         
                         <span class="name">提供Wi-Fi: </span>
-                        <span class="value"><input type="text" name="wifi" /></span>
+                        <span class="value"><input type="text" name="wifi" required="required"></span>
                         <br/>
 
                         <span class="name">提供插座: </span>
-                        <span class="value"><input type="text" name="socket" /></span>
+                        <span class="value"><input type="text" name="socket" required="required"></span>
                         <br/>
 
                         <span class="name">提供餐點: </span>
-                        <span class="value"><input type="text" name="provideMeals" /></span>
+                        <span class="value"><input type="text" name="provideMeals" required="required"></span>
                         <br/>
 
                         <span class="name">外食: </span>
-                        <span class="value"><input type="text" name="outsideFood" /></span>
+                        <span class="value"><input type="text" name="outsideFood" required="required"></span>
                         <br/>
 
                         <span class="name">收費標準: </span>
-                        <span class="value"><input type="text" name="chargringStandards" /></span>
+                        <span class="value"><input type="text" name="chargingstandards" required="required"></span>
                         <br/>
+                        
+                        <span class="name">定價: </span>
+                        <span class="value"><input type="number" name="atime" required="required"> 小時</span> <span class="value"><input type="number" name="apoint" required="required">元</span>
+                        <br/>
+
+                        <span class="name">超時不足 </span>
+                        <span class="value"><input type="number" name="lessatime" required="required">分鐘</span> <span class="value">加收: <input type="number" name="addapoint" required="required">元</span>
+                        <br/>
+
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="新增" ></span>    
+                        <span class="value"><input type="submit" value="新增" onclick="confirmadd()"></span>    
                     </div>
                 </form>
               

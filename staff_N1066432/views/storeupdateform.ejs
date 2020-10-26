@@ -8,6 +8,17 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>更新時確認</title>
+<script language="javascript">
+function confirmupdate()
+{
+if(confirm("確定要更新嗎?"))
+alert("確認更新！");
+else
+alert("取消更新");
+}
+</script>
+
 </head>
    
 <body>
@@ -34,47 +45,55 @@
                         <br/>
 
                         <span class="name">店家名稱:</span>
-                        <span class="value"><input type="text" name="storename"  value="<%= item.storename %>"></span>
+                        <span class="value"><input type="text" name="storename"  value="<%= item.storename %>" required="required"></span>
                         <br/>
 
                         <span class="name">店家地址:</span>
-                        <span class="value"><input type="text" name="storeaddress" value="<%= item.storeaddress %>"></span>
+                        <span class="value"><input type="text" name="storeaddress" value="<%= item.storeaddress %>" required="required"></span>
                         <br/>
 
                         <span class="name">聯絡電話:</span>
-                        <span class="value"><input type="tel" name="phoneno" value="<%= item.phoneno %>"></span>
+                        <span class="value"><input type="tel" name="phoneno" value="<%= item.phoneno %>" required="required"></span>
                         <br/>
 
                         <span class="name">空桌數:</span>
-                        <span class="value"><input type="number" name="vacanttable"  value="<%= item.vacanttable %>"></span>
+                        <span class="value"><input type="number" name="vacanttable"  value="<%= item.vacanttable %>" required="required"></span>
                         <br/>
 
                         <span class="name">營業時間:</span>
-                        <span class="value"><input type="text" name="businesshours"  value="<%= item.businesshours %>"></span>
+                        <span class="value"><input type="text" name="businesshours"  value="<%= item.businesshours %>" required="required"></span>
                         <br/>
 
                         <span class="name">提供Wi-Fi:</span>
-                        <span class="value"><input type="text" name="wifi"  value="<%= item.wifi %>"></span>
+                        <span class="value"><input type="text" name="wifi"  value="<%= item.wifi %>" required="required"></span>
                         <br/>
 
                         <span class="name">提供插座:</span>
-                        <span class="value"><input type="text" name="socket"  value="<%= item.socket %>"></span>
+                        <span class="value"><input type="text" name="socket"  value="<%= item.socket %>" required="required"></span>
                         <br/>
 
                         <span class="name">提供餐點:</span>
-                        <span class="value"><input type="text" name="providemeals"  value="<%= item.providemeals %>"></span>
+                        <span class="value"><input type="text" name="providemeals"  value="<%= item.providemeals %>" required="required"></span>
                         <br/>
 
                         <span class="name">外食:</span>
-                        <span class="value"><input type="text" name="outsidefood"  value="<%= item.outsidefood %>"></span>
+                        <span class="value"><input type="text" name="outsidefood"  value="<%= item.outsidefood %>" required="required"></span>
                         <br/>
 
                         <span class="name">收費標準:</span>
-                        <span class="value"><input type="text" name="chargingstandards"  value="<%= item.chargingstandards %>"></span>
+                        <span class="value"><input type="text" name="chargingstandards"  value="<%= item.chargingstandards %>" required="required"></span>
+                        <br/>
+
+                        <span class="name">定價:</span>
+                        <span class="value"><input type="number" name="atime"  value="<%= item.atime %>" required="required"> 小時</span> <span class="value"><input type="number" name="apoint"  value="<%= item.apoint %>" required="required"> 元</span>
+                        <br/>
+
+                        <span class="name">超時不足 </span>
+                        <span class="value"><input type="number" name="lessatime"  value="<%= item.lessatime %>" required="required"> 分鐘</span> <span class="value">加收: <input type="number" name="addapoint"  value="<%= item.addapoint %>" required="required"> 元</span>
                         <br/>
 
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="更新" ></span>    
+                        <span class="value"><input type="submit" value="更新" onclick="confirmupdate()"></span>    
                     </div>
                 </form>
               

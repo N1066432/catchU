@@ -13,13 +13,18 @@ router.post('/', function(req, res, next) {
         storename: req.body.storename,     //取得店家名稱
         storeaddress: req.body.storeaddress,         //取得店家地址
         phoneno: req.body.phoneno,          //取得電話號碼
-        vacanttable: req.body.vacanttable,  //取得空桌數
+        vacanttable: Number(req.body.vacanttable),  //取得空桌數
         businesshours: req.body.businesshours,  //取得營業時間
         wifi: req.body.wifi,                    //取得提供wifi
         socket: req.body.socket,                //取得提供插座
         providemeals: req.body.providemeals,    //取得提供餐點
         outsidefood: req.body.outsidefood,      //取得可帶外食
-        chargingstandards: req.body.chargingstandards     //取得收費標準
+        chargingstandards: req.body.chargingstandards,     //取得收費標準
+        atime: Number(req.body.atime),
+        apoint: Number(req.body.apoint),
+        lessatime: Number(req.body.lessatime),
+        addapoint: Number(req.body.addapoint)
+
     } 
    
     store.update(newData).then(d => {
