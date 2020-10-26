@@ -29,8 +29,13 @@
 
             <form action = "/item/update/form" method = "get">
                 <div class="form">
-                    <span class="name">類別編號: </span>
-                    <span class="value"><input type="number" name="itemID" ></span>
+                    <span class="name">類別名稱: </span>
+                    <span class="value"><select name="itemID" >
+                        <option value="">請選擇類別</option>
+                        <% for(var i=0; i<result.item.length; i++) {%>
+                            <option value="<%= result.item[i].itemID %>"><%= result.item[i].itemname %></option>
+                        <% } %> 
+                    </select>
                     <br/>    
             
                     <span class="name"></span>

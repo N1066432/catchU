@@ -8,8 +8,18 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>刪除時確認</title>
+<script language="javascript">
+function confirmdelete()
+{
+if(confirm("確定要刪除嗎?"))
+alert("確認刪除！");
+else
+alert("取消刪除");
+}
+</script>
 </head>
-   
+
 <body>
     <!--**************************-->
     <div class="container">    
@@ -29,12 +39,18 @@
 
             <form action = "/item/remove" method = "post">
                 <div class="form">
-                    <span class="name">類別編號: </span>
-                    <span class="value"><input type="number" name="itemID"></span>
+                    <span class="name">類別名稱: </span>
+                    <span class="value"><select name="itemID" >
+                        <option value="">請選擇類別</option>
+                        <% for(var i=0; i<result.item.length; i++) {%>
+                            <option value="<%= result.item[i].itemID %>"><%= result.item[i].itemname %></option>
+                        <% } %> 
+                    </select>
+                    </span>
                     <br/>
                                                     
                     <span class="name"></span>
-                    <span class="value"><input type="submit" value="刪除" ></span>    
+                    <span class="value"><input type="submit" value="刪除" onclick="confirmdelete()"></span>    
                 </div>    
             </form>   
               

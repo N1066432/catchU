@@ -8,6 +8,17 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
+<title>更新時確認</title>
+<script language="javascript">
+function confirmupdate()
+{
+if(confirm("確定要更新嗎?"))
+alert("確認更新！");
+else
+alert("取消更新");
+}
+</script>
+
 </head>
    
 <body>
@@ -25,32 +36,40 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>更新餐點 </h2>
+            <h2>修改餐點 </h2>
 
                 <form action = "/food/update" method = "post">
                     <div class="form">
                         <span class="name">餐點編號:</span>
-                        <span class="value"><input type="text" name="foodid" value="<%= item.foodid %>" readonly></span>
+                        <span class="value"><input type="number" name="foodid" value="<%= result.food.foodid %>" readonly></span>
                         <br/>
 
                         <span class="name">類別名稱:</span>
-                        <span class="value"><input type="text" name="itemname"  value="<%= item.itemname %>" readonly></span>
+                        <span class="value"><select name="itemname" >
+                            <option value="">請選擇類別</option>
+                            <% for(var i=0; i<result.item.length; i++) {%>
+                                <% if( result.item[i].itemname == result.food.itemname){ %>
+                                    <option value="<%= result.item[i].itemname %>" selected><%= result.item[i].itemname %></option>
+                                <% } else{ %>  
+                                    <option value="<%= result.item[i].itemname %>" ><%= result.item[i].itemname %></option>                                <% } %>
+                            <% } %> 
+                        </select>
                         <br/>
 
                         <span class="name">餐點名稱:</span>
-                        <span class="value"><input type="text" name="foodname" value="<%= item.foodname %>"></span>
+                        <span class="value"><input type="text" name="foodname" value="<%= result.food.foodname %>" required="required"></span>
                         <br/>
 
                         <span class="name">餐點點數:</span>
-                        <span class="value"><input type="text" name="foodpoint" value="<%= item.foodpoint %>"></span>
+                        <span class="value"><input type="text" name="foodpoint" value="<%= result.food.foodpoint %>" required="required"></span>
                         <br/>
 
                         <span class="name">餐點圖片:</span>
-                        <span class="value"><input type="file" name="foodimg" value="<%= item.foodimg %>"></span>
+                        <span class="value"><input type="file" name="foodimg" value="<%= result.food.foodimg %>" required="required"></span>
                         <br/>
 
                         <span class="name"></span>
-                        <span class="value"><input type="submit" value="更新" ></span>    
+                        <span class="value"><input type="submit" value="更新" onclick="confirmupdate()"></span>    
                     </div>
                 </form>
               

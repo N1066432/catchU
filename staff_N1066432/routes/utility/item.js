@@ -22,7 +22,28 @@ var list = async function(){
     return result;
 }
 
+//------------------------------------------
+// 取出型態資料
+//------------------------------------------
+var getDropdownData = async function(){
+    //儲存下拉式選單資料
+    var item;
+    
+    //取回protype資料
+    await sql('SELECT * FROM item ORDER BY "itemID"')
+        .then((data) => {
+            item = data.rows;  
+        }, (error) => {
+            result = [];
+        });
+    
+    //設定回傳資料    
+    var result = {};
+    result.item = item;
 
+    //回傳
+    return result;
+}
 //------------------------------------------
 // 新增類別
 //------------------------------------------
@@ -88,4 +109,4 @@ var update = async function(newData){
 		
     return results;
 }
-module.exports = {list, add, remove, query, update}
+module.exports = {list, add, remove, query, update, getDropdownData}

@@ -8,17 +8,6 @@
 <link href="/css/menu.css" rel="stylesheet"/>  
 <link href="/css/main.css" rel="stylesheet"/>      
 <!------------------------->
-<title>刪除時確認</title>
-<script language="javascript">
-function confirmdelete()
-{
-if(confirm("確定要刪除嗎?"))
-alert("確認刪除！");
-else
-alert("取消刪除");
-}
-</script>
-
 </head>
    
 <body>
@@ -30,24 +19,14 @@ alert("取消刪除");
         
         <!--~~~~~~~~~~~~~~~~~-->        
         <ul id="navigation">        
-            <li><a href="javascript:history.back()">上一頁</a></li> 
+            <li><a href="/">返回主頁</a></li> 
         </ul>
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>刪除店家資訊</h2> 
+            <h2>已更新<%= result %>筆資料</h2>
 
-            <form action = "/store/remove" method = "post">
-                <div class="form">
-                    <span class="name">店家編號: </span>
-                    <span class="value"><input type="text" name="storeID" ></span>
-                    <br/>
-                                                    
-                    <span class="name"></span>
-                    <span class="value"><input type="submit" value="刪除" onclick="confirmdelete()"></span>    
-                </div>    
-            </form>   
               
                
         </div>       

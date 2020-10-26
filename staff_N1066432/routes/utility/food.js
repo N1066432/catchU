@@ -44,6 +44,29 @@ var getDropdownData = async function(){
     //回傳
     return result;
 }
+
+//------------------------------------------
+// 取出型態資料
+//------------------------------------------
+var getfoodnameData = async function(){
+    //儲存下拉式選單資料
+    var food;
+    
+    //取回protype資料
+    await sql('SELECT * FROM food ORDER BY "foodid"')
+        .then((data) => {
+            food = data.rows;  
+        }, (error) => {
+            result = [];
+        });
+    
+    //設定回傳資料    
+    var result = {};
+    result.food = food;
+
+    //回傳
+    return result;
+}
 //------------------------------------------
 // 新增餐點
 //------------------------------------------
@@ -79,17 +102,27 @@ var remove = async function(foodid){
 //------------------------------------------
 var query = async function(foodid){
     var result={};
-    
     await sql('SELECT * FROM food WHERE "foodid" = $1', [foodid])
         .then((data) => {
             if(data.rows.length > 0){
-                result = data.rows[0];   
+                result.food = data.rows[0];   
             }else{
-                result = -1;
+                result.food = -1;
             }    
         }, (error) => {
-            result = null;
+            result.food = null;
         });
+        
+    //取回protype資料
+    await sql('SELECT * FROM item ORDER BY "itemID"')
+        .then((data) => {
+            result.item = data.rows;  
+        }, (error) => {
+            result.item = [];
+        });
+
+    console.log(result)
+        
 		
     return result;
 }
@@ -109,4 +142,4 @@ var update = async function(newData){
 		
     return results;
 }
-module.exports = {getDropdownData, list, add, remove, query, update}
+module.exports = {getDropdownData, list, add, remove, query, update, getfoodnameData}

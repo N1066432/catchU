@@ -10,13 +10,13 @@ var list = async function(){
     var result=[];
 
     console.log("查詢訂單");
-    await sql('SELECT * FROM orderdetail ')
+    await sql('SELECT * FROM orderdetail WHERE date("ordtime") = date(now()) ORDER BY "ordtime" DESC')
         .then((data) => {            
             result = data.rows;
             console.log(result);
         }, (error) => {
             result = null;
-            console.log("除去錯誤")  ;
+            //console.log("除去錯誤");
         });
 		
     return result;
