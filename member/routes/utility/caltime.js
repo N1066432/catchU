@@ -59,7 +59,12 @@ var query = async function(data){
     let t =data.ttotal;
     let glo_staymins;
 
-    let at =data.sumtotal;
+    let st =data.sumtotal;
+
+    let tp =data.totalpoint;
+
+    let glo_points;
+    let glo_confirm;
 
     await sql('select * from calculatingtime WHERE memberphone= $1', [data.memberphone])
         .then((data) => {
@@ -107,9 +112,9 @@ var query = async function(data){
             //console.log(apoint)
 
             if(glo_staymins >= atime){
-                t = glo_staymins * apoint;
+                t = glo_staymins / atime * apoint;
             }else{
-                t = glo_staymins * addapoint;
+                t = glo_staymins / atime * addapoint;
                 result = -1;
             }
             //console.log(t)
@@ -131,24 +136,96 @@ var query = async function(data){
 //----------------------------------
     await sql('select memberphone, sum(total) as sumtotal from orderdetail where date(ordtime) = current_date group by orderdetail.memberphone')
         .then((data) => {   
-            at = data.rows[0].sumtotal;
-            mp = data.rows[0].memberphone;
-            console.log(at)
-            console.log(mp)
-               
+            st = data.rows[0].sumtotal;
+            mp = data.rows[0].memberphone;      
             
         }, (error) => {
             result = -1;
         });
 
-    await sql('update orderdetail set sumtotal= $1 WHERE memberphone= $2 and date(ordtime) = current_date', [at, mp])   
+    await sql('update orderdetail set sumtotal= $1 WHERE memberphone= $2 and date(ordtime) = current_date', [st, mp])   
         .then((data) => {
             result = data.rowCount; 
         }, (error) => {
             result = -1;
         });
-    
-    
+
+//----------------------------------------
+// 判斷是否點餐和計算總花費金額及轉換成點數
+//----------------------------------------
+    await sql('select * from checkout')
+        .then((data) => {
+            result = data.rows[0];
+
+            if(st > 0){
+                tp = parseInt(t) + parseInt(st);
+            }else{
+                tp = t;
+                result = -1;
+            }
+           
+        }, (error) => {
+            result = null;
+        });   
+
+    await sql('update checkout set totalpoint= $1 WHERE memberphone= $2', [tp, mp])   
+        .then((data) => {
+            result = data.rowCount; 
+        }, (error) => {
+            result = -1;
+        });
+
+//----------------------------------------
+// 判斷點數是否足夠及計算剩餘點數
+//----------------------------------------
+    await sql('select * from member WHERE memberphone= $1', [mp])
+        .then((data) => {
+            result = data.rows[0];      
+            glo_points = result.points;    
+        }, (error) => {
+            result = -1;
+        });
+
+    await sql('select * from orderdetail WHERE memberphone= $1 and date(ordtime) = current_date', [mp])
+        .then((data) => {
+            result = data.rows[0];      
+            glo_confirm = result.confirm; 
+        }, (error) => {
+            result = -1;
+        });
+
+    await sql('select * from checkout WHERE memberphone= $1 and date(billtime) = current_date', [mp])
+        .then((data) => {
+            result = data.rows[0];
+
+            if(glo_points > tp){
+                glo_points = glo_points - tp;
+                glo_confirm = '是';
+            }else{
+                //res.render('not_enough_points');     //導向點數不足頁面
+                glo_confirm = '否';
+            }
+            console.log(glo_points)
+            console.log(glo_confirm)
+        
+        }, (error) => {
+            result = null;
+        });   
+
+    await sql('update member set points= $1 WHERE memberphone= $2', [glo_points, mp])   
+        .then((data) => {
+            result = data.rowCount; 
+        }, (error) => {
+            result = -1;
+        });
+
+    await sql('update orderdetail set confirm= $1 WHERE memberphone= $2 and date(ordtime) = current_date', [glo_confirm, mp])   
+        .then((data) => {
+            result = data.rowCount; 
+        }, (error) => {
+            result = -1;
+        });
+
     return result;
 }
 

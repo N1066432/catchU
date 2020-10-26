@@ -11,8 +11,9 @@ router.post('/', function(req, res, next) {
 
     var newData={   
         memberphone:memberphone,
-        //arrivaltime: req.body.arrivaltime,
-        //endtime: req.body.endtime,
+        ttotal: req.body.ttotal,
+        sumtotal: req.body.sumtotal,
+        totalpoint: req.body.totalpoint,
 
     }  
 
@@ -26,16 +27,3 @@ router.post('/', function(req, res, next) {
 });
 
 module.exports = router;
-
-/*
-let d1 = new Date('2020/9/16 16:00:00');
-let d2 = new Date('2020/9/16 18:30:30');
-
-console.log((d2-d1)/1000);
-
-let d1 = arrivaltime;
-let d2 = endtime;
-var total = ((d1-d2)/1000);
-console.log(total)
-
-*/
