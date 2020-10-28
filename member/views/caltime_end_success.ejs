@@ -25,7 +25,25 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>結束遊玩囉!</h2>
+            <h2>結帳完成囉!</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">遊玩花費金額</th>
+                        <th width="10%">點餐花費金額</th>
+                        <th width="10%">總花費金額</th>
+                                           
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td><%= result[i].ttotal %></a></td>
+                            <td><%= result[i].sumtotal %></td>
+                            <td><%= result[i].totalpoint %></td>
+                        </tr> 
+                </tbody>
+            </table>
               
                
         </div>       

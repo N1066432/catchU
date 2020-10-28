@@ -10,7 +10,7 @@ var list = async function(){
     var result=[];
 
     console.log("查詢結帳明細");
-    await sql('SELECT * FROM checkout ')
+    await sql('SELECT * FROM checkout WHERE date("billtime") = date(now()) ORDER BY "billtime" DESC')
         .then((data) => {            
             result = data.rows;
             console.log(result);

@@ -5,25 +5,6 @@ const sql = require('./asyncDB');
 const session = require('express-session');
 
 //------------------------------------------
-//執行資料庫動作的函式-查看會員資料
-//------------------------------------------
-var list = async function(){
-    var result="";
-
-    //console.log("查看會員資訊");
-    await sql('SELECT * FROM orderdetail')
-        .then((data) => {            
-            result = data.rows;
-            //console.log(result)  ;
-        }, (error) => {
-            result = null;
-            //console.log("除去錯誤")  ;
-        });
-		
-    return result;
-}
-
-//------------------------------------------
 //執行資料庫動作的函式-取出單一員工
 //------------------------------------------
 var list = async function(memberphone){
@@ -31,7 +12,7 @@ var list = async function(memberphone){
     
     await sql('SELECT * FROM orderdetail WHERE memberphone = $1', [memberphone])
     .then((data) => {
-        console.log(data.rows.length)
+        //console.log(data.rows.length)
         console.log(data.rows)
 
         if(data.rows.length > 0){

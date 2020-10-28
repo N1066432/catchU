@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
     
     food.update(newData).then(d => {
         if (d>=0){
-            res.render('updateSuccess', {results:d});  //傳至成功頁面
+            res.render('updatesuccesss', {result:d});  //傳至成功頁面
         }else{
             res.render('updateFail');     //導向錯誤頁面
         }  
