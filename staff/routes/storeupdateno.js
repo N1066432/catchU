@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
+const store = require('./utility/store');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('storeupdateno');
+  store.getDropdownData().then(d => {
+      if (d!=[]){
+          res.render('storeupdateno', {result:d});  //轉至新增頁面
+      }else{
+          res.render('notFound');     //導向錯誤頁面
+      }  
+  });
 });
 
-//匯出
-module.exports = router;
+module.exports = router; 
