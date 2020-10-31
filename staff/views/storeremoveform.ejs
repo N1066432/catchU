@@ -30,8 +30,14 @@
 
             <form action = "/store/remove" method = "post">
                 <div class="form">
-                    <span class="name">店家編號: </span>
-                    <span class="value"><input type="text" name="storeID" ></span>
+                    <span class="name">店家名稱: </span>
+                    <span class="value"><select name="storeID" >
+                        <option value="">請選擇店家</option>
+                        <% for(var i=0; i<result.storeinformation.length; i++) {%>
+                            <option value="<%= result.storeinformation[i].storeID %>"><%= result.storeinformation[i].storename %></option>
+                        <% } %> 
+                    </select>
+                    </span>
                     <br/>
                                                     
                     <span class="name"></span>
