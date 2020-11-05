@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
                 membername: d.membername,
                 password: d.password,
                 gender: d.gender,
-                mail: d.mail,
                 birthday: moment(d.birthday).format("YYYY-MM-DD"),
                 //creationdate: moment(d.creationdate).format("YYYY-MM-DD"),
             }

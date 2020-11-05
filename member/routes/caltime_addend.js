@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
     }  
 
     caltime.query(newData).then(d => {
-        if (d>=0){
+        if (d.rowCount>0){
             res.render('caltime_end_success', {result:d});  //傳至成功頁面
         }else{
             res.render('caltime_end_fail');     //導向錯誤頁面
