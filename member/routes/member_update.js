@@ -13,7 +13,6 @@ router.post('/', function(req, res, next) {
         membername: req.body.membername,        //會員名稱
         password: req.body.password,           //密碼
         gender: req.body.gender,                //性別
-        mail: req.body.mail,                    //mail
         birthday: req.body.birthday,            //生日
         //creationdate: req.body.creationdate    //建立日期
        

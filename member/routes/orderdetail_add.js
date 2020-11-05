@@ -6,26 +6,24 @@ const orderdetail = require('./utility/orderdetail');
 
 //接收POST請求
 router.post('/', function(req, res, next) {
-    console.log('22222222')
-    var memberphone=req.session.memberphone;          
+    console.log('222222222222222')
+    var memberphone=req.session.memberphone;   
+    var foodid=req.body.foodid;      
     var foodname=req.body.foodname;                   
     var foodno= req.body.foodno;                    
     var customized= req.body.customized;            
-    var tableno=req.body.tableno;                   
-    
-    //var ordtime= req.body.ordtime;                  
-    console.log('333333333')
+    var tableno=req.body.tableno;                      
+
     // 建立一個新資料物件
     var newData={
-
         memberphone: memberphone,
+        foodid: foodid,
         foodname: foodname,
         foodno: foodno,                     
         customized: customized,             
         tableno: tableno
-        
-        //ordtime:ordtime                    
     } 
+    console.log('333333333333333333')
     console.log(newData)
     orderdetail.add(newData).then(d => {
         if (d==0){

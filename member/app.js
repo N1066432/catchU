@@ -43,7 +43,7 @@ var orderdetail_remove = require('./routes/orderdetail_remove')
 var orderdetail_update_no = require('./routes/orderdetail_update_no');
 var orderdetail_update_form = require('./routes/orderdetail_update_form');
 var orderdetail_update = require('./routes/orderdetail_update');
-var orderdetail_list = require('./routes/orderdetail_list');
+//var orderdetail_list = require('./routes/orderdetail_list');
 var orderdetail_one = require('./routes/orderdetail_one');
 
 //登入登出
@@ -116,7 +116,7 @@ app.use('/orderdetail/remove', orderdetail_remove);
 app.use('/orderdetail/update/no', orderdetail_update_no);
 app.use('/orderdetail/update/form', orderdetail_update_form);
 app.use('/orderdetail/update', orderdetail_update);
-app.use('/orderdetail/list', orderdetail_list);
+//app.use('/orderdetail/list', orderdetail_list);
 app.use('/orderdetail/one', checkAuth, orderdetail_one);
 
 //登入登出
