@@ -7,9 +7,9 @@ const orderdetail = require('./utility/orderdetail');
 //接收POST請求
 router.post('/', function(req, res, next) {
     console.log('222222222222222')
-    var memberphone=req.session.memberphone;   
-    var foodid=req.body.foodid;      
-    var foodname=req.body.foodname;                   
+    var memberphone=req.session.memberphone;       
+    var foodname=req.body.foodname;  
+    var foodpoint=req.body.foodpoint;             
     var foodno= req.body.foodno;                    
     var customized= req.body.customized;            
     var tableno=req.body.tableno;                      
@@ -17,8 +17,8 @@ router.post('/', function(req, res, next) {
     // 建立一個新資料物件
     var newData={
         memberphone: memberphone,
-        foodid: foodid,
         foodname: foodname,
+        foodpoint: foodpoint,
         foodno: foodno,                     
         customized: customized,             
         tableno: tableno
