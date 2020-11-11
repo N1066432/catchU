@@ -14,12 +14,12 @@
     <!--**************************-->
     <div class="container">    
         <!--~~~~~~~~~~~~~~~~~-->
-        <div class="header">           
+        <div class="header">          
         </div>        
         
         <!--~~~~~~~~~~~~~~~~~-->        
         <ul id="navigation">        
-            <li><a href="/">返回主頁</a></li> 
+            <li><a href="javascript:history.back()">上ㄧ頁</a></li>
         </ul>
         
         <!--~~~~~~~~~~~~~~~~~--> 
@@ -33,31 +33,21 @@
                         <span class="value"><input type="text" name="memberphone" value="<%= item.memberphone %>" readonly></span>
                         <br/>
 
-                        <span class="name">會員名稱:</span>
-                        <span class="value"><input type="text" name="membername"  value="<%= item.membername %>"></span>
+                        <span class="name">會員密碼:</span>
+                        <span class="value"><input type="text" name="password"  value="<%= item.password %>"></span>
                         <br/>
 
-                        <span class="name">lineID:</span>
-                        <span class="value"><input type="text" name="lineid" value="<%= item.lineid %>"></span>
+                        <span class="name">會員名稱:</span>
+                        <span class="value"><input type="text" name="membername"  value="<%= item.membername %>"></span>
                         <br/>
 
                         <span class="name">性別:</span>
                         <span class="value"><input type="text" name="gender" value="<%= item.gender %>"></span>
                         <br/>
 
-                        <span class="name">mail:</span>
-                        <span class="value"><input type="email" name="mail" value="<%= item.mail %>"></span>
-                        <br/>
-
                         <span class="name">生日:</span>
                         <span class="value"><input type="date" name="birthday" value="<%= item.birthday %>"></span>
                         <br/>
-
-                        <!--
-                        <span class="name">建立日期:</span>
-                        <span class="value"><input type="datetime-local" name="creationdate" value="<%= item.creationdate %>"></span>
-                        <br/>
-                        -->
 
                         <span class="name"></span>
                         <span class="value"><input type="submit" name="creationdate" value="更新" ></span>    

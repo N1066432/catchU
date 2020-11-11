@@ -19,29 +19,15 @@
         
         <!--~~~~~~~~~~~~~~~~~-->        
         <ul id="navigation">        
-            <li><a href="/">返回主頁</a></li> 
+            <li><a href="javascript:history.back()">上ㄧ頁</a></li>
         </ul>
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
-            <h2>開始遊玩</h2>
 
-            <script language="javascript">
-                function ShowToday(){
-                var Today=new Date();
-                alert("現在時間是 " + Today.getFullYear()+ " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日 " + Today.getHours() + " 時 " + Today.getMinutes() + " 分 " + Today.getSeconds() + " 秒 ");
-                }
-            </script>
+            <h2>已更新<%= results %>筆資料</h2>
 
-                    <form action = "/caltime/add" method = "post">
-                        <div class="form">
-
-
-                            <span class="name"></span>
-                            <span class="value"><input type="submit"  name="arrivaltime" value="計時開始" ></span>    
-                        </div>
-                    </form>
-           
+              
                
         </div>       
         
@@ -52,3 +38,5 @@
     </div>
     <!--**************************-->    
 </body>
+   
+</html>

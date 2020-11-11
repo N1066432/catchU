@@ -11,9 +11,8 @@ router.post('/', function(req, res, next) {
     var newData={
         memberphone: memberphone,               //會員手機號碼
         membername: req.body.membername,        //會員名稱
-        lineid: req.body.lineid,                //lineID
+        password: req.body.password,           //密碼
         gender: req.body.gender,                //性別
-        mail: req.body.mail,                    //mail
         birthday: req.body.birthday,            //生日
         //creationdate: req.body.creationdate    //建立日期
        
@@ -21,9 +20,9 @@ router.post('/', function(req, res, next) {
     console.log(newData)
     member.update(newData).then(d => {
         if (d>=0){
-            res.render('updateSuccess', {results:d});  //傳至成功頁面
+            res.render('member_update_Success', {results:d});  //傳至成功頁面
         }else{
-            res.render('updateFail');     //導向錯誤頁面
+            res.render('member_update_Fail');     //導向錯誤頁面
         }  
     })
 });

@@ -14,9 +14,8 @@ router.get('/', function(req, res, next) {
             var data = {
                 memberphone: d.memberphone,
                 membername: d.membername,
-                lineid: d.lineid,
+                password: d.password,
                 gender: d.gender,
-                mail: d.mail,
                 birthday: moment(d.birthday).format("YYYY-MM-DD"),
                 //creationdate: moment(d.creationdate).format("YYYY-MM-DD"),
             }
