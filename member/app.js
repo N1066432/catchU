@@ -29,6 +29,8 @@ var member_one = require('./routes/member_one');
 //計算時間
 var caltime_add = require('./routes/caltime_add');
 var caltime_add_form = require('./routes/caltime_add_form');
+var caltime_addend = require('./routes/caltime_addend');
+var caltime_addend_form = require('./routes/caltime_addend_form');
 
 //查看菜單
 var food_list = require('./routes/food_list');
@@ -40,7 +42,6 @@ var orderdetail_remove = require('./routes/orderdetail_remove')
 var orderdetail_update_no = require('./routes/orderdetail_update_no');
 var orderdetail_update_form = require('./routes/orderdetail_update_form');
 var orderdetail_update = require('./routes/orderdetail_update');
-var orderdetail_list = require('./routes/orderdetail_list');
 var orderdetail_one = require('./routes/orderdetail_one');
 
 //登入登出
@@ -99,6 +100,8 @@ app.use('/member/one', checkAuth, member_one);
 //計算時間
 app.use('/caltime/add', caltime_add);
 app.use('/caltime/add/form', caltime_add_form);
+app.use('/caltime/addend', caltime_addend);
+app.use('/caltime/addend/form', caltime_addend_form);
 
 //查看菜單
 app.use('/food/list', food_list);
@@ -110,7 +113,6 @@ app.use('/orderdetail/remove', orderdetail_remove);
 app.use('/orderdetail/update/no', orderdetail_update_no);
 app.use('/orderdetail/update/form', orderdetail_update_form);
 app.use('/orderdetail/update', orderdetail_update);
-app.use('/orderdetail/list', orderdetail_list);
 app.use('/orderdetail/one', checkAuth, orderdetail_one);
 
 //登入登出
