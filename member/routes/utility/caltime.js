@@ -67,11 +67,11 @@ var query = async function(data){
     let glo_points;
     let glo_confirm;
 
-    await sql('select * from calculatingtime WHERE memberphone= $1', [data.memberphone])
+    await sql('select * from calculatingtime WHERE memberphone= $1 and date(arrivaltime) = current_date and date(endtime) = current_date', [data.memberphone])
         .then((data) => {
             result = data.rows[0];  
-            //console.log(result.arrivaltime);
-            //console.log(result.endtime);
+            console.log(result.arrivaltime);
+            console.log(result.endtime);
 
             var dt1 = new Date(result.arrivaltime);
             var dt2 = new Date(result.endtime);
@@ -85,7 +85,7 @@ var query = async function(data){
             console.log("**error01")
         });
 
-    await sql('update calculatingtime set staymins= $1 WHERE memberphone= $2', [minutes, mp])   
+    await sql('update calculatingtime set staymins= $1 WHERE memberphone= $2 and date(arrivaltime) = current_date and date(endtime) = current_date', [minutes, mp])   
         .then((data) => {
             result = data.rows; 
         }, (error) => {
@@ -96,7 +96,7 @@ var query = async function(data){
 //----------------------------------
 // 計算遊玩所花費的金額
 //----------------------------------
-    await sql('select * from calculatingtime WHERE memberphone= $1', [mp])
+    await sql('select * from calculatingtime WHERE memberphone= $1 and date(arrivaltime) = current_date and date(endtime) = current_date', [mp])
         .then((data) => {
             results.ttotal = data.rows[0].ttotal;          
         }, (error) => {
@@ -133,7 +133,7 @@ var query = async function(data){
             console.log("**error04")
         });
    
-    await sql('update calculatingtime set ttotal= $1 WHERE memberphone= $2', [t, mp])   
+    await sql('update calculatingtime set ttotal= $1 WHERE memberphone= $2 and date(arrivaltime) = current_date and date(endtime) = current_date', [t, mp])   
         .then((data) => {
             result = data.rowCount; 
         }, (error) => {
@@ -144,7 +144,7 @@ var query = async function(data){
 //----------------------------------
 // 計算餐點費用
 //----------------------------------
-    await sql('select memberphone, sum(total) as sumtotal from orderdetail where date(ordtime) = current_date group by orderdetail.memberphone')
+    await sql('select memberphone, sum(foodpoint) as sumtotal from orderdetail where date(ordtime) = current_date group by orderdetail.memberphone')
         .then((data) => {   
             st = data.rows[0].sumtotal;
             mp = data.rows[0].memberphone;   
@@ -167,7 +167,7 @@ var query = async function(data){
 //----------------------------------------
 // 判斷是否點餐和計算總花費金額及轉換成點數
 //----------------------------------------
-    await sql('select * from checkout')
+    await sql('select * from checkout ')
         .then((data) => {
             result = data.rows[0];
 

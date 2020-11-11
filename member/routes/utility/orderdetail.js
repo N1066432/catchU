@@ -34,7 +34,7 @@ var getDropdownData = async function(){
     //儲存下拉式選單資料
    
     //取回protype資料
-    await sql('SELECT * FROM food ORDER BY foodname')
+    await sql('SELECT * FROM food')
         .then((data) => {
             result.food = data.rows; 
         }, (error) => {
@@ -79,19 +79,10 @@ var getDropdown = async function(memberphone){
 
 var add = async function(newData){
     var result;
-    console.log('111111111111111')
-    console.log(newData)
-    console.log(newData.foodid)
-    console.log(newData.foodname)
-    console.log(newData.foodno)
-    console.log(newData.customized)
-    console.log(newData.memberphone)
-    console.log(newData.tableno)
-    console.log(newData.ordtime)
   
     const current = new Date();
 
-    await sql('INSERT INTO orderdetail (foodid, foodname, foodno, customized, memberphone, tableno, ordtime)  VALUES ($1, $2, $3, $4, $5, $6, $7)', [newData.foodid, newData.foodname, newData.foodno, newData.customized, newData.memberphone, newData.tableno, current])
+    await sql('INSERT INTO orderdetail (foodname, foodpoint, foodno, customized, memberphone, tableno, ordtime)  VALUES ($1, $2, $3, $4, $5, $6, $7)', [newData.foodname, newData.foodpoint, newData.foodno, newData.customized, newData.memberphone, newData.tableno, current])
         .then((data) => {
             result = 0;  
         }, (error) => {
@@ -121,7 +112,6 @@ var remove = async function(orderdetailid){
 //執行資料庫動作的函式-取得一個會員資料
 //------------------------------------------
 var query = async function(orderdetailid){
-
     var result={};
 
     await sql('SELECT * FROM orderdetail WHERE "orderdetailid" = $1', [orderdetailid])
@@ -130,12 +120,12 @@ var query = async function(orderdetailid){
                 result.orderdetail = data.rows[0];   
             }else{
                 result.orderdetail = -1;
-            }    
+            }     
         }, (error) => {
             result.orderdetail = null;
         });
         
-    //取回protype資料
+
     await sql('SELECT * FROM food ORDER BY foodname')
         .then((data) => {
             result.food = data.rows; 
@@ -155,7 +145,7 @@ var update = async function(newData){
 
     const current = new Date();
 
-    await sql('UPDATE orderdetail SET "foodid"=$2, "foodname"=$3, "foodno"=$4, "customized"=$5, "memberphone"=$6, "tableno"=$7, "ordtime"=$8 WHERE "orderdetailid" = $1', [newData.orderdetailid, newData.foodid, newData.foodname, newData.foodno, newData.customized, newData.memberphone, newData.tableno, current])
+    await sql('UPDATE orderdetail SET "foodname"=$2, "foodpoint"=$3, "foodno"=$4, "customized"=$5, "memberphone"=$6, "tableno"=$7, "ordtime"=$8 WHERE "orderdetailid" = $1', [newData.orderdetailid, newData.foodname, newData.foodpoint, newData.foodno, newData.customized, newData.memberphone, newData.tableno, current])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {

@@ -9,8 +9,9 @@ const orderdetail = require('./utility/orderdetail');
 router.get('/', function(req, res, next) {
     var no = req.query.orderdetailid;
     var foodname = req.body.foodname;
+    var foodpoint = req.body.foodpoint;
 
-    orderdetail.query(no, foodname).then(d => {
+    orderdetail.query(no, foodname, foodpoint).then(d => {
         if (d!=null && d!=-1){
             res.render('orderdetail_update_form', {result:d});  //將資料傳給更新頁面
         }else{
