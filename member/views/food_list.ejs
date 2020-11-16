@@ -35,9 +35,12 @@
 
                 <form action = "/orderdetail/add" method = "post">
                     <div class="form">
+                        <% for(var i=0; i<result.length; i++) {%>
+                            <% result[i].foodname = result[i].foodname +","+ result[i].foodpoint %>
+                        <% } %>
 
                         <span class="name">餐點名稱: </span>
-                        <span class="value"> 
+                        <span class="value">  
                             <select name="foodname" >        
                                 <% for(var i=0; i<result.length; i++) {%>
                                     <option value="<%= result[i].foodname %>"><%= result[i].foodname %></option>
@@ -45,17 +48,8 @@
                             </select>
                         </span>  
                         <br/>
-                        
-                        <span class="name">餐點價格: </span>
-                        <span class="value"> 
-                            <select name="foodpoint" >        
-                                <% for(var i=0; i<result.length; i++) {%>
-                                    <option value="<%= result[i].foodpoint %>"><%= result[i].foodpoint %></option>
-                                <% } %> 
-                            </select>
-                        </span>  
-                        <br/>
-                        
+                    
+                
                         <span class="name">數量: </span>
                         <span class="value"><input type="number" name="foodno"></span>
                         <br/>
@@ -73,7 +67,7 @@
                         <span class="value"><input type="submit" name="ordtime" value="新增" ></span>
                     </form>
 
-             <h3>查看菜單</h3>
+             <h3>菜單</h3>
 
                 <table>
                     <thead>

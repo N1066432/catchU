@@ -7,9 +7,11 @@ const orderdetail = require('./utility/orderdetail');
 //接收POST請求
 router.post('/', function(req, res, next) {
     console.log('222222222222222')
-    var memberphone=req.session.memberphone;       
-    var foodname=req.body.foodname;  
-    var foodpoint=req.body.foodpoint;             
+    var memberphone=req.session.memberphone;   
+    var k = req.body.foodname;
+    k = k.split(',');
+    var foodname= k[0];  
+    var foodpoint= k[1];             
     var foodno= req.body.foodno;                    
     var customized= req.body.customized;            
     var tableno=req.body.tableno;                      
