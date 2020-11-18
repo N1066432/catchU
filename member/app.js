@@ -60,7 +60,7 @@ var app = express();
 // 增加引用express-session
 //--------------------------------------------------------------------
 var session = require('express-session');
-app.use(session({secret: 'recommand 128 bytes random string', cookie: { maxAge: 1*60*60*1000 }}));
+app.use(session({secret: 'recommand 128 bytes random string', cookie: { maxAge: 10*60*60*1000 }}));
 //--------------------------------------------------------------------
 
 // view engine setup
