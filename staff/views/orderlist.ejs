@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>測試網頁</title>
+<title>CatchU 會員餐點訂單明細</title>
 <!-- 連結思源中文及css -->
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
 <link href="/css/menu.css" rel="stylesheet"/>  
@@ -31,14 +31,12 @@
                     <thead>
                         <tr>
                             <th width="5%">訂單明細編號</th>
-                            <th width="10%">餐點編號</th>
                             <th width="5%">數量</th>
                             <th width="20%">備註</th>
                             <th width="10%">會員電話號碼</th>  
                             <th width="10%">員工電話號碼</th> 
                             <th width="5%">桌號</th>  
-                            <th width="10%">合計</th>  
-                            <th width="5%">是否結帳</th>  
+                            <th width="10%">合計</th>   
                             <th width="20%">建立時間</th>  
                                                  
                         </tr>
@@ -47,14 +45,12 @@
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr>
                                 <td><%= items[i].orderdetailid %></a></td>
-                                <td><%= items[i].foodid %></td>
                                 <td><%= items[i].foodno %></td>
                                 <td><%= items[i].customized %></td>
                                 <td><%= items[i].memberphone %></td>   
                                 <td><%= items[i].staffphone %></td>  
                                 <td><%= items[i].tableno %></td> 
                                 <td><%= items[i].total %></td> 
-                                <td><%= items[i].confirm %></td> 
                                 <td><%= items[i].ordtime %></td>   
 
                             </tr> 
