@@ -11,7 +11,8 @@ router.post('/', function(req, res, next) {
     var newData={
         orderdetailid:orderdetailid,               
         memberphone: req.body.memberphone,               
-        foodname: req.body.foodname,                    
+        foodname: req.body.foodname,  
+        foodpoint: req.body.foodpoint,                   
         foodno: req.body.foodno,                    
         customized: req.body.customized,          
         tableno: req.body.tableno,                  

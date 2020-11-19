@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>測試網頁</title>
+<title>訂單明細更新 catchU</title>
 <!-- 連結思源中文及css -->
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
 <link href="/css/menu.css" rel="stylesheet"/>  
@@ -25,7 +25,7 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
 
-            <h2>訂單明細資料更新 </h2>
+            <h2>訂單明細更新</h2>
 
                 <form action = "/orderdetail/update" method = "post">
                     <div class="form">
@@ -49,7 +49,19 @@
                             <% } %>  
                         </select>
                         <br/>
-
+                        
+                        <span class="name">餐點價格:</span>
+                        <span class="value"><select name="foodpoint" >
+                            <option value="">請選擇餐點價格</option>
+                            <% for(var i=0; i<result.food.length; i++) {%>
+                                <% if( result.food[i].foodpoint == result.orderdetail.foodpoint){ %>
+                                    <option value="<%= result.food[i].foodpoint %>" selected><%= result.food[i].foodpoint %></option>
+                                <% } else{ %>  
+                                    <option value="<%= result.food[i].foodpoint %>" ><%= result.food[i].foodpoint %></option> <% } %>
+                            <% } %>  
+                        </select>
+                        <br/>
+                        
                         <span class="name">餐點數量:</span>
                         <span class="value"><input type="text" name="foodno"  value="<%= result.orderdetail.foodno %>"></span>
                         <br/>

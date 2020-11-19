@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>測試網頁</title>
+<title>點餐 catchU</title>
 <!-- 連結思源中文及css -->
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
 <link href="/css/menu.css" rel="stylesheet"/>  
@@ -35,13 +35,12 @@
 
                 <form action = "/orderdetail/add" method = "post">
                     <div class="form">
-
-                        <span class="name">餐點編號: </span>
-                        <span class="value"><input type="number" name="foodid"></span>
-                        <br/>
+                        <% for(var i=0; i<result.length; i++) {%>
+                            <% result[i].foodname = result[i].foodname +","+ result[i].foodpoint %>
+                        <% } %>
 
                         <span class="name">餐點名稱: </span>
-                        <span class="value"> 
+                        <span class="value">  
                             <select name="foodname" >        
                                 <% for(var i=0; i<result.length; i++) {%>
                                     <option value="<%= result[i].foodname %>"><%= result[i].foodname %></option>
@@ -49,8 +48,8 @@
                             </select>
                         </span>  
                         <br/>
-                        
-                        
+                    
+                
                         <span class="name">數量: </span>
                         <span class="value"><input type="number" name="foodno"></span>
                         <br/>
@@ -68,14 +67,14 @@
                         <span class="value"><input type="submit" name="ordtime" value="新增" ></span>
                     </form>
 
-             <h3>查看菜單</h3>
+             <h3>菜單</h3>
 
                 <table>
                     <thead>
                         <tr>
                             <th width="10%">餐點編號</th>
                             <th width="30%">餐點圖片</th>
-                            <th width="40%">餐點名稱</th>
+                            <th width="40%">餐點名稱,金額</th>
                             <th width="20%">金額</th>
                                                
                         </tr>
@@ -84,7 +83,7 @@
                         <% for(var i=0; i<result.length; i++) {%>
                             <tr>
                                 <td><%= result[i].foodid %></a></td>
-                                <td><%= result[i].foodimg %></td>
+                                <td><img src="https://catchustaff.herokuapp.com/imgs/<%= result[i].foodimg %>" width="300"></td>
                                 <td><%= result[i].foodname %></td>
                                 <td><%= result[i].foodpoint %></td>                      
                             </tr> 
