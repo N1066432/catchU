@@ -81,40 +81,41 @@
                 </div>
             </header>
         <!--~~~~~~~~~~~~~~~~~--> 
-        <div class="banner-w3pvt-info ">
-            <div class="overlay-w3ls">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="banner-content text-center">
-                                <h3>會員消費明細</h3>
-                               
-                            </div>
+        <section class="contact" id="contact">
+                <div class="banner-w3pvt-info ">
+                    <div class="overlay-w3ls">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="banner-content text-center">
+                                        <h3>會員消費明細</h3>
+                                    
+                                    </div>
 
-                <table class="table">
-                    <thead>
-                        <tr class="table-light" style="text-align:center;">
-                            <th width="20%">流水號</th>
-                            <th width="20%">會員電話</th>
-                            <th width="20%">員工電話</th>
-                            <th width="20%">消費點數</th>
-                            <th width="20%">結帳時間</th>                        
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for(var i=0; i<items.length; i++) {%>
-                            <tr class="table-light">
-                                <td align="center" style="vertical-align:middle;"><%= items[i].serNo %></a></td>
-                                <td align="center" style="vertical-align:middle;"><%= items[i].memberphone %></td>
-                                <td align="center" style="vertical-align:middle;"><%= items[i].staffphone %></td>
-                                <td align="center" style="vertical-align:middle;"><%= items[i].totalpoint %></td>
-                                <td align="center" style="vertical-align:middle;"><%= items[i].billtime %></td>                        
-                            </tr> 
-                        <% } %> 
-                    </tbody>
-                </table> 
-        </div>       
-        
+                        <table class="table">
+                            <thead>
+                                <tr class="table-light" style="text-align:center;">
+                                    <th width="20%">流水號</th>
+                                    <th width="20%">會員電話</th>
+                                    <th width="20%">員工電話</th>
+                                    <th width="20%">消費點數</th>
+                                    <th width="20%">結帳時間</th>                        
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0; i<items.length; i++) {%>
+                                    <tr class="table-light">
+                                        <td align="center" style="vertical-align:middle;"><%= items[i].serNo %></a></td>
+                                        <td align="center" style="vertical-align:middle;"><%= items[i].memberphone %></td>
+                                        <td align="center" style="vertical-align:middle;"><%= items[i].staffphone %></td>
+                                        <td align="center" style="vertical-align:middle;"><%= items[i].totalpoint %></td>
+                                        <td align="center" style="vertical-align:middle;"><%= items[i].billtime %></td>                        
+                                    </tr> 
+                                <% } %> 
+                            </tbody>
+                        </table> 
+                </div>       
+        </section>
        <!--~~~~~~~~~~~~~~~~~--> 
        <!--~~~~~~~~~~~~~~~~~--> 
         <div class="copy-right">
