@@ -99,34 +99,34 @@
              <a href="/store/update/no" class="btn">修改店家資訊</a> 
              <table class="table">
                     <thead>
-                        <tr class="table-light">
-                            <th width="5%">店家編號</th>
-                            <th width="15%">店家名稱</th>
+                        <tr class="table-light" style="text-align:center;">
+                            <th width="10%">店家編號</th>
+                            <th width="10%">店家名稱</th>
                             <th width="15%">店家地址</th>
-                            <th width="15%">聯絡電話</th>
+                            <th width="10%">聯絡電話</th>
                             <th width="5%">空桌數</th>       
                             <th width="10%">營業時間</th>  
                             <th width="5%">Wi-Fi</th> 
                             <th width="5%">提供插座</th> 
                             <th width="5%">提供餐點</th>   
                             <th width="5%">外食</th>       
-                            <th width="20%">收費標準</th>                                                   
+                            <th width="25%">收費標準</th>                                                   
                         </tr>
                     </thead>
                     <tbody>
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr class="table-light">
-                                <td><%= items[i].storeID %></a></td>
-                                <td><%= items[i].storename %></td>
-                                <td><%= items[i].storeaddress %></td>
-                                <td><%= items[i].phoneno %></td>
-                                <td><%= items[i].vacanttable %></td>   
-                                <td><%= items[i].businesshours %></a></td>     
-                                <td><%= items[i].wifi %></a></td>    
-                                <td><%= items[i].socket %></a></td>   
-                                <td><%= items[i].providemeals %></a></td>       
-                                <td><%= items[i].outsidefood %></a></td>
-                                <td><%= items[i].chargingstandards %></a></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].storeID %></a></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].storename %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].storeaddress %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].phoneno %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].vacanttable %></td>   
+                                <td align="center" style="vertical-align:middle;"><%= items[i].businesshours %></a></td>     
+                                <td align="center" style="vertical-align:middle;"><%= items[i].wifi %></a></td>    
+                                <td align="center" style="vertical-align:middle;"><%= items[i].socket %></a></td>   
+                                <td align="center" style="vertical-align:middle;"><%= items[i].providemeals %></a></td>       
+                                <td align="center" style="vertical-align:middle;"><%= items[i].outsidefood %></a></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].chargingstandards %></a></td>
                             </tr> 
                         <% } %> 
                     </tbody>

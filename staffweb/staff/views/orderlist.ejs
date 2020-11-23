@@ -101,16 +101,14 @@
 
                 <table class="table">
                     <thead>
-                        <tr class="table-light">
-                            <th width="5%">訂單明細編號</th>
-                            <th width="10%">餐點編號</th>
+                        <tr class="table-light"  style="text-align:center;">
+                            <th width="10%">訂單明細編號</th>
+                            <th width="10%">餐點名稱</th>
                             <th width="5%">數量</th>
-                            <th width="20%">備註</th>
+                            <th width="10%">備註</th>
                             <th width="10%">會員電話號碼</th>  
-                            <th width="10%">員工電話號碼</th> 
                             <th width="5%">桌號</th>  
                             <th width="10%">合計</th>  
-                            <th width="5%">是否結帳</th>  
                             <th width="20%">建立時間</th>  
                                                  
                         </tr>
@@ -118,16 +116,14 @@
                     <tbody>
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr class="table-light">
-                                <td><%= items[i].orderdetailid %></a></td>
-                                <td><%= items[i].foodid %></td>
-                                <td><%= items[i].foodno %></td>
-                                <td><%= items[i].customized %></td>
-                                <td><%= items[i].memberphone %></td>   
-                                <td><%= items[i].staffphone %></td>  
-                                <td><%= items[i].tableno %></td> 
-                                <td><%= items[i].total %></td> 
-                                <td><%= items[i].confirm %></td> 
-                                <td><%= items[i].ordtime %></td>   
+                                <td align="center" style="vertical-align:middle;"><%= items[i].orderdetailid %></a></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].foodname %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].foodno %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].customized %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].memberphone %></td>   
+                                <td align="center" style="vertical-align:middle;"><%= items[i].tableno %></td> 
+                                <td align="center" style="vertical-align:middle;"><%= items[i].sumtotal %></td> 
+                                <td align="center" style="vertical-align:middle;"><%= items[i].ordtime %></td>   
 
                             </tr> 
                             

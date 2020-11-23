@@ -101,7 +101,7 @@
              <a href="/food/update/no" class="btn">修改餐點資料</a>
                 <table class="table">
                     <thead>
-                        <tr class="table-light">
+                        <tr class="table-light" style="text-align:center;">
                             <th width="20%">餐點編號</th>
                             <th width="20%">類別名稱</th>
                             <th width="20%">餐點名稱</th>
@@ -112,12 +112,12 @@
                     <tbody>
                         
                         <% for(var i=0; i<items.length; i++) {%>
-                            <tr class="table-light">
-                                <td><%= items[i].foodid %></td>
-                                <td><%= items[i].itemname %></td>
-                                <td><%= items[i].foodname %></td>
-                                <td><%= items[i].foodpoint %></td>
-                                <td><img src="/imgs/<%= items[i].foodimg %>" width="300"></td>                         
+                            <tr class="table-light" >
+                                <td align="center" style="vertical-align:middle;"><%= items[i].foodid %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].itemname %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].foodname %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].foodpoint %></td>
+                                <td align="center" style="vertical-align:middle;"><img src="/imgs/<%= items[i].foodimg %>" width="300"></td>                         
                             </tr> 
                         <% } %> 
                     </tbody>
