@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
             console.log(data);
             res.render('itemlist', {items:data});  //將資料傳給顯示頁面
         }else{
-            res.render('notFound');  //導向找不到頁面
+            res.render('itemnotFound');  //導向找不到頁面
         }  
     })
 });
