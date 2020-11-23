@@ -96,7 +96,7 @@
              <a href="/item/remove/form" class="btn">刪除餐點類別資訊</a>
              <a href="/item/update/no" class="btn">修改餐點類別資訊</a>     
                 <table>
-                    <table class="table">
+                    <table class="table"  style="text-align:center;">
                         <tr class="table-light">
                             <th width="50%">類別編號</th>
                             <th width="50%">類別名稱</th>                                          
@@ -106,8 +106,8 @@
                      <tbody>
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr class="table-light">
-                                <td><%= items[i].itemID %></td>
-                                <td><%= items[i].itemname %></td>                           
+                                <td  align="center" style="vertical-align:middle;"><%= items[i].itemID %></td>
+                                <td  align="center" style="vertical-align:middle;"><%= items[i].itemname %></td>                           
                             </tr> 
                         <% } %> 
                     </tbody>
