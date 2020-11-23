@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+    <head> 
+        <title>CatchU</title>
+        <!-- Meta tag Keywords -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="Norm Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script>
+            addEventListener("load", function() {
+                setTimeout(hideURLbar, 0);
+            }, false);
+    
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+    
+        </script>
+        <!-- //Meta tag Keywords -->
+        <!-- Custom-Files -->
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <!-- Bootstrap-Core-CSS -->
+        <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+        <!-- Style-CSS -->
+        <!-- font-awesome-icons -->
+        <link href="/css/font-awesome.css" rel="stylesheet">
+        <!-- //font-awesome-icons -->
+        <!-- /Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+        <!-- //Fonts -->
+    <meta charset="utf-8">
+    
+    
+    <!------------------------->
+    
+    </head>
+   
+<body>
+    <!--**************************-->
+     <!-- mian-content -->
+     <div class="main-content" id="home">
+        <!-- header -->
+        <header class="header">
+            <div class="container">
+                <!-- nav -->
+                <nav class="py-2">
+                    <div id="logo">
+                        <h1> <a class="navbar-brand" href="/">桌助你<span>catchU</span> </a>
+                        </h1>
+                    </div>
+
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu">
+                        <li class="active"><a href="/">返回首頁</a></li>
+                       
+                        <li class="dropdown">
+                            <!-- First Tier Drop Down -->
+                            <label for="drop-2" class="toggle"> <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                            
+                            <input type="checkbox" id="drop-2" />
+                           
+                        </li>
+                       
+
+                        <li class="header-right">
+                            <ul class="list-unstyled team-icons mt-4">
+                                <li>
+                                    <a href="#" class="t-icon">
+                                        <span class="fa fa-facebook-f"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="t-icon">
+                                        <span class="fa fa-twitter"></span>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- //nav -->
+            </div>
+        </header>
+        <!-- //header -->
+        
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <section class="contact">
+        <div class="banner-w3pvt-info ">
+            <div class="overlay-w3ls">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="banner-content text-center"><h3>會員餐點訂單明細</h3></div>
+                        </div>
+            
+
+                <table class="table">
+                    <thead>
+                        <tr class="table-light">
+                            <th width="5%">訂單明細編號</th>
+                            <th width="10%">餐點編號</th>
+                            <th width="5%">數量</th>
+                            <th width="20%">備註</th>
+                            <th width="10%">會員電話號碼</th>  
+                            <th width="10%">員工電話號碼</th> 
+                            <th width="5%">桌號</th>  
+                            <th width="10%">合計</th>  
+                            <th width="5%">是否結帳</th>  
+                            <th width="20%">建立時間</th>  
+                                                 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<items.length; i++) {%>
+                            <tr class="table-light">
+                                <td><%= items[i].orderdetailid %></a></td>
+                                <td><%= items[i].foodid %></td>
+                                <td><%= items[i].foodno %></td>
+                                <td><%= items[i].customized %></td>
+                                <td><%= items[i].memberphone %></td>   
+                                <td><%= items[i].staffphone %></td>  
+                                <td><%= items[i].tableno %></td> 
+                                <td><%= items[i].total %></td> 
+                                <td><%= items[i].confirm %></td> 
+                                <td><%= items[i].ordtime %></td>   
+
+                            </tr> 
+                            
+                        <% } %> 
+                    </tbody>
+                </table>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+               
+        </div>
+        </section>       
+        
+        <div class="copy-right">
+            <div class="container">
+                <div class="row">
+                    <p class="copy-right-grids text-md-left text-center my-sm-4 my-4 col-md-6">© 2020 CatchU|桌助你 | Design by 109408組
+                        
+                    </p>
+                    <div class="w3pvt-footer text-md-right text-center mt-4 col-md-5">
+                      
+                    </div>
+                    <div class="move-top text-right col-md-1"><a href="#home" class="move-top"> <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span></a></div>
+    
+                </div>
+            </div>
+        </div>
+    
+    </body>
+    
+    </html>
