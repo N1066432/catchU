@@ -111,7 +111,7 @@ var update = async function(newData){
 
     const current = new Date();
 
-    await sql('UPDATE member SET membername=$2, password=$3, gender=$4, birthday=$5, creationdate=$6  WHERE memberphone = $1', [newData.memberphone, newData.membername, newData.password, newData.gender, newData.birthday, current])
+    await sql('UPDATE member SET password=$2, membername=$3, gender=$4, birthday=$5, creationdate=$6  WHERE memberphone = $1', [newData.memberphone, newData.password, newData.membername, newData.gender, newData.birthday, current])
         .then((data) => {
             results = data.rowCount;  
         }, (error) => {
