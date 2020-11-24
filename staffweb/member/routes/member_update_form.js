@@ -13,8 +13,8 @@ router.get('/', function(req, res, next) {
         if (d!=null && d!=-1){
             var data = {
                 memberphone: d.memberphone,
-                membername: d.membername,
                 password: d.password,
+                membername: d.membername,
                 gender: d.gender,
                 birthday: moment(d.birthday).format("YYYY-MM-DD"),
                 //creationdate: moment(d.creationdate).format("YYYY-MM-DD"),
