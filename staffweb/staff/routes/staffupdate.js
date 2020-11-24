@@ -6,11 +6,11 @@ const staff = require('./utility/staff');
 
 //接收POST請求
 router.post('/', function(req, res, next) {
-    var username = req.body.username;   //取得員工姓名
+    var staffphone = req.body.staffphone;   //取得員工姓名
 
     var newData={
-        username:username,                   //員工姓名
-        staffphone: req.body.staffphone,     //取得員工電話
+        staffphone: staffphone,                   //員工姓名
+        username: req.body.username,     //取得員工電話
         nickname: req.body.nickname,         //取得暱稱
         password: req.body.password          //取得密碼
     } 

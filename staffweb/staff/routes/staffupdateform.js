@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
     staff.query(no).then(d => {
         if (d!=null && d!=-1){
             var data = {
-                username: d.username,
                 staffphone: d.staffphone,
+                username: d.username,
                 nickname: d.nickname,
                 password: d.password,
             }

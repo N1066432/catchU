@@ -52,9 +52,10 @@ var query = async function(staffphone){
 //----------------------------------
 var update = async function(newData){
     var results;
-
-    await sql('UPDATE staff SET "username"=$2, "nickname"=$3, "password"=$4 WHERE "staffphone" = $1', [newData.staffphone, newData.username, newData.nickname, newData.password])
+    console.log(newData)
+    await sql('UPDATE staff SET "username"=$2, "nickname"=$3, "password"=$4 WHERE "staffphone" = $1 ', [newData.staffphone, newData.username, newData.nickname, newData.password])
         .then((data) => {
+            console.log(newData)
             results = data.rowCount;  
         }, (error) => {
             results = -1;
