@@ -85,6 +85,7 @@ var query = async function(data){
             var diff =(dt2.getTime() - dt1.getTime()) / 60000;
             minutes = Math.abs(Math.round(diff));            
             glo_staymins =minutes;
+            
         }, (error) => {
             result = -1;
         });
@@ -131,6 +132,7 @@ var query = async function(data){
            
         }, (error) => {
             result = null;
+            
         });
    
     await sql('update calculatingtime set ttotal= $1 WHERE memberphone= $2 and date(arrivaltime) = current_date and date(endtime) = current_date', [t, mp])   
