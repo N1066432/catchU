@@ -40,7 +40,7 @@
                     <!-- nav -->
                     <nav class="py-2">
                         <div id="logo">
-                            <h1> <a class="navbar-brand" href="/">桌助你<span>catchU</span> </a>
+                            <h1> <a class="navbar-brand" href="/">桌助你<span>CatchU</span> </a>
                             </h1>
                         </div>
     
@@ -83,7 +83,7 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <section class="contact py-5" id="contact">
             <div class="container py-lg-5">
-                <h3 class="title-w3ls two text-center">會員資料更新</h3>
+                <h3 class="title-w3ls two text-center">會員資料修改</h3>
                 <div class="col-lg-12 contact_grid_center">
 
                 <form action = "/member/update" method = "post">
@@ -100,7 +100,7 @@
                                 <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">會員密碼</p>
                                 </div>
                                 <div class="col-sm-12">
-                                    <input type="text" class="value" name="password" placeholder="請輸入會員密碼" value="<%= item.password %>" required="">
+                                    <input type="password" class="value" name="password" placeholder="請輸入會員密碼" value="<%= item.password %>" required="">
                                 </div>
                                 <br/>
 
@@ -117,7 +117,7 @@
                                     <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">性別</p>
                                 </div>
                                 <div class="col-sm-12">
-                                    <input type="password" class="value" name="password" placeholder="請輸入男/女/第三性" value="<%= item.gender %>" required="">
+                                    <input type="text" class="value" name="gender" placeholder="請輸入男/女/第三性" value="<%= item.gender %>" required="">
                                 </div>
                                 <div class="col-sm-12">
                                     <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">生日</p>
