@@ -19,10 +19,3 @@ router.get('/', function(req, res, next) {
 //匯出
 module.exports = router;
 
-
-/* GET home page. */
-/*
-router.get('/', function(req, res, next) {
-  res.render('orderdetail_update_no');
-});
-*/

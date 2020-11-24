@@ -40,7 +40,7 @@
                     <!-- nav -->
                     <nav class="py-2">
                         <div id="logo">
-                            <h1> <a class="navbar-brand" href="/">桌助你<span>catchU</span> </a>
+                            <h1> <a class="navbar-brand" href="/">桌助你<span>CatchU</span> </a>
                             </h1>
                         </div>
     
@@ -84,11 +84,14 @@
         <!--~~~~~~~~~~~~~~~~~--> 
         <section class="contact py-5" id="contact">
             <div class="container py-lg-5">
-                <h3 class="title-w3ls two text-center">更新訂單明細</h3>
+                <h3 class="title-w3ls two text-center">修改訂單明細</h3>
                 <div class="col-lg-12 contact_grid_center">
 
                 <form action = "/orderdetail/update" method = "post">
                     <div class="form">
+                        <% for(var i=0; i<result.length; i++) {%>
+                            <% result[i].foodname = result[i].foodname +","+ result[i].foodpoint %>
+                        <% } %>
 
                         <div class="col-lg-6 contact_grid_left" >
                             <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">訂單編號</p>
@@ -113,7 +116,7 @@
                         <span class="value"><select name="foodname" >
                             <option value="">請選擇餐點</option>
                             <% for(var i=0; i<result.food.length; i++) {%>
-                                <% if( result.food[i].foodname == result.orderdetail.foodname){ %>
+                                <% if( result.food[i].foodname  == result.orderdetail.foodname){ %>
                                     <option value="<%= result.food[i].foodname %>" selected><%= result.food[i].foodname %></option>
                                 <% } else{ %>  
                                     <option value="<%= result.food[i].foodname %>" ><%= result.food[i].foodname %></option> <% } %>
@@ -151,7 +154,7 @@
                                 <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">客製化</p>
                                 </div>
                                 <div class="col-sm-12">
-                                    <input type="number" class="value" name="customized" placeholder="請輸入客製化項目" value="<%= result.orderdetail.customized %>" required="">
+                                    <input type="text" class="value" name="customized" placeholder="請輸入客製化項目" value="<%= result.orderdetail.customized %>" required="">
                                 </div>
                                 <br/>
 

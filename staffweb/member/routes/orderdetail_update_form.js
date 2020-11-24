@@ -22,15 +22,3 @@ router.get('/', function(req, res, next) {
 
 //匯出
 module.exports = router;
-
-/*
-var data = {
-    orderdetailid: d.orderdetailid,
-    foodid: d.foodid,
-    foodname: d.foodname,
-    customized: d.customized,
-    memberphone: d.memberphone,
-    tableno: d.tableno
-    //ordtime: moment(d.ordtime).format("YYYY-MM-DD"),
-}
-*/
