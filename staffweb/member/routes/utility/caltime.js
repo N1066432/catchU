@@ -40,7 +40,7 @@ var addend = async function(memberphone){
         }, (error) => {
             results = null;
         });
-
+    /*
     await sql('UPDATE checkout SET billtime = $2  where "serNo" =(select max("serNo") from checkout where memberphone =$1)', [memberphone, current])
         .then((data) => {
             if(data.rowCount > 0){
@@ -51,7 +51,7 @@ var addend = async function(memberphone){
         }, (error) => {
             results = null;
         });
-    
+    */
     return results;
 }
 
@@ -74,6 +74,8 @@ var query = async function(data){
 
     let glo_points;
     let glo_confirm = data.confirm;
+
+    const current = new Date();
 
     await sql('select * from calculatingtime WHERE memberphone= $1 and date(arrivaltime) = current_date and date(endtime) = current_date', [data.memberphone])
         .then((data) => {
@@ -184,6 +186,13 @@ var query = async function(data){
             result = null;
             console.log(tp)
         });   
+    
+    await sql('INSERT INTO checkout (memberphone, totalpoint, billtime) VALUES ($1, $2, $3)', [mp, tp, current])
+        .then((data) => {
+            result = 0; 
+        }, (error) => {
+            result = -1;
+        });
 
     await sql('update checkout set totalpoint= $1 WHERE memberphone= $2', [tp, mp])   
         .then((data) => {
@@ -223,7 +232,8 @@ var query = async function(data){
             results.glo_confirm = glo_confirm; 
         }, (error) => {
             result = null;
-        });   
+        });  
+		
 
     await sql('update member set points= $1 WHERE memberphone= $2', [glo_points, mp])   
         .then((data) => {
@@ -235,6 +245,8 @@ var query = async function(data){
     await sql('update calculatingtime set confirm= $1 WHERE memberphone= $2 and date(endtime) = current_date', [glo_confirm, mp])   
         .then((data) => {
             result = data.rowCount; 
+            console.log(result)
+            console.log(results)
   
         }, (error) => {
             result = -1;

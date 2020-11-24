@@ -15,6 +15,7 @@ router.post('/', function(req, res, next) {
         sumtotal: req.body.sumtotal,
         totalpoint: req.body.totalpoint,
         confoirm: req.body.confoirm,
+        billtime: req.body.billtime,
 
     }  
 
