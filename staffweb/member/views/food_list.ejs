@@ -46,14 +46,14 @@
                 <!-- nav -->
                 <nav class="py-2">
                     <div id="logo">
-                        <h1> <a class="navbar-brand" href="/">桌助你<span>catchU</span> </a>
+                        <h1> <a class="navbar-brand" href="/user/login/form">桌助你<span>catchU</span> </a>
                         </h1>
                     </div>
 
                     <label for="drop" class="toggle">Menu</label>
                     <input type="checkbox" id="drop" />
                     <ul class="menu">
-                        <li class="active"><a href="/">返回首頁</a></li>
+                        <li class="active"><a href="/user/login/form">返回首頁</a></li>
                        
                         <li class="dropdown">
                             <!-- First Tier Drop Down -->
@@ -107,14 +107,14 @@
             </script>
 
                 <form action = "/orderdetail/add" method = "post">
-                    <div class="form">
+                    <div class="form" align="center" style="vertical-align:middle;">
                         <% for(var i=0; i<result.length; i++) {%>
                             <% result[i].foodname = result[i].foodname +","+ result[i].foodpoint %>
                         <% } %>
 
                         
                         <div class="col-lg-6 contact_grid_left">
-                            <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">餐點名稱</p>>
+                            <p class="main_p4 mt-2 mb-2 pt-2 text-md-middle mx-auto" >餐點名稱</p>
                             </div>
                             
                             <div class="col-sm-12"> 
@@ -128,12 +128,12 @@
                             </div>
                             </select> 
                             </span>
-                    </div>
+                        </div>
                            
                     
                 
                             <div class="col-lg-6 contact_grid_left">
-                                <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">數量</p>>
+                                <p class="main_p4 mt-2 mb-2 pt-2 text-md-middle mx-auto">數量</p>
                              </div>
                             <div class="col-sm-12">
                                 <span class="value"><input type="number" name="foodno"  placeholder="請選擇數量" readonly=""></span>
@@ -141,14 +141,14 @@
                        
                               
                         <div class="col-lg-6 contact_grid_left">
-                            <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">桌號</p>>
+                            <p class="main_p4 mt-2 mb-2 pt-2 text-md-middle mx-auto">桌號</p>
                          </div>
                          <div class="col-sm-12">
                             <span class="value"><input type="text" name="tableno"  placeholder="請輸入桌號" readonly=""></span>
                         </div>
 
                         <div class="col-lg-6 contact_grid_left">
-                            <p class="main_p4 mt-2 mb-2 pt-2 text-md-left mx-auto">備註</p>>
+                            <p class="main_p4 mt-2 mb-2 pt-2 text-md-middle mx-auto">備註</p>
                          </div>
                          <div class="col-sm-12">
                             <span class="value"><input type="text" name="customized"  placeholder="請填寫備註" readonly=""></span>
@@ -159,7 +159,7 @@
                         <br/>
                         <br/>
                         <div class="col-sm-12">
-                        <span class="value"><input type="submit" name="ordtime" value="新增" ></span>
+                        <span class="value"><input type="submit" name="ordtime" value="點餐" ></span>
                     </div>
                     </form>
 
@@ -170,7 +170,7 @@
 
                     <table class="table">
                     <thead>
-                        <tr class="table-light">
+                        <tr class="table-light" style="text-align:center;">
                             <th width="10%">餐點編號</th>
                             <th width="30%">餐點圖片</th>
                             <th width="40%">餐點名稱,金額</th>
@@ -181,10 +181,10 @@
                     <tbody>
                         <% for(var i=0; i<result.length; i++) {%>
                             <tr class="table-light">
-                                <td><%= result[i].foodid %></a></td>
-                                <td><img src="https://catchustaff.herokuapp.com/imgs/<%= result[i].foodimg %>" width="300"></td>
-                                <td><%= result[i].foodname %></td>
-                                <td><%= result[i].foodpoint %></td>                      
+                                <td align="center" style="vertical-align:middle;"><%= result[i].foodid %></a></td>
+                                <td align="center" style="vertical-align:middle;"><img src="https://catchustaff.herokuapp.com/imgs/<%= result[i].foodimg %>" width="300"></td>
+                                <td align="center" style="vertical-align:middle;"><%= result[i].foodname %></td>
+                                <td align="center" style="vertical-align:middle;"><%= result[i].foodpoint %></td>                      
                             </tr> 
                         <% } %> 
                     </tbody>

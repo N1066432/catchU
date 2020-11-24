@@ -3,6 +3,7 @@ var router = express.Router();
 
 //增加引用函式
 const orderdetail = require('./utility/orderdetail');
+var moment = require('moment');
 
 //接收GET請求
 router.get('/', function(req, res, next) {
@@ -11,6 +12,9 @@ router.get('/', function(req, res, next) {
             res.render('error');  //導向錯誤頁面
         }else if(data.length > 0){
             console.log(data);
+            for(var i=0; i<data.length; i++){
+                data[i].ordtime=moment(data[i].ordtime).format("YYYY-MM-DD hh:mm:ss")     
+            } 
             res.render('orderdetail_list', {items:data});  //將資料傳給顯示頁面
         }else{
             res.render('notFound');  //導向找不到頁面

@@ -42,14 +42,14 @@
                 <!-- nav -->
                 <nav class="py-2">
                     <div id="logo">
-                        <h1> <a class="navbar-brand" href="index.html">桌助你<span>catchU</span> </a>
+                        <h1> <a class="navbar-brand" href="/user/login/form">桌助你<span>catchU</span> </a>
                         </h1>
                     </div>
 
                     <label for="drop" class="toggle">Menu</label>
                     <input type="checkbox" id="drop" />
                     <ul class="menu">
-                        <li class="active"><a href="/">返回首頁</a></li>
+                        <li class="active"><a href="/user/login/form">返回首頁</a></li>
                        
                         <li class="dropdown">
                             <!-- First Tier Drop Down -->
@@ -99,32 +99,32 @@
 
                   <table class="table">
                     <thead>
-                        <tr class="table-light">
-                            <th width="15%">店家名稱</th>
+                        <tr class="table-light" style="text-align:center;">
+                            <th width="10%">店家名稱</th>
                             <th width="20%">店家地址</th>
-                            <th width="10%">電話號碼</th>
+                            <th width="10%">聯絡電話</th>
                             <th width="10%">空桌數量</th>
                             <th width="10%">營業時間</th>
                             <th width="5%">wifi</th>
                             <th width="5%">插座</th>
-                            <th width="5%">提供餐點</th>
+                            <th width="10%">提供餐點</th>
                             <th width="5%">外食</th> 
-                            <th width="15%">收費標準</th>                         
+                            <th width="25%">收費標準</th>                         
                         </tr>
                     </thead>
                     <tbody>
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr class="table-light">
-                                <td><%= items[i].storename %></a></td>
-                                <td><%= items[i].storeaddress %></td>
-                                <td><%= items[i].phoneno %></td>
-                                <td><%= items[i].vacanttable %></td>
-                                <td><%= items[i].businesshours %></td>
-                                <td><%= items[i].wifi %></td>  
-                                <td><%= items[i].socket %></td>
-                                <td><%= items[i].providemeals %></td>
-                                <td><%= items[i].outsidefood %></td>
-                                <td><%= items[i].chargingstandards %></td>                      
+                                <td align="center" style="vertical-align:middle;"><%= items[i].storename %></a></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].storeaddress %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].phoneno %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].vacanttable %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].businesshours %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].wifi %></td>  
+                                <td align="center" style="vertical-align:middle;"><%= items[i].socket %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].providemeals %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].outsidefood %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].chargingstandards %></td>                      
                             </tr> 
                         <% } %> 
                     </tbody>

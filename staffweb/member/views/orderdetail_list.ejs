@@ -40,14 +40,14 @@
                     <!-- nav -->
                     <nav class="py-2">
                         <div id="logo">
-                            <h1> <a class="navbar-brand" href="/">桌助你<span>catchU</span> </a>
+                            <h1> <a class="navbar-brand" href="/user/login/form">桌助你<span>catchU</span> </a>
                             </h1>
                         </div>
     
                         <label for="drop" class="toggle">Menu</label>
                         <input type="checkbox" id="drop" />
                         <ul class="menu">
-                            <li class="active"><a href="/">返回主頁</a></li>
+                            <li class="active"><a href="/user/login/form">返回首頁</a></li>
                            
                             <li class="dropdown">
                                 <!-- First Tier Drop Down -->
@@ -98,7 +98,7 @@
 
             <table class="table">
                     <thead>
-                        <tr class="table-light">
+                        <tr class="table-light" style="text-align:center;">
                             <th width="20%">會員帳號</th>
                             <th width="10%">訂單明細編號</th>
                             <th width="10%">餐點名稱</th>
@@ -113,13 +113,13 @@
                         <% for(var i=0; i<items.length; i++) {%>
                             <tr class="table-light">
                                 <!--<td><a href="/orderdetail/one/<%= items[i].memberphone %>"><%= items[i].memberphone %></a></td>-->
-                                <td><%= items[i].memberphone %></td>
-                                <td><%= items[i].orderdetailid %></td>
-                                <td><%= items[i].foodname %></td>
-                                <td><%= items[i].foodno %></td>
-                                <td><%= items[i].customized %></td>
-                                <td><%= items[i].tableno %></td>
-                                <td><%= items[i].ordtime %></td>                      
+                                <td align="center" style="vertical-align:middle;"><%= items[i].memberphone %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].orderdetailid %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].foodname %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].foodno %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].customized %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].tableno %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items[i].ordtime %></td>                      
                             </tr>
                         <% } %>  
                     </tbody>
