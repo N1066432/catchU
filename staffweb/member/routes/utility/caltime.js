@@ -40,6 +40,17 @@ var addend = async function(memberphone){
         }, (error) => {
             results = null;
         });
+
+    await sql('UPDATE checkout SET billtime = $2  where "serNo" =(select max("serNo") from checkout where memberphone =$1)', [memberphone, current])
+        .then((data) => {
+            if(data.rowCount > 0){
+                results = 1;   
+            }else{
+                results = -1;
+            }                                                                                                                                       
+        }, (error) => {
+            results = null;
+        });
     
     return results;
 }
@@ -52,6 +63,7 @@ var query = async function(data){
     let result={};
     let minutes;
     let mp=data.memberphone;
+    let arrivaltime = data.arrivaltime;
 
     let t =data.ttotal;
     let glo_staymins;
@@ -73,10 +85,8 @@ var query = async function(data){
             var diff =(dt2.getTime() - dt1.getTime()) / 60000;
             minutes = Math.abs(Math.round(diff));            
             glo_staymins =minutes;
-
         }, (error) => {
             result = -1;
-            console.log("**error01")
         });
 
     await sql('update calculatingtime set staymins= $1 WHERE memberphone= $2 and date(arrivaltime) = current_date and date(endtime) = current_date', [minutes, mp])   
@@ -84,9 +94,7 @@ var query = async function(data){
             result = data.rows; 
         }, (error) => {
             result = -1;
-            console.log("**error02")
         });
-    
 //----------------------------------
 // 計算遊玩所花費的金額
 //----------------------------------
@@ -95,9 +103,8 @@ var query = async function(data){
             results.ttotal = data.rows[0].ttotal;          
         }, (error) => {
             result = -1;
-            console.log("**error03")
         });
-    
+
     await sql('select * from storeinformation')
         .then((data) => {
             result = data.rows[0];
@@ -124,7 +131,6 @@ var query = async function(data){
            
         }, (error) => {
             result = null;
-            console.log("**error04")
         });
    
     await sql('update calculatingtime set ttotal= $1 WHERE memberphone= $2 and date(arrivaltime) = current_date and date(endtime) = current_date', [t, mp])   
@@ -132,7 +138,6 @@ var query = async function(data){
             result = data.rowCount; 
         }, (error) => {
             result = -1;
-            console.log("**error05")
         });
 
 //----------------------------------
@@ -156,7 +161,6 @@ var query = async function(data){
             result = data.rowCount; 
         }, (error) => {
             result = -1;
-            console.log("**error07")
         });
 
 //----------------------------------------
@@ -176,7 +180,6 @@ var query = async function(data){
            
         }, (error) => {
             result = null;
-            console.log("**error08")
             console.log(tp)
         });   
 
@@ -185,7 +188,6 @@ var query = async function(data){
             result = data.rowCount; 
         }, (error) => {
             result = -1;
-            console.log("**error09")
         });
 
 //----------------------------------------
@@ -197,7 +199,6 @@ var query = async function(data){
             glo_points = result.points;    
         }, (error) => {
             result = -1;
-            console.log("**error10")
         });
 
     await sql('select * from calculatingtime WHERE memberphone= $1 and date(endtime) = current_date', [mp])
@@ -205,7 +206,6 @@ var query = async function(data){
             result = data.rows[0].glo_confirm;      
         }, (error) => {
             result = -1;
-            console.log("**error11")
         });
 
     await sql('select * from checkout WHERE memberphone= $1 and date(billtime) = current_date', [mp])
@@ -221,7 +221,6 @@ var query = async function(data){
             results.glo_confirm = glo_confirm; 
         }, (error) => {
             result = null;
-            console.log("**error12")
         });   
 
     await sql('update member set points= $1 WHERE memberphone= $2', [glo_points, mp])   
@@ -229,7 +228,6 @@ var query = async function(data){
             results.rowCount = data.rowCount; 
         }, (error) => {
             result = -1;
-            console.log("**error13")
         });
 
     await sql('update calculatingtime set confirm= $1 WHERE memberphone= $2 and date(endtime) = current_date', [glo_confirm, mp])   
@@ -239,7 +237,6 @@ var query = async function(data){
         }, (error) => {
             result = -1;
 
-            console.log("**error14")
         });
     return results;
 }

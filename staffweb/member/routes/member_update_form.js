@@ -7,7 +7,7 @@ const member = require('./utility/member');
 
 //接收GET請求
 router.get('/', function(req, res, next) {
-    var no = req.query.memberphone;
+    var no = req.session.memberphone;
 
     member.query(no).then(d => {
         if (d!=null && d!=-1){
