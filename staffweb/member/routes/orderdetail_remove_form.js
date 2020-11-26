@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
         if (d!=[]){
             res.render('orderdetail_remove_form', {result:d});  //轉至新增頁面
         }else{
-            res.render('addFail');     //導向錯誤頁面
+            res.render('orderdetail_notFound');     //導向錯誤頁面
         }  
     });
 });
