@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
             res.render('error');  //導向錯誤頁面
         }else if(data.length > 0){
             for(var i=0; i<data.length; i++){
-                data[i].ordtime=moment(data[i].ordtime).format("YYYY-MM-DD hh:mm:ss")     
+                data[i].ordtime=moment(data[i].ordtime).format("YYYY-MM-DD")     
             }    
             console.log(data);
             res.render('orderlist', {items:data});  //將資料傳給顯示頁面

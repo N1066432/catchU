@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
         if (d!=null && d!=-1){
             res.render('caltime_addend_form');  //將資料傳給更新頁面
         }else{
-            res.render('notFound');  //導向找不到頁面
+            res.render('notStart');  //導向找不到頁面
         }  
     })
 });

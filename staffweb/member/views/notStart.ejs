@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head> 
-        <title>CatchU 會員餐點訂單明細</title>
+        <title>CatchU</title>
         <!-- Meta tag Keywords -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8" />
@@ -89,53 +89,13 @@
         <!-- //header -->
         
         <!--~~~~~~~~~~~~~~~~~--> 
-        <section class="contact">
-        <div class="banner-w3pvt-info ">
-            <div class="overlay-w3ls">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="banner-content text-center"><h3>會員餐點訂單明細</h3></div>
-                        </div>
-            
-
-                <table class="table">
-                    <thead>
-                        <tr class="table-light"  style="text-align:center;">
-                            <th width="15%">訂單明細編號</th>
-                            <th width="10%">餐點名稱</th>
-                            <th width="5%">數量</th>
-                            <th width="10%">備註</th>
-                            <th width="15%">會員電話號碼</th>  
-                            <th width="5%">桌號</th>  
-                            <th width="20%">建立時間</th>  
-                                                 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for(var i=0; i<items.length; i++) {%>
-                            <tr class="table-light">
-                                <td align="center" style="vertical-align:middle;"><%= items[i].orderdetailid %></a></td>
-                                <td align="center" style="vertical-align:middle;"><%= items[i].foodname %></td>
-                                <td align="center" style="vertical-align:middle;"><%= items[i].foodno %></td>
-                                <td align="center" style="vertical-align:middle;"><%= items[i].customized %></td>
-                                <td align="center" style="vertical-align:middle;"><%= items[i].memberphone %></td>   
-                                <td align="center" style="vertical-align:middle;"><%= items[i].tableno %></td> 
-                                <td align="center" style="vertical-align:middle;"><%= items[i].ordtime %></td>   
-
-                            </tr> 
-                            
-                        <% } %> 
-                    </tbody>
-                </table>   
-                        </div>
-                    </div>
-                </div>
+        <section class="contact py-5" id="contact">
+            <div class="container py-lg-5">
+                <h3 class="title-w3ls two text-center">請先點選開始遊玩！</h3>
             </div>
-               
-        </div>
-        </section>       
-        
+        </section>
+        <!--~~~~~~~~~~~~~~~~~--> 
+        <!--~~~~~~~~~~~~~~~~~--> 
         <div class="copy-right">
             <div class="container">
                 <div class="row">

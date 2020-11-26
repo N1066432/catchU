@@ -16,7 +16,7 @@ var usersRouter = require('./routes/users');
 var store_list = require('./routes/store_list');
 
 //會員
-var member_list = require('./routes/member_list') ;
+//var member_list = require('./routes/member_list') ;
 var member_add_form = require('./routes/member_add_form');
 var member_add = require('./routes/member_add');
 var member_remove_form = require('./routes/member_remove_form');
@@ -87,7 +87,7 @@ app.use('/users', usersRouter);
 app.use('/store/list', store_list);
 
 //會員資料
-app.use('/member/list', member_list);
+//app.use('/member/list', member_list);
 app.use('/member/add/form', member_add_form);
 app.use('/member/add', member_add);
 app.use('/member/remove/form', member_remove_form);
