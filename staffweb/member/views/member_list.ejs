@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>CatchU</title>
+        html = newEJS({url: 'member_list.ejs'});
         <!-- Meta tag Keywords -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8" />
@@ -89,7 +90,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="banner-content text-center">
-                                    <h3>餐點資料</h3>
+                                    <h3>會員資料</h3>
                                    
                                 </div>
              <a href="/member/remove/form" class="btn">刪除會員</a>
@@ -98,23 +99,25 @@
              <table class="table">
                     <thead>
                         <tr class="table-light" style="text-align:center;">
-                            <th width="20%">會員帳號</th>
-                            <th width="20%">會員名稱</th>
-                            <th width="20%">性別</th>
+                            <th width="15%">會員帳號</th>
+                            <th width="15%">會員名稱</th>
+                            <th width="20%">會員點數</th>
+                            <th width="10%">性別</th>
                             <th width="20%">生日</th>
                             <th width="20%">建立日期</th>                        
                         </tr>
                     </thead>
                     <tbody>
                         
-                        <tr class="table-light">
+                            <tr class="table-light">
                                 <td align="center" style="vertical-align:middle;"><%= items.memberphone %></a></td>
                                 <td align="center" style="vertical-align:middle;"><%= items.membername %></td>
+                                <td align="center" style="vertical-align:middle;"><%= items.points %></td>
                                 <td align="center" style="vertical-align:middle;"><%= items.gender %></td> 
                                 <td align="center" style="vertical-align:middle;"><%= items.birthday %></td>
                                 <td align="center" style="vertical-align:middle;"><%= items.creationdate %></td>                     
                             </tr> 
- 
+
                     </tbody>
                 </table>   
               

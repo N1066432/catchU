@@ -15,6 +15,8 @@ router.get('/', function(req, res, next) {
         }else if(data==-1){
             res.render('notFound');  //導向找不到頁面
         }else{
+            data.creationdate=moment(data.creationdate).format("YYYY-MM-DD")
+            data.birthday=moment(data.birthday).format("YYYY-MM-DD")
             res.render('member_list', {items:data});  //將資料傳給顯示頁面
         }  
     })

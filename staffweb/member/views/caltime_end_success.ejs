@@ -46,7 +46,8 @@
                     </div>
 
                     <label for="drop" class="toggle">Menu</label>
-                    <input type="checkbox" id="drop" >
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu">
                         <li class="active"><a href="/user/login/form">返回首頁</a></li>
                        
                         <li class="dropdown">
@@ -97,18 +98,18 @@
     <table class="table">
                 <thead>
                     <tr class="table-light">
-                        <th width="20%">遊玩花費金額</th>
-                        <th width="10%">點餐花費金額</th>
-                        <th width="10%">總花費金額</th>
-                        <th width="10%">是否結帳完成</th>            
+                        <th width="25%">遊玩花費金額</th>
+                        <th width="25%">點餐花費金額</th>
+                        <th width="25%">總花費金額</th>
+                        <th width="25%">是否結帳完成</th>            
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="table-light">
-                            <td><%= result.ttotal %></a></td>
-                            <td><%= result.sumtotal %></td>
-                            <td><%= result.totalpoint %></td>
-                            <td><%= result.glo_confirm %></td>
+                        <td><%= result.ttotal %></a></td>
+                        <td><%= result.sumtotal %></td>
+                        <td><%= result.totalpoint %></td>
+                        <td><%= result.glo_confirm %></td>
                         </tr> 
                 </tbody>
                 <% if (result.glo_confirm =='否') { %>
